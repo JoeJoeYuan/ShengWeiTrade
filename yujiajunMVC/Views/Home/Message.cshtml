@@ -43,7 +43,7 @@
             &nbsp;</div>
         <div class="container">
             <h2>
-                <span class="border_line">热点新闻</span></h2>
+                <span class="border_line">Hot News</span></h2>
             <ul class="ul_txt">
                 @Html.Raw(ViewBag.hot)
             </ul>
@@ -58,7 +58,7 @@
             &nbsp;</div>
         <div class="container" style="min-height: 500px; max-height: none;">
             <h2 class="title">
-                留言板</h2>
+                Message</h2>
             <div class="newslist">
                 <br />
                 @if (Model != null)
@@ -83,6 +83,7 @@
                      <table style="width: 100%; height: 30px; text-align: left;" cellpadding="0" cellspacing="0">
                         <tr>
                             <td style="width: 35%;">
+                                A total of: 
                                 共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.TotalPageCount)/@(Model.CurrentPageIndex)页
                             </td>
                             <td style="width: auto;">
@@ -97,7 +98,7 @@
                     <table>
                         <tr>
                             <td>
-                                姓名:
+                                Name:
                             </td>
                             <td>
                                 @Html.TextBox("Name")
@@ -105,7 +106,7 @@
                         </tr>
                         <tr>
                             <td>
-                                内容:
+                                Content:
                             </td>
                             <td>
                                 @Html.TextArea("messageContent", new { @rows = "6", @cols = "60" })<br />
@@ -115,11 +116,11 @@
                         </tr>
                         <tr>
                             <td>
-                                验证码:
+                                Verification code:
                             </td>
                             <td>
                                 @Html.TextBox("Code")
-                                &nbsp;&nbsp; <img src="/validate.aspx" onclick="this.src=this.src+'?'" style="cursor:pointer" title="点击切换" alt="title="点击切换"" />
+                                &nbsp;&nbsp; <img src="/validate.aspx" onclick="this.src=this.src+'?'" style="cursor:pointer" title="Refresh" alt="title='Refresh'" />
                             </td>
                         </tr>
                         <tr>
@@ -127,7 +128,7 @@
                                 &nbsp;
                             </td>
                             <td>
-                                <input type="submit" value="提 交" id="submit" />
+                                <input type="submit" value="Submit" id="submit" />
                             </td>
                         </tr>
                     </table>

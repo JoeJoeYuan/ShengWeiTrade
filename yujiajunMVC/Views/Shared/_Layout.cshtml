@@ -2,16 +2,15 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <meta name="kewords" content="CMS系统,企业站,中小企业解决方案" />
-    <meta name="description" content="喻家军网络工作室,现阶段致力于为中小企业网站,及中小型管理系统等提供服务及解决方案" />
-    <meta name="author" content="喻家军" />
+    <meta name="kewords" content="Shen Zhen Sheng Wei Trade CO." />
+    <meta name="description" content="Trade Company" />
+    <meta name="author" content="Yuan Qiao" />
     <link href="@Url.Content("/Css/style.css")" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .slide-container{width:470px;height:150px;border:1px solid #B6D1E6;background-color:#ebf5fa;overflow:hidden;}#slide-trigger{position:relative;top:-25px;width:465px;text-align:right;padding-right:5px;}#slide-trigger a{display:inline-block;margin-right:3px;width:16px;height:16px;line-height:16px;text-align:center;color:#d94b01;background-color:#fff5e1;border:1px solid #f47500;outline:none;overflow:hidden;}#slide-trigger a:hover{text-decoration:none;}#slide-trigger a.current{width:18px;height:18px;line-height:18px;font-weight:700;color:#FFF;background:url("@Url.Content("/images/t-bg.png")") repeat-x;}#slide-panel{position:relative;width:600px;height:200px;overflow:hidden;border:1px solid red;margin:0 auto;padding:0 auto;}#slide-panel div{position:absolute;width:100%;}#slide-panel div img{display:block;width:600px;height:200px;margin:0 auto;padding:0 auto;}
     </style>
     <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
 </head>
-
 <body>
     <div class="header">
         <div class="logo">
@@ -19,16 +18,15 @@
         </div>
         <div class="login">
             <p align="right">
-                  Email:yujiajunbmj@163.com&nbsp;&nbsp; QQ:1459598574</p>
+                Email:qiaofeng5251264@126.com&nbsp;&nbsp; QQ:540264959</p>
         </div>
         <div class="menu_navcc">
             <div class="menu_nav clearfix">
                 <ul class="nav_content">
-                <li><a href="@Url.Action("Index","Home")" title="首页"><span>首页</span></a></li>
-                @Html.Raw(Server.HtmlDecode(Html.Action("Navigation", "Extensions").ToHtmlString()))
+                    <li><a href="@Url.Action("Index", "Home")" title="Home"><span>Home</span></a></li>
+                    @Html.Raw(Server.HtmlDecode(Html.Action("Navigation", "Extensions").ToHtmlString()))
                 </ul>
                 <div class="menu_nav_right">
-            
                 </div>
             </div>
         </div>
@@ -36,38 +34,38 @@
     <!--Head.End-->
     <div class="main">
         <!--left.start-->
-        <div style="float: left; width: 100%; height: auto;max-height:none;margin-bottom:-10px;" align="center">
-			<div id="slide1" class="slide-panel">
-		        <div>
-			     @Html.Raw(Server.HtmlDecode(Html.Action("PictureRoll", "Extensions").ToHtmlString()))
-		        </div>
-	        </div>
-	        <div id="trigger1" class="slide-trigger" align="center"><!-- 自动创建 triggers --></div>
+        <div style="float: left; width: 100%; height: auto; max-height: none; margin-bottom: -10px;"
+            align="center">
+            <div id="slide1" class="slide-panel">
+                <div>
+                    @Html.Raw(Server.HtmlDecode(Html.Action("PictureRoll", "Extensions").ToHtmlString()))
+                </div>
+            </div>
+            <div id="trigger1" class="slide-trigger" align="center">
+                <!-- 自动创建 triggers -->
+            </div>
         </div>
         @RenderBody()
     </div>
     <div class="links">
         <div class="nTxt">
-            友情链接：&nbsp;@Html.Raw(Server.HtmlDecode(Html.Action("Link", "Extensions").ToHtmlString()))
-            
+            Link：&nbsp;@Html.Raw(Server.HtmlDecode(Html.Action("Link", "Extensions").ToHtmlString()))
         </div>
     </div>
-
-<!--footer Start-->
-        <div class="footer clear">
-            <p class="foot_nav">
-                Email:yujiajunbmj@163.com&nbsp;&nbsp; QQ:1459598574<br/>
-                Copyright Right © 2010-2012 喻家军网络工作室</p>
-        </div>
-       
-         <script src="@Url.Content("/JavaScript/jquery.switchable[all].min.js")" type="text/javascript"></script>
-        <script language="javascript">
-            $(document).ready(function () {
-                $("#trigger1").switchable("#slide1 > div > img", { effect: "scroll", speed: .2 }).autoplay(2).carousel(); //图片滚动
-            });
-            function SetVisable(index) {
-                $(".nav_content li").eq(index).addClass("current").siblings().removeClass("current");
-            }
-        </script>
+    <!--footer Start-->
+    <div class="footer clear">
+        <p class="foot_nav">
+            Email:qiaofeng5251264@126.com&nbsp;&nbsp; QQ:540264959<br />
+            Copyright © 2016 GUANGZHOU Sheng Wei Trade CO., LTD. All rights reserved.</p>
+    </div>
+    <script src="@Url.Content("/JavaScript/jquery.switchable[all].min.js")" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#trigger1").switchable("#slide1 > div > img", { effect: "scroll", speed: .2 }).autoplay(2).carousel(); //图片滚动
+        });
+        function SetVisable(index) {
+            $(".nav_content li").eq(index).addClass("current").siblings().removeClass("current");
+        }
+    </script>
 </body>
 </html>
