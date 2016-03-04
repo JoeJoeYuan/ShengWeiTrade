@@ -1,0 +1,54 @@
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012/9/5 15:59:32
+发生异常页：http://localhost:4700/Back/Others/UserLogin
+异常信息：未将对象引用设置到对象的实例。
+错误源：yujiajunMVC
+堆栈信息：   在 yujiajunMVC.Areas.Back.Controllers.OthersController.UserLogin(UserLogin login) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Areas\Back\Controllers\OthersController.cs:行号 215
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012/9/5 16:00:23
+发生异常页：http://localhost:4700/Back/Others/UserLogin
+异常信息：未将对象引用设置到对象的实例。
+错误源：yujiajunMVC
+堆栈信息：   在 yujiajunMVC.Areas.Back.Controllers.OthersController.UserLogin(UserLogin login) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Areas\Back\Controllers\OthersController.cs:行号 215
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012/9/5 16:00:30
+发生异常页：http://localhost:4700/Back/Others/UserLogin
+异常信息：未将对象引用设置到对象的实例。
+错误源：yujiajunMVC
+堆栈信息：   在 yujiajunMVC.Areas.Back.Controllers.OthersController.UserLogin(UserLogin login) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Areas\Back\Controllers\OthersController.cs:行号 215
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+

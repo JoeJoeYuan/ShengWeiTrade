@@ -1,0 +1,69 @@
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-7-28 11:12:14
+发生异常页：http://localhost:7890/Front/ProductsList.aspx?num=2
+异常信息：语法错误 (操作符丢失) 在查询表达式 '1=1 and ImagePath !='0'' 中。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteScalar(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\OleDbHelper.cs:行号 79
+   在 Service.OleDb.OleDbHelper.GetCount(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\OleDbHelper.cs:行号 241
+   在 Service.OleDb.NewsService.GetCount(News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\NewsService.cs:行号 72
+   在 yujiajun.Front.ProductsList.LoadData() 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\yujiajun\Front\ProductsList.aspx.cs:行号 61
+   在 yujiajun.Front.ProductsList.Page_Load(Object sender, EventArgs e) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\yujiajun\Front\ProductsList.aspx.cs:行号 22
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-7-28 11:16:26
+发生异常页：http://localhost:7890/Front/ProductsList.aspx?num=2
+异常信息：阅读器关闭时尝试调用 Read 无效。
+错误源：System.Data
+堆栈信息：   在 System.Data.OleDb.OleDbDataReader.Read()
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\NewsService.cs:行号 62
+   在 yujiajun.Front.ProductsList.Page_Load(Object sender, EventArgs e) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\yujiajun\Front\ProductsList.aspx.cs:行号 45
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-7-28 11:37:36
+发生异常页：http://localhost:7890/Front/NewsList.aspx?num=1
+异常信息：阅读器关闭时尝试调用 Read 无效。
+错误源：System.Data
+堆栈信息：   在 System.Data.OleDb.OleDbDataReader.Read()
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetHot() 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\NewsService.cs:行号 370
+   在 yujiajun.Front.NewsList.Page_Load(Object sender, EventArgs e) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\yujiajun\Front\NewsList.aspx.cs:行号 43
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-7-28 11:57:58
+发生异常页：http://localhost:7890/Front/NewsList.aspx?num=1
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\OleDbHelper.cs:行号 159
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\OleDbHelper.cs:行号 174
+   在 Service.OleDb.NewsService.GetHot() 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\Service\OleDb\NewsService.cs:行号 370
+   在 yujiajun.Front.NewsList.Page_Load(Object sender, EventArgs e) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\原版\VS2010\yujiajun\yujiajun\Front\NewsList.aspx.cs:行号 43
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+-----------------------------------------------------------------------------------------
+

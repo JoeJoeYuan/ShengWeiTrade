@@ -1,0 +1,135 @@
+﻿@model List<Models.News>
+@{
+    ViewBag.Title = "Shen Zhen Sheng Wei Trade CO.";    
+}
+<div class="nleft">
+    <div class="mode">
+        <div class="rm_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2 class="title">
+                Latest Products<span class="more"><a href="@Url.Action("ProductsList")" target="_blank">more
+                    &gt;&gt;</a></span></h2>
+            <div class="ul_img">
+                <ul>
+                    @if (Model != null)
+                    {
+                        List<Models.News> listNewsProduct = Model.FindAll(a => a.ImagePath != "0").ToList();
+                        foreach (var item in listNewsProduct)
+                        {
+                        <li><a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
+                            <img src="/File/@item.ImagePath" title="@item.Title" alt="@item.Title" /></a> <span>
+                                <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></span>
+                        </li>
+                        }
+                    }
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="rm_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool" style="margin-right: 10px; float: left; width: 336px;">
+        <div class="rn_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">News</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 2 })" target="_blank">more
+                    &gt;&gt;</a></span></h2>
+            <ul class="ul_txt">
+                @if (Model != null)
+                {
+                    List<Models.News> listCompanyNews = Model.FindAll(a => a.NID == 2).ToList();
+                    foreach (var item in listCompanyNews)
+                    {
+                    <li><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="rn_d">
+            &nbsp;</div>
+    </div>
+    <div class="tool" style="float: left; width: 336px;">
+        <div class="rn_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Business</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 3 })" target="_blank">more &gt;&gt;</a></span></h2>
+            <ul class="ul_txt">
+                @if (Model != null)
+                {
+                    List<Models.News> listBusiness = Model.FindAll(a => a.NID == 3).ToList();
+                    foreach (var item in listBusiness)
+                    {
+                    <li><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="rn_d">
+            &nbsp;</div>
+    </div>
+</div>
+  <!--left.end-->
+  
+  <!--right.start-->
+<div class="nright">
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Announcement</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 5 })" target="_blank">more
+                    &gt;&gt;</a></span></h2>
+            <ul class="ul_txt2">
+                @if (Model != null)
+                {
+                    List<Models.News> listSite = Model.FindAll(a => a.NID == 5).ToList();
+                    int num = 0;
+                    foreach (var item in listSite)
+                    {
+                        num++;
+                        if (num <= 3)
+                        {
+                            <li><em class="hot">@num</em><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                        }
+                        else
+                        {
+                            <li><em>@num</em><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Technology Center</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 4 })" target="_blank">more
+                    &gt;&gt;</a></span></h2>
+            <ul class="ul_txt">
+                @if (Model != null)
+                {
+                    List<Models.News> listSkill = Model.FindAll(a => a.NID == 4).ToList();
+                    foreach (var item in listSkill)
+                    {
+                        <li><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+</div>

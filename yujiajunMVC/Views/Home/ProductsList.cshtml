@@ -1,0 +1,106 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<Models.News>
+<style type="text/css">
+    .paginator
+    {
+        font: 11px Arial, Helvetica, sans-serif;
+        margin: 0px;
+    }
+    .paginator a
+    {
+        padding: 1px 6px;
+        border: solid 1px #ddd;
+        background: #fff;
+        text-decoration: none;
+        margin-right: 2px;
+    }
+    .paginator a:visited
+    {
+        padding: 1px 6px;
+        border: solid 1px #ddd;
+        background: #fff;
+        text-decoration: none;
+    }
+    .paginator .cpb
+    {
+        padding: 1px 6px;
+        font-weight: bold;
+        font-size: 13px;
+        border: none;
+    }
+    .paginator a:hover
+    {
+        color: #fff;
+        background: #ffa501;
+        border-color: #ffa501;
+        text-decoration: none;
+    }
+</style>
+<div class="nright">
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">栏目导航</span></h2>
+            <ul class="b1">
+                @Html.Raw(ViewBag.navigation)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">热点新闻</span></h2>
+            <ul class="ul_txt">
+                @Html.Raw(ViewBag.hot)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+</div>
+<div class="nleft">
+    <div class="mode">
+        <div class="rm_u">
+            &nbsp;</div>
+        <div class="container" style="min-height: 600px; max-height: none;">
+            <h2 class="title">@Html.Raw(ViewBag.name)</h2>
+            <div class="ul_img">
+                @if (Model != null)
+                {
+                    <ul>
+                        @foreach (var item in Model) {
+                        <li><a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
+                            <img src="@Url.Content("/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" /></a>
+                            <span><a href="@Url.Action("NewsDetail","Home",new{ID=item.ID,time=item.CreateTime.Value.ToString("yyyy-MM-dd")})" target="_blank">@item.Title</a></span>
+                        </li>
+                        }
+                    </ul>
+                    <div class="clear">
+                    </div>
+                    <table style="width: 100%; height: 30px; text-align: left;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 35%;">
+                                共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.TotalPageCount)/@(Model.CurrentPageIndex)页
+                            </td>
+                            <td style="width: auto;">
+                                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<span class=\"cpb\">{0}</span>" }, null, null, null)
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        </div>
+        <div class="rm_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+</div>

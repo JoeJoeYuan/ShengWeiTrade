@@ -1,0 +1,9 @@
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Models\bin\Debug\Models.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Models\bin\Debug\Models.pdb
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Models\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Models\obj\Debug\Models.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Models\obj\Debug\Models.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Models\bin\Debug\Models.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Models\bin\Debug\Models.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Models\obj\Debug\Models.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Models\obj\Debug\Models.pdb

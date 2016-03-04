@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Header";
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+    <LINK href="@Url.Content("/Areas/Back/css/admin.css")" type="text/css" rel="stylesheet" />
+</head>
+<body>
+   <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+background="@Url.Content("/Areas/Back/images/header_bg.jpg")" border=0>
+  <TR height=56>
+    <TD width=260><IMG height=56 src="@Url.Content("/Areas/Back/images/header_left.jpg")"
+    width=260></TD>
+    <TD style="FONT-WEIGHT: bold; COLOR: #fff; PADDING-TOP: 20px" 
+      align=middle>当前用户：@ViewBag.userName <A style="COLOR: #fff" 
+      href="@Url.Action("UpdatePwd","Others")" 
+      target=main>修改密码</A> &nbsp;&nbsp; 
+      @*<asp:LinkButton ID="LBExit" runat="server" style="COLOR: #fff" 
+            OnClientClick="if (confirm('确定要退出吗？')) return true; else return false;" 
+            onclick="LBExit_Click" Text="退 出"></asp:LinkButton>*@
+            @Html.ActionLink("退 出", "Exit", "Main", null, new { onclick = "return confirm('确认退出')",style="color:#ffffff" })
+      <a href="/Home/Index.html" target="_blank" style="COLOR: #fff">首 页</a>
+    </TD>
+    <TD align=right width=268><IMG height=56 
+      src="@Url.Content("/Areas/Back/images/header_right.jpg")" width=268></TD></TR></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TR bgColor=#1c5db6 height=4>
+    <TD></TD></TR></TABLE>
+</body>
+</html>
+

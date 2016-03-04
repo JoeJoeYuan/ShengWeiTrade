@@ -1,0 +1,36 @@
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\yujiajunMVC.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\yujiajunMVC.pdb
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\Autofac.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\Autofac.Integration.Mvc.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\AutoMapper.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\IService.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\Models.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\Service.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\IService.pdb
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\Models.pdb
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\bin\Service.pdb
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\obj\Debug\yujiajunMVC.dll
+C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\obj\Debug\yujiajunMVC.pdb
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\yujiajunMVC.dll
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\yujiajunMVC.pdb
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\IService.dll
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\Models.dll
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\Service.dll
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\IService.pdb
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\Models.pdb
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\bin\Service.pdb
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\obj\Debug\yujiajunMVC.csprojResolveAssemblyReference.cache
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\obj\Debug\yujiajunMVC.dll
+E:\项目\wwb调试\yujiajunmvc\src\yujiajunMVC\obj\Debug\yujiajunMVC.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\yujiajunMVC.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\yujiajunMVC.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\IService.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\Models.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\Service.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\IService.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\Models.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\bin\Service.pdb
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\obj\Debug\yujiajunMVC.csprojResolveAssemblyReference.cache
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\obj\Debug\yujiajunMVC.dll
+E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\yujiajunMVC\obj\Debug\yujiajunMVC.pdb

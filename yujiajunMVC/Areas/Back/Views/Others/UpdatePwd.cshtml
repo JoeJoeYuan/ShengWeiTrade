@@ -1,0 +1,57 @@
+﻿@model yujiajunMVC.Areas.Back.Models.UserPassWordModel
+@{
+    ViewBag.Title = "UpdatePwd";
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <style type="text/css">
+			.left{width:20%;height:30px;border:1px solid #cccccc;text-align:right;padding-right:10px;}
+			.right{width:78%;height:30px;border:1px solid #cccccc;text-align:left;padding-left:5px;}
+	</style>
+	<script language="javascript">
+	    function Validation() {
+	        var pwd = document.getElementById("Pwd").value;
+	        var word = document.getElementById("PassWord").value;
+	        var pass = document.getElementById("Pass").value;
+	        if (pwd.replace(/(^\s*)|(\s*$)/g, "") == "" || word.replace(/(^\s*)|(\s*$)/g, "") == "" || pass.replace(/(^\s*)|(\s*$)/g, "") == "") {
+	            alert("页面不能有空值");
+	            return false;
+	        } else if (word != pass) {
+	            alert("两次密码输入不一致");
+	            return false;
+	        }
+	        return true;
+	    }
+	</script>
+</head>
+<body>
+    @using (Html.BeginForm("UpdatePassword","Others"))
+    {
+    <table style="padding:0px;margin:0px;width:100%;height:auto;" cellpadding=0 cellspacing=0> 
+			<tr>
+				<td class="left">原密码</td>
+				<td class="right">@Html.PasswordFor(a => a.Pwd, new { style="width:150px;"})</td>
+			</tr>
+            <tr>
+				<td class="left">新密码</td>
+				<td class="right">
+                   @Html.PasswordFor(a => a.PassWord, new { style="width:150px;"})
+                </td>
+			</tr>
+			<tr>
+				<td class="left">确认密码</td>
+				<td class="right">
+                  @Html.PasswordFor(a => a.Pass, new { style="width:150px;"})
+                </td>
+			</tr>
+            <tr>
+				<td class="left">&nbsp;</td>
+				<td class="right"><input type="submit" value="修 改" onclick="return Validation();" /></td>
+			</tr>
+		</table>
+    }
+</body>
+</html>

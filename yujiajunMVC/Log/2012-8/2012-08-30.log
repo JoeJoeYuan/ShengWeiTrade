@@ -1,0 +1,308 @@
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 09:43:02
+发生异常页：http://localhost:1664/
+异常信息：在路由集合中未能找到名为“Back”的路由。
+参数名: name
+错误源：System.Web
+堆栈信息：   在 System.Web.Routing.RouteCollection.GetVirtualPath(RequestContext requestContext, String name, RouteValueDictionary values)
+   在 System.Web.Mvc.RouteCollectionExtensions.GetVirtualPathForArea(RouteCollection routes, RequestContext requestContext, String name, RouteValueDictionary values, Boolean& usingAreas)
+   在 System.Web.Mvc.UrlHelper.GenerateUrl(String routeName, String actionName, String controllerName, RouteValueDictionary routeValues, RouteCollection routeCollection, RequestContext requestContext, Boolean includeImplicitMvcValues)
+   在 System.Web.Mvc.RedirectToRouteResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 09:44:42
+发生异常页：http://localhost:1664/
+异常信息：在路由集合中未能找到名为“Back”的路由。
+参数名: name
+错误源：System.Web
+堆栈信息：   在 System.Web.Routing.RouteCollection.GetVirtualPath(RequestContext requestContext, String name, RouteValueDictionary values)
+   在 System.Web.Mvc.RouteCollectionExtensions.GetVirtualPathForArea(RouteCollection routes, RequestContext requestContext, String name, RouteValueDictionary values, Boolean& usingAreas)
+   在 System.Web.Mvc.UrlHelper.GenerateUrl(String routeName, String actionName, String controllerName, RouteValueDictionary routeValues, RouteCollection routeCollection, RequestContext requestContext, Boolean includeImplicitMvcValues)
+   在 System.Web.Mvc.RedirectToRouteResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 16:45:52
+发生异常页：http://localhost:1664/Back/Others/UserLogin
+异常信息：未将对象引用设置到对象的实例。
+错误源：yujiajunMVC
+堆栈信息：   在 yujiajunMVC.Areas.Back.Controllers.OthersController.UserLogin(UserLogin login) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Areas\Back\Controllers\OthersController.cs:行号 215
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 17:17:28
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 160
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 17:17:36
+发生异常页：http://localhost:1664/Home/Message
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 160
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.MessagesService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, Messages messages) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\MessagesService.cs:行号 62
+   在 yujiajunMVC.Controllers.HomeController.Message(Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 70
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 17:20:52
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 160
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:32:14
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 160
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:33:13
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 160
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:35:36
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：未将对象引用设置到对象的实例。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 160
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 175
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:47:54
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：语法错误 (操作符丢失) 在查询表达式 '1=1  and ImagePath !=0' 中。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 166
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 180
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:51:36
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：语法错误 (操作符丢失) 在查询表达式 '1=1  and ImagePath !=0' 中。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 166
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 180
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:52:39
+发生异常页：http://localhost:1664/Home/ProductsList
+异常信息：语法错误 (操作符丢失) 在查询表达式 '1=1  and ImagePath !=0' 中。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 166
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 180
+   在 Service.OleDb.NewsService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, News news) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 63
+   在 yujiajunMVC.Controllers.HomeController.ProductsList(Nullable`1 NID, String name, Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 164
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:55:34
+发生异常页：http://localhost:1664/Home/Message
+异常信息：标准表达式中数据类型不匹配。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 166
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 180
+   在 Service.OleDb.MessagesService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, Messages messages) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\MessagesService.cs:行号 62
+   在 yujiajunMVC.Controllers.HomeController.Message(Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 70
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 18:59:07
+发生异常页：http://localhost:1664/Home/Message
+异常信息：标准表达式中数据类型不匹配。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 166
+   在 Service.OleDb.OleDbHelper.GetList[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 180
+   在 Service.OleDb.MessagesService.GetByPage(Int32 startIndex, Int32 count, String sortColumn, Messages messages) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\MessagesService.cs:行号 62
+   在 yujiajunMVC.Controllers.HomeController.Message(Nullable`1 Id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 70
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-30 19:07:48
+发生异常页：http://localhost:1664/Home/NewsDetail/19
+异常信息：语法错误 (操作符丢失) 在查询表达式 'ID=?id' 中。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteReader(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 166
+   在 Service.OleDb.OleDbHelper.GetSingle[T](String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 199
+   在 Service.OleDb.NewsService.GetById(Int32 id) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\NewsService.cs:行号 37
+   在 yujiajunMVC.Controllers.HomeController.NewsDetail(Nullable`1 ID) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Controllers\HomeController.cs:行号 122
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+

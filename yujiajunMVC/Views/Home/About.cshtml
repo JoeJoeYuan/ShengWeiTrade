@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<style type="text/css">
+        .news-top{width:99.3%;min-height:600px;max-height:none;border:1px solid #c5dde9;text-align:center;margin-left:4px;}
+        .news-back{width:100%;height:31px;background-image:url('@Url.Content("/images/3.png")');text-align:left;padding-top:5px;}
+        .news-content{width:95%;height:auto;margin-top:10px;text-align:left;padding-bottom:20px; margin-left:auto; margin-right:auto;}
+    </style>
+
+ <div class="nleft news-top">
+        <div class="news-back"><div style="margin-left:10px;"><img src="@Url.Content("/images/ico_2.gif")" />&nbsp;&nbsp;<strong>关于我们</strong></div></div>
+            <div class="news-content">
+                @Html.Raw(HttpUtility.HtmlDecode(ViewData["about"].ToString()))
+         </div>
+    </div>

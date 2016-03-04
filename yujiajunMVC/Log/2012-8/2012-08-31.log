@@ -1,0 +1,44 @@
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-31 09:13:17
+发生异常页：http://localhost:1664/Back/Message/MessageUpdate
+异常信息：标准表达式中数据类型不匹配。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteNonQuery(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 51
+   在 Service.OleDb.MessagesService.Update(Messages messages) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\MessagesService.cs:行号 169
+   在 yujiajunMVC.Areas.Back.Controllers.MessageController.MessageUpdate(Messages message) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Areas\Back\Controllers\MessageController.cs:行号 65
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+
+
+-------------  异常信息   ---------------------------------------------------------------
+发生时间：2012-8-31 09:14:20
+发生异常页：http://localhost:1664/Back/Message/MessageUpdate
+异常信息：日期的语法错误 在查询表达式 '#@createTime#' 中。
+错误源：Service
+堆栈信息：   在 Service.OleDb.OleDbHelper.ExecuteNonQuery(String sql, OleDbParameter[] spms) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\OleDbHelper.cs:行号 51
+   在 Service.OleDb.MessagesService.Update(Messages messages) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\Service\OleDb\MessagesService.cs:行号 169
+   在 yujiajunMVC.Areas.Back.Controllers.MessageController.MessageUpdate(Messages message) 位置 C:\Documents and Settings\Administrator\桌面\喻家军\MVC\yujiajunMVC\yujiajunMVC\Areas\Back\Controllers\MessageController.cs:行号 65
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+-----------------------------------------------------------------------------------------
+

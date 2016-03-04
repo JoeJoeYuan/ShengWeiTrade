@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "CompanyMain";
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    @using (Html.BeginForm("CompanyFileUpdate", "CompanyFileManage",FormMethod.Post))
+    {
+        @Html.Hidden("path",Request.QueryString["path"])
+    <div style="color:Red"><h2>非专业人士,请勿随意操作</h2></div>
+    <div>
+       @Html.TextArea("FileContent", ViewData["content"].ToString(), new { @rows = 20, cols = 100 })<br/>
+        <input type="submit" value="确认修改" />&nbsp;&nbsp;<input type="button" value="下载文件" onclick="javascript:window.location='@Url.Action("DownLoad", new { path=Request.QueryString["path"]})'" />
+    </div>
+    }
+</body>
+</html>
+
+

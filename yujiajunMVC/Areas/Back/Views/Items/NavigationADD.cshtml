@@ -1,0 +1,45 @@
+﻿@model yujiajunMVC.Areas.Back.Models.NavigationModel
+@{
+    Layout = null;
+    Layout = "/Areas/Back/Views/Shared/_ChildMaster.cshtml";
+}
+@using (Html.BeginForm("NavigationInsert", "Items"))
+{
+    <table style="width: 330px; height: auto;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                类别:
+            </td>
+            <td>@Html.EditorFor(a => a.ParentID)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                名 称:
+            </td>
+            <td>@Html.TextBoxFor(a => a.NName, new { emptyMessage = "名称不能为空" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                路径:
+            </td>
+            <td>@Html.TextBoxFor(a => a.NPath, new { emptyMessage = "路径不能为空" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                是否启用:
+            </td>
+            <td>@Html.EditorFor(a => a.IsLock)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="提交" />
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+}

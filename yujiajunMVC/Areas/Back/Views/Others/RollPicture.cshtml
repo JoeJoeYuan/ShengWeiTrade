@@ -1,0 +1,75 @@
+﻿@model List<yujiajunMVC.Areas.Back.Controllers.Picture>
+@{
+    ViewBag.Title = "RollPicture";
+    Layout = "~/Areas/Back/Views/Shared/_Master.cshtml";
+}
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td height="30">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="24" bgcolor="#28bef0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="6%" height="19" valign="bottom">
+                                                <div align="center">
+                                                    <img src="@Url.Content("/Areas/Back/img/tb.gif")" width="14" height="14" /></div>
+                                            </td>
+                                            <td width="94%" valign="bottom" style="text-align: left;">
+                                                <span class="STYLE1">你现在的位置:&nbsp;&nbsp;首页图片滚动管理</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width: 70%; height: auto;">
+                                    <span class="STYLE1"><a href="@Url.Action("RollPictureAdd", "Others")" class="ADD">添
+                                        加</a></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce"
+                id="data">
+                <tr>
+                    <td width="20%" height="20" bgcolor="d3eaef" class="STYLE6">
+                        名称
+                    </td>
+                    <td width="30%" height="20" bgcolor="d3eaef" class="STYLE6">
+                        连接地址
+                    </td>
+                    <td width="auto" height="20" bgcolor="d3eaef" class="STYLE6">
+                        基本操作
+                    </td>
+                </tr>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                    <tr class="data">
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.Path
+                        </td>
+                        <td>
+                            <a href="@Url.Action("RollPictureEDIT", "Others", new { ID = item.ID })" class="EDIT" value="@item.ID">
+                                编 辑</a>&nbsp;&nbsp; <a href="DELRollPicture?ID=@item.ID" onclick="return confirm('确认删除');">
+                                    删 除</a>
+                        </td>
+                    </tr>
+                    }
+                }
+            </table>
+        </td>
+    </tr>
+</table>

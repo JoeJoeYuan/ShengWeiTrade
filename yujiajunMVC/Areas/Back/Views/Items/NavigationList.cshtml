@@ -1,0 +1,97 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<Models.Navigation>
+@{
+    ViewBag.Title = "NavigationList";
+    Layout = "~/Areas/Back/Views/Shared/_Master.cshtml";
+}
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+        <td height="30">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="24" bgcolor="#28bef0">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="6%" height="19" valign="bottom">
+                                                <div align="center">
+                                                    <img src="@Url.Content("/Areas/Back/img/tb.gif")" width="14" height="14" /></div>
+                                            </td>
+                                            <td width="94%" valign="bottom" style="text-align: left;">
+                                                <span class="STYLE1">你现在的位置:&nbsp;&nbsp;导航管理</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width: 70%; height: auto;">
+                                    <span class="STYLE1"><a href="javascript:void(0)" class="ADD">添 加</a></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce" id="data">
+                <tr>
+                    <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6">ID</td>
+                    <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6">父级ID</td>
+                    <td width="20%" height="20" bgcolor="d3eaef" class="STYLE6">名称</td>
+                    <td width="20%" height="20" bgcolor="d3eaef" class="STYLE6">连接地址</td>
+                    <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6">是否启用</td>
+                    <td width="auto" height="20" bgcolor="d3eaef" class="STYLE6">基本操作</td>
+                 </tr>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                    <tr class="data">
+                        <td>@item.ID</td>
+                        <td>@item.ParentID</td>
+                         <td>@item.NName</td>
+                         <td>@item.NPath</td>
+                         <td>@(item.IsLock.Value.ToString()=="0"?"否":"是")</td>
+                        <td>
+                                <a href="javascript:void(0)" class="EDIT" value="@item.ID">编辑</a>
+                                <a href="DELNavigation?ID=@item.ID" onclick="return confirm('确认删除')">删 除</a>
+                        </td>
+                    </tr>
+                    }
+                }
+            </table>
+            @if (Model != null)
+            {
+               <table style="width: 100%; height: 30px; text-align: left;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width: 130%;">
+                            共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.TotalPageCount)/@(Model.CurrentPageIndex)页
+                        
+                        </td>
+                        <td style="width:70%">
+                            @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<span class=\"cpb\">{0}</span>" }, null, null, null)
+                        </td>
+                    </tr>
+                </table>
+            }
+        </td>
+    </tr>
+</table>
+
+    <script src="@Url.Content("/Areas/Back/artDialog/artDialog.js?skin=default")" type="text/javascript"></script>
+    <script src="@Url.Content("/Areas/Back/artDialog/plugins/iframeTools.js")" type="text/javascript"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+             $(".ADD").click(function(){
+                art.dialog.open('NavigationADD',{title:"添加",lock:true,opacity: 0.5,width:360});
+            });
+            $(".EDIT").click(function(){
+                art.dialog.open('NavigationEDIT?ID='+$(this).attr("value"),{title:"编辑",lock:true,opacity: 0.5,width:360});
+            });
+        });
+    </script>
+    
