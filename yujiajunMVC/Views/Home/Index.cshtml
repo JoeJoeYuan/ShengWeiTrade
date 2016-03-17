@@ -8,7 +8,7 @@
             &nbsp;</div>
         <div class="container">
             <h2 class="title">
-                Latest Products<span class="more"><a href="@Url.Action("ProductsList")" target="_blank">more
+                Hot Products<span class="more"><a href="@Url.Action("ProductsList")" target="_blank">more
                     &gt;&gt;</a></span></h2>
             <div class="ul_img">
                 <ul>
@@ -17,9 +17,9 @@
                         List<Models.News> listNewsProduct = Model.FindAll(a => a.ImagePath != "0").ToList();
                         foreach (var item in listNewsProduct)
                         {
-                        <li><a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
+                        <li><a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
                             <img src="/File/@item.ImagePath" title="@item.Title" alt="@item.Title" /></a> <span>
-                                <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></span>
+                                <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></span>
                         </li>
                         }
                     }
@@ -84,26 +84,9 @@
             &nbsp;</div>
         <div class="container">
             <h2>
-                <span class="border_line">Announcement</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 5 })" target="_blank">more
-                    &gt;&gt;</a></span></h2>
-            <ul class="ul_txt2">
-                @if (Model != null)
-                {
-                    List<Models.News> listSite = Model.FindAll(a => a.NID == 5).ToList();
-                    int num = 0;
-                    foreach (var item in listSite)
-                    {
-                        num++;
-                        if (num <= 3)
-                        {
-                            <li><em class="hot">@num</em><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
-                        }
-                        else
-                        {
-                            <li><em>@num</em><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
-                        }
-                    }
-                }
+                <span class="border_line">Products Category</span></h2>
+            <ul class="b1">
+                @Html.Raw(ViewBag.productCategoty)
             </ul>
         </div>
         <div class="rs_d">
@@ -116,17 +99,16 @@
             &nbsp;</div>
         <div class="container">
             <h2>
-                <span class="border_line">Technology Center</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 4 })" target="_blank">more
-                    &gt;&gt;</a></span></h2>
-            <ul class="ul_txt">
-                @if (Model != null)
-                {
-                    List<Models.News> listSkill = Model.FindAll(a => a.NID == 4).ToList();
-                    foreach (var item in listSkill)
-                    {
-                        <li><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
-                    }
-                }
+                <span class="border_line">Contact Us</span></h2>
+            <ul class="b1">
+                <strong>Tel:</strong> <br/>
+                86-27-88888888<br />
+                86-27-88889999<br />
+                86-27-99999998<br />
+                <strong>Fax:</strong><br/>
+                86-27-89898989<br />
+                <strong>Email:</strong><br />
+                <a href="mailto:qiaofeng5251264@126.com">qiaofeng5251264@126.com</a><br />
             </ul>
         </div>
         <div class="rs_d">

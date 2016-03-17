@@ -12,3 +12,10 @@ E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-45725919
 E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\IService\obj\Debug\IService.csprojResolveAssemblyReference.cache
 E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\IService\obj\Debug\IService.dll
 E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\IService\obj\Debug\IService.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\bin\Debug\IService.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\bin\Debug\IService.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\bin\Debug\Models.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\bin\Debug\Models.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\obj\Debug\IService.csprojResolveAssemblyReference.cache
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\obj\Debug\IService.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\IService\obj\Debug\IService.pdb

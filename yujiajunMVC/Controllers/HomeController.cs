@@ -16,25 +16,29 @@ namespace yujiajunMVC.Controllers
         private readonly IMessagesService _messageService;
         private readonly INewsService _newsService;
         private readonly INavigationService _navService;
+        private readonly IProductsService _productService;
 
-        public HomeController(IMessagesService messageService,INewsService newsService,INavigationService navService)
+        public HomeController(IMessagesService messageService, INewsService newsService, INavigationService navService, IProductsService productsService)
         {
             _messageService = messageService;
             _newsService = newsService;
             _navService = navService;
+            _productService = productsService;
         }
         public ActionResult Index()
         {
-           // return RedirectToRoute("Back", new RouteValueDictionary { { "Action", "Login" }, { "Controller", "Others" } });
+            // return RedirectToRoute("Back", new RouteValueDictionary { { "Action", "Login" }, { "Controller", "Others" } });
+            ViewBag.productCategoty = ProductCategoty();
+            //ViewBag.productHotList = _productService.GetHot();
             List<News> list = _newsService.GetByPage();
             return View(list);
         }
         public ActionResult About()
         {
-            ViewBag.Title = "关于我们";
+            ViewBag.Title = "About us";
             if (Session["about"] == null)
             {
-                using (StreamReader reader = new StreamReader(Server.MapPath("~/File/config/About.txt"),System.Text.Encoding.Default))
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/File/config/About.txt"), System.Text.Encoding.Default))
                 {
                     Session["about"] = reader.ReadToEnd();
                 }
@@ -59,7 +63,7 @@ namespace yujiajunMVC.Controllers
             }
         }
         #region Message
-        public ActionResult Message(int? Id=1)
+        public ActionResult Message(int? Id = 1)
         {
             List<News> listNews = _newsService.GetHot();
             string hotNews = string.Empty;
@@ -68,7 +72,7 @@ namespace yujiajunMVC.Controllers
                 hotNews += "<li><a href=\"NewsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
             }
             ViewBag.hot = hotNews;
-            
+
             Messages message = new Messages() { IsAudit = 1 };
             int pageSize = 5;
             int pageIndex = Id.Value;
@@ -77,11 +81,11 @@ namespace yujiajunMVC.Controllers
             return View(new PagedList<Messages>(list, pageIndex, pageSize, _messageService.GetCount(message)));
         }
         [ValidateInput(false)]
-        public ActionResult MessageInsert(string messageContent, string Name = "",string Code="")
+        public ActionResult MessageInsert(string messageContent, string Name = "", string Code = "")
         {
             if (string.IsNullOrWhiteSpace(Request.Cookies["validate"].Value))
-                return Content("<script>alert('验证码已过期,请重新获取');window.history.back();</script>"); 
-            if(Code!=Request.Cookies["validate"].Value)
+                return Content("<script>alert('验证码已过期,请重新获取');window.history.back();</script>");
+            if (Code != Request.Cookies["validate"].Value)
                 return Content("<script>alert('验证码错误');window.history.back();</script>");
             int num = _messageService.Insert(new Messages() { CreateName = string.IsNullOrWhiteSpace(Name) ? "匿名" : Name, IP = IPHelper.GetClientIP(), CreateTime = DateTime.Now, IsAudit = 0, MessageContent = messageContent });
             if (num > 0)
@@ -120,8 +124,8 @@ namespace yujiajunMVC.Controllers
             {
                 news = new News() { NID = NID };
             }
-            ViewBag.Title = name == null ? "新闻列表 — 喻家军网络工作室" : name + " — 喻家军网络工作室";
-            ViewBag.name = name == null ? "新闻列表" : name;
+            ViewBag.Title = name == null ? "News — Shen Zhen Sheng Wei Trade CO." : name + " — Shen Zhen Sheng Wei Trade CO.";
+            ViewBag.name = name == null ? "News List" : name;
             int pageSize = 20;
             int pageIndex = Id.Value;
             List<News> list = _newsService.GetByPage(pageSize, (pageIndex - 1) * pageSize, "ID DESC", news);
@@ -131,7 +135,7 @@ namespace yujiajunMVC.Controllers
         {
             News news = _newsService.GetById(ID ?? 0);
 
-            ViewBag.Title = news == null ? "新闻详情" : news.Title + " — 喻家军网络工作室";
+            ViewBag.Title = news == null ? "News Detail" : news.Title + " — Sheng Wei Trade CO.";
             return View(news);
         }
         #endregion
@@ -140,15 +144,15 @@ namespace yujiajunMVC.Controllers
 
         public ActionResult ProductsList(int? NID = null, string name = null, int? Id = 1)
         {
-            List<News> listNews = _newsService.GetHot(); //热点新闻
-            string hotNews = string.Empty;
-            foreach (var item in listNews)
+            List<Products> listProducts = _productService.GetAll(); //产品列表
+            string products = string.Empty;
+            foreach (var item in listProducts)
             {
-                hotNews += "<li><a href=\"NewsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
+                products += "<li><a href=\"ProductsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
             }
-            ViewBag.hot = hotNews;
+            ViewBag.hot = products;
 
-            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID DESC", new Navigation() { ParentID = 6 });
+            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID DESC", new Navigation() { ParentID = 1 });
             if (listNav.Count > 0)
             {
                 string navigation = string.Empty;
@@ -159,20 +163,42 @@ namespace yujiajunMVC.Controllers
                 ViewBag.navigation = navigation;
             }
 
-            News news = null;
+            Products product = null;
             if (NID != null)
             {
-                news = new News() { NID = NID, ImagePath = "0" };
+                product = new Products() { NID = NID, ImagePath = "0" };
             }
             else
-                news = new News() { ImagePath = "0" };
+                product = new Products() { ImagePath = "0" };
 
-            ViewBag.Title = name == null ? "产品中心 — 喻家军网络工作室" : name + " — 喻家军网络工作室";
-            ViewBag.name = name == null ? "产品中心" : name;
+            ViewBag.Title = name == null ? "Products List" : name + " — Sheng Wei Trade CO.";
+            ViewBag.name = name == null ? "Products List" : name;
             int pageSize = 20;
             int pageIndex = Id.Value;
-            List<News> list = _newsService.GetByPage(pageSize, (pageIndex - 1) * pageSize, "ID DESC", news);
-            return View(new PagedList<News>(list, pageIndex, pageSize, _newsService.GetCount(news)));
+            List<Products> list = _productService.GetByPage(pageSize, (pageIndex - 1) * pageSize, "ID DESC", product);
+            return View(new PagedList<Products>(list, pageIndex, pageSize, _productService.GetCount(product)));
+        }
+
+        public ActionResult ProductsDetail(int? ID)
+        {
+            Products products = _productService.GetById(ID ?? 0);
+
+            ViewBag.Title = products == null ? "Products Detail" : products.Title + " — Sheng Wei Trade CO.";
+            return View(products);
+        }
+
+        public string ProductCategoty()
+        {
+            string navigation = string.Empty;
+            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID DESC", new Navigation() { ParentID = 1 });
+            if (listNav.Count > 0)
+            {
+                foreach (var item in listNav)
+                {
+                    navigation += "<li><a href=\"" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
+                }
+            }
+            return navigation;
         }
         #endregion
     }

@@ -48,6 +48,7 @@
     <Compile Include="OleDb\NavigationService.cs" />
     <Compile Include="OleDb\NewsService.cs" />
     <Compile Include="OleDb\OleDbHelper.cs" />
+    <Compile Include="OleDb\ProductsService.cs" />
     <Compile Include="OleDb\UsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sqlserver\FunctionsService.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Sqlserver\MessagesService.cs" />
     <Compile Include="Sqlserver\NavigationService.cs" />
     <Compile Include="Sqlserver\NewsService.cs" />
+    <Compile Include="Sqlserver\ProductsService.cs" />
     <Compile Include="Sqlserver\SqlHelper.cs" />
     <Compile Include="Sqlserver\UsersService.cs" />
   </ItemGroup>

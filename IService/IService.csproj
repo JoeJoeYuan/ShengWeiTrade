@@ -46,6 +46,7 @@
     <Compile Include="IMessagesService.cs" />
     <Compile Include="INavigationService.cs" />
     <Compile Include="INewsService.cs" />
+    <Compile Include="IProductsService.cs" />
     <Compile Include="IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

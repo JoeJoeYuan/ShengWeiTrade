@@ -16,3 +16,12 @@ E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-45725919
 E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
 E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Service\obj\Debug\Service.dll
 E:\work\My\外贸网站\9_51aspx_YuJiaJunMVC3Web17734300-a479-4eb9-bfc7-457259192dfe\Service\obj\Debug\Service.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\bin\Debug\Service.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\bin\Debug\Service.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\bin\Debug\IService.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\bin\Debug\Models.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\bin\Debug\IService.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\bin\Debug\Models.pdb
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\obj\Debug\Service.dll
+C:\Users\jprf43\Documents\GitHub\ShengWeiTrade\Service\obj\Debug\Service.pdb

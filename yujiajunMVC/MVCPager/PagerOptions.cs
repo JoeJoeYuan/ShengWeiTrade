@@ -14,12 +14,12 @@ namespace Webdiyer.WebControls.Mvc
             NumericPagerItemCount = 10;
             AlwaysShowFirstLastPageNumber = false;
             ShowPrevNext = true;
-            PrevPageText = "上一页";
-            NextPageText = "下一页";
+            PrevPageText = "Previous";
+            NextPageText = "Next";
             ShowNumericPagerItems = true;
             ShowFirstLast = true;
-            FirstPageText = "首页";
-            LastPageText = "尾页";
+            FirstPageText = "First";
+            LastPageText = "Last";
             ShowMorePagerItems = true;
             MorePageText = "...";
             ShowDisabledPagerItems = true;
@@ -29,10 +29,10 @@ namespace Webdiyer.WebControls.Mvc
             ShowGoButton = true;
             PageIndexBoxType = PageIndexBoxType.DropDownList;
             MaximumPageIndexItems = 80;
-            GoButtonText = "跳转";
+            GoButtonText = "GO";
             ContainerTagName = "div";
-            InvalidPageIndexErrorMessage = "页索引无效";
-            PageIndexOutOfRangeErrorMessage = "页索引超出范围";
+            InvalidPageIndexErrorMessage = "Invalid Page Index";
+            PageIndexOutOfRangeErrorMessage = "Page Index OutOf Range";
             MaxPageIndex = 0;
         }
 
