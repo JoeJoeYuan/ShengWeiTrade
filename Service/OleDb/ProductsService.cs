@@ -344,7 +344,8 @@ namespace Service.OleDb
         /// <returns></returns>
         public List<Products> GetHot()
         {
-            string sql = "select ID,Title,CreateTime from Products ORDER BY CreateTime DESC WHERE IsHot = 1 and ImagePath != 0";
+            //string sql = "select ID,Title,CreateTime from Products ORDER BY CreateTime DESC WHERE IsHot = 1 and ImagePath != 0";
+            string sql = "select top 10 * from Products WHERE IsHot=1 and ImagePath <> null ORDER BY CreateTime DESC";
             return OleDbHelper.GetList<Products>(sql);
         }
     }

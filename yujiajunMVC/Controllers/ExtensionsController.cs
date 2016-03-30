@@ -34,7 +34,7 @@ namespace yujiajunMVC.Controllers
                     path += "<li><a href=" + Navpath + ".html title=\""+item.NName+"\"><span>" + item.NName + "</span></a></li>";
                 }
             }
-            path += "<li><a href=\"/Home/About.html\" title=\"关于我们\"><span>关于我们</span></a></li>";
+            //path += "<li><a href=\"/Home/About.html\" title=\"关于我们\"><span>关于我们</span></a></li>";
             ViewBag.path = path;
             return View();
         }

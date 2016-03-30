@@ -1,5 +1,102 @@
-﻿@{
-    ViewBag.Title = "ProductsDetail";
-}
+﻿@model Models.Products
 
-<h2>ProductsDetail</h2>
+<style type="text/css">
+    .news-top
+    {
+        width: 99.3%;
+        min-height: 600px;
+        max-height: none;
+        border: 1px solid #c5dde9;
+        text-align: center;
+        margin-left: 4px;
+    }
+    .news-back
+    {
+        width: 100%;
+        height: 31px;
+        background-image: url("@Url.Content("/images/3.png")");
+        padding-top: 5px;
+        text-align: left;
+    }
+    .news-title
+    {
+        width: 95%;
+        height: 25px;
+        margin-top: 10px;
+        font-size: 20px;
+        color: #0170d9;
+    }
+    .news-note
+    {
+        width: 95%;
+        height: 20px;
+        border-bottom: 1px dashed #d8d8d8;
+        text-align: right;
+        font-size: 13px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .news-content
+    {
+        width: 95%;
+        height: auto;
+        margin-top: 10px;
+        text-align: left;
+        padding-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<div class="nright">
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Products Category</span></h2>
+            <ul class="b1">
+                @Html.Raw(ViewBag.productCategoty)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Contact Us</span></h2>
+            <ul class="b1">
+                <strong>Tel:</strong>
+                <br />
+                86-27-88888888<br />
+                86-27-88889999<br />
+                86-27-99999998<br />
+                <strong>Fax:</strong><br />
+                86-27-89898989<br />
+                <strong>Email:</strong><br />
+                <a href="mailto:qiaofeng5251264@126.com">qiaofeng5251264@126.com</a><br />
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+</div>
+
+<div class="nleft">
+    <div class="nleft news-top">
+        <div class="news-back"><div style="margin-left:10px;"><img src="@Url.Content("/images/ico_2.gif")" />&nbsp;&nbsp;<strong>Products Detail</strong></div></div>
+        @if (Model != null)
+        {
+            <!--string file = string.Empty;-->
+            <div class="news-title"><strong>@Model.Title</strong></div>
+            <div class="news-content">
+                 @Html.Raw(Model.Description)
+            </div>
+        }
+    </div>
+</div>

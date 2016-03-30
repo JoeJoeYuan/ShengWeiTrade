@@ -30,11 +30,14 @@ namespace yujiajunMVC.Controllers
             // return RedirectToRoute("Back", new RouteValueDictionary { { "Action", "Login" }, { "Controller", "Others" } });
             ViewBag.productCategoty = ProductCategoty();
             //ViewBag.productHotList = _productService.GetHot();
+            ViewBag.productHotList = _productService.GetHot();
+            ViewBag.aboutUs = GetAbout();
             List<News> list = _newsService.GetByPage();
             return View(list);
         }
         public ActionResult About()
         {
+            ViewBag.productCategoty = ProductCategoty();
             ViewBag.Title = "About us";
             if (Session["about"] == null)
             {
@@ -44,7 +47,29 @@ namespace yujiajunMVC.Controllers
                 }
             }
             ViewData["about"] = Session["about"];
+            //ViewBag.aboutUs = GetAbout();
             return View();
+        }
+        protected string GetAbout()
+        {
+            string aboutUs = "";
+            if (Session["about"] == null)
+            {
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/File/config/About.txt"), System.Text.Encoding.Default))
+                {
+                    Session["about"] = reader.ReadToEnd();
+                }
+            }
+            if (Session["about"].ToString().Length > 400)
+            {
+                aboutUs = Session["about"].ToString().Substring(0, 400) + "...";
+            }
+            else
+            {
+                aboutUs = Session["about"].ToString();
+            }
+            return aboutUs;
+            //ViewData["about"] = Session["about"];
         }
         public ActionResult Error()
         {
@@ -72,6 +97,8 @@ namespace yujiajunMVC.Controllers
                 hotNews += "<li><a href=\"NewsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
             }
             ViewBag.hot = hotNews;
+
+            ViewBag.productCategoty = ProductCategoty();
 
             Messages message = new Messages() { IsAudit = 1 };
             int pageSize = 5;
@@ -105,19 +132,19 @@ namespace yujiajunMVC.Controllers
             }
             ViewBag.hot = hotNews;
 
+            //List<Navigation> listNav = _navService.GetAll().FindAll(a => a.ParentID == 1);
+            //if (listNav.Count > 0)
+            //{
+            //    string navigation = string.Empty;
 
-            List<Navigation> listNav = _navService.GetAll().FindAll(a => a.ParentID == 1);
-            if (listNav.Count > 0)
-            {
-                string navigation = string.Empty;
+            //    foreach (var item in listNav)
+            //    {
+            //        navigation += "<li><a href=\"" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
+            //    }
+            //    ViewBag.navigation = navigation;
+            //}
 
-                foreach (var item in listNav)
-                {
-                    navigation += "<li><a href=\"" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
-                }
-                ViewBag.navigation = navigation;
-            }
-
+            ViewBag.productCategoty = ProductCategoty();
 
             News news = null;
             if (NID != null)
@@ -134,6 +161,8 @@ namespace yujiajunMVC.Controllers
         public ActionResult NewsDetail(int? ID)
         {
             News news = _newsService.GetById(ID ?? 0);
+
+            ViewBag.productCategoty = ProductCategoty();
 
             ViewBag.Title = news == null ? "News Detail" : news.Title + " — Sheng Wei Trade CO.";
             return View(news);
@@ -152,16 +181,7 @@ namespace yujiajunMVC.Controllers
             }
             ViewBag.hot = products;
 
-            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID DESC", new Navigation() { ParentID = 1 });
-            if (listNav.Count > 0)
-            {
-                string navigation = string.Empty;
-                foreach (var item in listNav)
-                {
-                    navigation += "<li><a href=\"" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
-                }
-                ViewBag.navigation = navigation;
-            }
+            ViewBag.productCategoty = ProductCategoty();
 
             Products product = null;
             if (NID != null)
@@ -183,6 +203,8 @@ namespace yujiajunMVC.Controllers
         {
             Products products = _productService.GetById(ID ?? 0);
 
+            ViewBag.productCategoty = ProductCategoty();
+
             ViewBag.Title = products == null ? "Products Detail" : products.Title + " — Sheng Wei Trade CO.";
             return View(products);
         }
@@ -195,7 +217,7 @@ namespace yujiajunMVC.Controllers
             {
                 foreach (var item in listNav)
                 {
-                    navigation += "<li><a href=\"" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
+                    navigation += "<li><a href=\"/Home/" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
                 }
             }
             return navigation;

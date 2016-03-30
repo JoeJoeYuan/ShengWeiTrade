@@ -52,7 +52,7 @@ namespace Models
             {
                 if (reader["Description"] != DBNull.Value)
                 {
-                    this.Author = (string)reader["Description"];
+                    this.Description = (string)reader["Description"];
                 }
             }
             if (ModelHelper.HasColumn(reader, "CreateTime"))
