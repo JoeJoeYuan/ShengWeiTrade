@@ -1,1 +1,5 @@
 yujiajunMVC/Log
+obj/
+Log/
+bin/
+yujiajunMVC/App_Data/yujiajun.ldb
