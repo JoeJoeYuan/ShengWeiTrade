@@ -146,93 +146,63 @@ namespace Service.OleDb
         /// </summary>
         /// <param name="ids">需要更新的数据主键</param>
         /// <returns></returns>
-        //public int Update(News news)
-        //{
-        //    List<OleDbParameter> spms=new List<OleDbParameter>();
-        //    string sql="update News set ";
-        //    if (news != null)
-        //    {
-        //        if (news.NID != null)
-        //        {
-        //            sql += "NID=@nID,";
-        //            spms.Add(new OleDbParameter("@nID", news.NID));
-        //        }
-        //        if (news.Title!=null)
-        //        {
-        //            sql += "Title=@title,";
-        //            spms.Add(new OleDbParameter("@title", news.Title));
-        //        }
-        //        if (news.Author!=null)
-        //        {
-        //            sql += "Author=@author,";
-        //            spms.Add(new OleDbParameter("@author", news.Author));
-        //        }
-        //        if (news.CreateTime != null)
-        //        {
-        //            sql += "CreateTime=@createTime,";
-        //            spms.Add(new OleDbParameter("@createTime", news.CreateTime.Value));
-        //        }
-        //        if (news.Source!=null)
-        //        {
-        //            sql += "Source=@source,";
-        //            spms.Add(new OleDbParameter("@source", news.Source));
-        //        }
-        //        if (news.Click != null)
-        //        {
-        //            sql += "Click=@click,";
-        //            spms.Add(new OleDbParameter("@click", news.Click));
-        //        }
-        //        if (news.DownLoadNum != null)
-        //        {
-        //            sql += "DownLoadNum=@downLoadNum,";
-        //            spms.Add(new OleDbParameter("@downLoadNum", news.DownLoadNum));
-        //        }
-        //        if (news.CommentNum != null)
-        //        {
-        //            sql += "CommentNum=@commentNum,";
-        //            spms.Add(new OleDbParameter("@commentNum", news.CommentNum));
-        //        }
-        //        if (news.IsFile != null)
-        //        {
-        //            sql += "IsFile=@isFile,";
-        //            spms.Add(new OleDbParameter("@isFile", news.IsFile));
-        //        }
-        //        if (news.FilePath!=null)
-        //        {
-        //            sql += "FilePath=@filePath,";
-        //            spms.Add(new OleDbParameter("@filePath", news.FilePath));
-        //        }
-        //        if (news.ImagePath!=null)
-        //        {
-        //            sql += "ImagePath=@imagePath,";
-        //            spms.Add(new OleDbParameter("@imagePath", news.ImagePath));
-        //        }
-        //        if (news.FileDescription!=null)
-        //        {
-        //            sql += "FileDescription=@fileDescription,";
-        //            spms.Add(new OleDbParameter("@fileDescription", news.FileDescription));
-        //        }
-        //        if (news.NewsContent!=null)
-        //        {
-        //            sql += "NewsContent=@newsContent,";
-        //            spms.Add(new OleDbParameter("@newsContent", news.NewsContent));
-        //        }
-        //        if (news.IsHot != null)
-        //        {
-        //            sql += "IsHot=@isHot,";
-        //            spms.Add(new OleDbParameter("@isHot", news.IsHot));
-        //        }
-        //        if (news.IsTop != null)
-        //        {
-        //            sql += "IsTop=@isTop,";
-        //            spms.Add(new OleDbParameter("@isTop", news.IsTop));
-        //        }
-        //    }
-        //    sql=sql.Substring(0,sql.Length-1);
-        //    sql+=" where ID =@ID";
-        //    spms.Add(new OleDbParameter("@ID", news.ID));
-        //    return OleDbHelper.ExecuteNonQuery(sql,spms.ToArray());
-        //}
+        public int Update(Products products)
+        {
+            List<OleDbParameter> spms = new List<OleDbParameter>();
+            string sql = "update Products set ";
+            if (products != null)
+            {
+                if (products.NID != null)
+                {
+                    sql += "NID=@nID,";
+                    spms.Add(new OleDbParameter("@nID", products.NID));
+                }
+                if (products.Title != null)
+                {
+                    sql += "Title=@title,";
+                    spms.Add(new OleDbParameter("@title", products.Title));
+                }
+                if (products.Description != null)
+                {
+                    sql += "Description=@description,";
+                    spms.Add(new OleDbParameter("@description", products.Description));
+                }
+                if (products.CreateTime != null)
+                {
+                    sql += "CreateTime=@createTime,";
+                    spms.Add(new OleDbParameter("@createTime", products.CreateTime.Value));
+                }
+                if (products.ImagePath != null)
+                {
+                    sql += "ImagePath=@imagePath,";
+                    spms.Add(new OleDbParameter("@imagePath", products.ImagePath));
+                }
+                if (products.Category != null)
+                {
+                    sql += "Category=@category,";
+                    spms.Add(new OleDbParameter("@category", products.Category));
+                }
+                if (products.IsHot != null)
+                {
+                    sql += "IsHot=@isHot,";
+                    spms.Add(new OleDbParameter("@isHot", products.IsHot));
+                }
+                if (products.IsTop != null)
+                {
+                    sql += "IsTop=@isTop,";
+                    spms.Add(new OleDbParameter("@isTop", products.IsTop));
+                }
+                if (products.Author != null)
+                {
+                    sql += "Author=@author,";
+                    spms.Add(new OleDbParameter("@author", products.Author));
+                }
+            }
+            sql = sql.Substring(0, sql.Length - 1);
+            sql += " where ID =@ID";
+            spms.Add(new OleDbParameter("@ID", products.ID));
+            return OleDbHelper.ExecuteNonQuery(sql, spms.ToArray());
+        }
         /// <summary>
         /// 删除数据
         /// </summary>
@@ -257,50 +227,41 @@ namespace Service.OleDb
             string sql = @"delete from Products where NID=@NID";
             return OleDbHelper.ExecuteNonQuery(sql, new OleDbParameter("@NID",NID));
         }
-        ///// <summary>
-        ///// 插入数据，自增列的值对应更新在实体类参数对象中
-        ///// </summary>
-        ///// <param name="news">需要插入的数据实体</param>
-        ///// <returns>影响行数</returns>
-        //public int Insert(News news)
-        //{
-          
-        //    string sql="insert into News(NID,Title,Author,CreateTime,Source,Click,DownLoadNum,CommentNum,IsFile,FilePath,ImagePath,FileDescription,NewsContent,IsHot,IsTop) values (@nID,@title,@author,@createTime,@source,@click,@downLoadNum,@commentNum,@isFile,@filePath,@imagePath,@fileDescription,@newsContent,@isHot,@isTop)";
-        //    OleDbParameter[] spms=new OleDbParameter[]
-        //    {
-        //        new OleDbParameter("@nID",OleDbType.Integer),
-        //        new OleDbParameter("@title",OleDbType.VarChar),
-        //        new OleDbParameter("@author",OleDbType.VarChar),
-        //        new OleDbParameter("@createTime",OleDbType.Date),
-        //        new OleDbParameter("@source",OleDbType.VarChar,50),
-        //        new OleDbParameter("@click",OleDbType.Integer),
-        //        new OleDbParameter("@downLoadNum",OleDbType.Integer),
-        //        new OleDbParameter("@commentNum",OleDbType.Integer),
-        //        new OleDbParameter("@isFile",OleDbType.Integer),
-        //        new OleDbParameter("@filePath",OleDbType.VarChar),
-        //        new OleDbParameter("@imagePath",OleDbType.VarChar),
-        //        new OleDbParameter("@fileDescription",OleDbType.VarChar),
-        //        new OleDbParameter("@newsContent",OleDbType.LongVarChar),
-        //        new OleDbParameter("@isHot",OleDbType.Integer),
-        //        new OleDbParameter("@isTop",OleDbType.Integer)
-        //    };
-        //    spms[0].Value = news.NID ?? (object)DBNull.Value;
-        //    spms[1].Value = news.Title ?? (object)DBNull.Value;
-        //    spms[2].Value = news.Author ?? (object)DBNull.Value;
-        //    spms[3].Value = news.CreateTime.Value;
-        //    spms[4].Value = news.Source ?? (object)DBNull.Value;
-        //    spms[5].Value = news.Click ?? (object)DBNull.Value;
-        //    spms[6].Value = news.DownLoadNum ?? (object)DBNull.Value;
-        //    spms[7].Value = news.CommentNum ?? (object)DBNull.Value;
-        //    spms[8].Value = news.IsFile ?? (object)DBNull.Value;
-        //    spms[9].Value = news.FilePath ?? "0";
-        //    spms[10].Value = news.ImagePath ?? "0";
-        //    spms[11].Value = news.FileDescription ?? "";
-        //    spms[12].Value = news.NewsContent;
-        //    spms[13].Value = news.IsHot ?? (object)DBNull.Value;
-        //    spms[14].Value = news.IsTop ?? (object)DBNull.Value;
-        //    return OleDbHelper.ExecuteNonQuery(sql,spms);
-        //}
+        /// <summary>
+        /// 插入数据，自增列的值对应更新在实体类参数对象中
+        /// </summary>
+        /// <param name="news">需要插入的数据实体</param>
+        /// <returns>影响行数</returns>
+        public int Insert(Products products)
+        {
+
+            string sql = "insert into Products(NID,Title,Description,CreateTime,FilePath,ImagePath,Category,IsTop,IsHot,Author) values (@nID,@title,@description,@createTime,@filePath,@imagePath,@category,@isTop,@isHot,@author)";
+            OleDbParameter[] spms = new OleDbParameter[]
+            {
+                new OleDbParameter("@nID",OleDbType.Integer),
+                new OleDbParameter("@title",OleDbType.VarChar),
+                new OleDbParameter("@description",OleDbType.LongVarChar),
+                new OleDbParameter("@createTime",OleDbType.Date),
+                new OleDbParameter("@filePath",OleDbType.VarChar),
+                new OleDbParameter("@imagePath",OleDbType.VarChar),
+                new OleDbParameter("@category",OleDbType.Integer),
+                new OleDbParameter("@isHot",OleDbType.Integer),
+                new OleDbParameter("@isTop",OleDbType.Integer),
+                new OleDbParameter("@author",OleDbType.VarChar)
+            };
+            spms[0].Value = products.NID ?? (object)DBNull.Value;
+            spms[1].Value = products.Title ?? (object)DBNull.Value;
+            spms[2].Value = products.Description;
+            spms[3].Value = products.CreateTime.Value;
+            spms[4].Value = products.FilePath ?? (object)DBNull.Value;
+            spms[5].Value = products.ImagePath ?? (object)DBNull.Value;
+            spms[6].Value = products.Category ?? (object)DBNull.Value;
+            spms[7].Value = products.IsHot ?? (object)DBNull.Value;
+            spms[8].Value = products.IsTop ?? (object)DBNull.Value;
+            spms[9].Value = products.Author ?? (object)DBNull.Value;
+
+            return OleDbHelper.ExecuteNonQuery(sql, spms);
+        }
         ///// <summary>
         ///// 修改点击数
         ///// </summary>

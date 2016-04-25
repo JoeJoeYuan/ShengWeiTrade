@@ -149,98 +149,103 @@ namespace Service.Sqlserver
         //    };
         //    return SqlHelper.ExecuteNonQuery(sql,spms);
         //}
-        ///// <summary>
-        ///// 更新数据，只传入需要更新的字段，可批量更新
-        ///// </summary>
-        ///// <param name="ids">需要更新的数据主键</param>
-        ///// <returns></returns>
-        //public int Update(Products products)
-        //{
-        //    List<SqlParameter> spms = new List<SqlParameter>();
-        //    string sql = "update News set ";
-        //    if (products != null)
-        //    {
-        //        if (products.NID != null)
-        //        {
-        //            sql += "NID=@nID,";
-        //            spms.Add(new SqlParameter("@nID", news.NID));
-        //        }
-        //        if (news.Title != null)
-        //        {
-        //            sql += "Title=@title,";
-        //            spms.Add(new SqlParameter("@title", news.Title));
-        //        }
-        //        if (news.Author != null)
-        //        {
-        //            sql += "Author=@author,";
-        //            spms.Add(new SqlParameter("@author", news.Author));
-        //        }
-        //        if (news.CreateTime != null)
-        //        {
-        //            sql += "CreateTime=@createTime,";
-        //            spms.Add(new SqlParameter("@createTime", news.CreateTime));
-        //        }
-        //        if (news.Source != null)
-        //        {
-        //            sql += "Source=@source,";
-        //            spms.Add(new SqlParameter("@source", news.Source));
-        //        }
-        //        if (news.Click != null)
-        //        {
-        //            sql += "Click=@click,";
-        //            spms.Add(new SqlParameter("@click", news.Click));
-        //        }
-        //        if (news.DownLoadNum != null)
-        //        {
-        //            sql += "DownLoadNum=@downLoadNum,";
-        //            spms.Add(new SqlParameter("@downLoadNum", news.DownLoadNum));
-        //        }
-        //        if (news.CommentNum != null)
-        //        {
-        //            sql += "CommentNum=@commentNum,";
-        //            spms.Add(new SqlParameter("@commentNum", news.CommentNum));
-        //        }
-        //        if (news.IsFile != null)
-        //        {
-        //            sql += "IsFile=@isFile,";
-        //            spms.Add(new SqlParameter("@isFile", news.IsFile));
-        //        }
-        //        if (news.FilePath != null)
-        //        {
-        //            sql += "FilePath=@filePath,";
-        //            spms.Add(new SqlParameter("@filePath", news.FilePath));
-        //        }
-        //        if (news.ImagePath != null)
-        //        {
-        //            sql += "ImagePath=@imagePath,";
-        //            spms.Add(new SqlParameter("@imagePath", news.ImagePath));
-        //        }
-        //        if (news.FileDescription != null)
-        //        {
-        //            sql += "FileDescription=@fileDescription,";
-        //            spms.Add(new SqlParameter("@fileDescription", news.FileDescription));
-        //        }
-        //        if (news.NewsContent != null)
-        //        {
-        //            sql += "NewsContent=@newsContent,";
-        //            spms.Add(new SqlParameter("@newsContent", news.NewsContent));
-        //        }
-        //        if (news.IsHot != null)
-        //        {
-        //            sql += "IsHot=@isHot,";
-        //            spms.Add(new SqlParameter("@isHot", news.IsHot));
-        //        }
-        //        if (news.IsTop != null)
-        //        {
-        //            sql += "IsTop=@isTop,";
-        //            spms.Add(new SqlParameter("@isTop", news.IsTop));
-        //        }
-        //    }
-        //    sql = sql.Substring(0, sql.Length - 1);
-        //    sql += " where ID =@ID";
-        //    spms.Add(new SqlParameter("@ID", news.ID));
-        //    return SqlHelper.ExecuteNonQuery(sql, spms.ToArray());
-        //}
+        /// <summary>
+        /// 更新数据，只传入需要更新的字段，可批量更新
+        /// </summary>
+        /// <param name="ids">需要更新的数据主键</param>
+        /// <returns></returns>
+        public int Update(Products products)
+        {
+            List<SqlParameter> spms = new List<SqlParameter>();
+            //string sql = "update News set ";
+            //if (products != null)
+            //{
+            //    if (products.NID != null)
+            //    {
+            //        sql += "NID=@nID,";
+            //        spms.Add(new SqlParameter("@nID", news.NID));
+            //    }
+            //    if (news.Title != null)
+            //    {
+            //        sql += "Title=@title,";
+            //        spms.Add(new SqlParameter("@title", news.Title));
+            //    }
+            //    if (news.Author != null)
+            //    {
+            //        sql += "Author=@author,";
+            //        spms.Add(new SqlParameter("@author", news.Author));
+            //    }
+            //    if (news.CreateTime != null)
+            //    {
+            //        sql += "CreateTime=@createTime,";
+            //        spms.Add(new SqlParameter("@createTime", news.CreateTime));
+            //    }
+            //    if (news.Source != null)
+            //    {
+            //        sql += "Source=@source,";
+            //        spms.Add(new SqlParameter("@source", news.Source));
+            //    }
+            //    if (news.Click != null)
+            //    {
+            //        sql += "Click=@click,";
+            //        spms.Add(new SqlParameter("@click", news.Click));
+            //    }
+            //    if (news.DownLoadNum != null)
+            //    {
+            //        sql += "DownLoadNum=@downLoadNum,";
+            //        spms.Add(new SqlParameter("@downLoadNum", news.DownLoadNum));
+            //    }
+            //    if (news.CommentNum != null)
+            //    {
+            //        sql += "CommentNum=@commentNum,";
+            //        spms.Add(new SqlParameter("@commentNum", news.CommentNum));
+            //    }
+            //    if (news.IsFile != null)
+            //    {
+            //        sql += "IsFile=@isFile,";
+            //        spms.Add(new SqlParameter("@isFile", news.IsFile));
+            //    }
+            //    if (news.FilePath != null)
+            //    {
+            //        sql += "FilePath=@filePath,";
+            //        spms.Add(new SqlParameter("@filePath", news.FilePath));
+            //    }
+            //    if (news.ImagePath != null)
+            //    {
+            //        sql += "ImagePath=@imagePath,";
+            //        spms.Add(new SqlParameter("@imagePath", news.ImagePath));
+            //    }
+            //    if (news.FileDescription != null)
+            //    {
+            //        sql += "FileDescription=@fileDescription,";
+            //        spms.Add(new SqlParameter("@fileDescription", news.FileDescription));
+            //    }
+            //    if (news.NewsContent != null)
+            //    {
+            //        sql += "NewsContent=@newsContent,";
+            //        spms.Add(new SqlParameter("@newsContent", news.NewsContent));
+            //    }
+            //    if (news.IsHot != null)
+            //    {
+            //        sql += "IsHot=@isHot,";
+            //        spms.Add(new SqlParameter("@isHot", news.IsHot));
+            //    }
+            //    if (news.IsTop != null)
+            //    {
+            //        sql += "IsTop=@isTop,";
+            //        spms.Add(new SqlParameter("@isTop", news.IsTop));
+            //    }
+            //}
+            //sql = sql.Substring(0, sql.Length - 1);
+            //sql += " where ID =@ID";
+            //spms.Add(new SqlParameter("@ID", news.ID));
+
+            ///
+            /// Need TO DO.
+            ///
+            string sql = "";
+            return SqlHelper.ExecuteNonQuery(sql, spms.ToArray());
+        }
         /// <summary>
         /// 删除数据
         /// </summary>
@@ -260,20 +265,25 @@ namespace Service.Sqlserver
             sql += ")";
             return SqlHelper.ExecuteNonQuery(sql, spms.ToArray());
         }
-        ///// <summary>
-        ///// 插入数据，自增列的值对应更新在实体类参数对象中
-        ///// </summary>
-        ///// <param name="news">需要插入的数据实体</param>
-        ///// <returns>影响行数</returns>
-        //public int Insert(News news)
-        //{
-        //    string sql = "insert into Products(NID,Title,Author,CreateTime,Source,Click,DownLoadNum,CommentNum,IsFile,FilePath,ImagePath,FileDescription,NewsContent,IsHot,IsTop) values (" + (news.NID == null ? "null" : "@nID") + "," + (news.Title == null ? "null" : "@title") + "," + (news.Author == null ? "null" : "@author") + "," + (news.CreateTime == null ? "null" : "@createTime") + "," + (news.Source == null ? "null" : "@source") + "," + (news.Click == null ? "null" : "@click") + "," + (news.DownLoadNum == null ? "null" : "@downLoadNum") + "," + (news.CommentNum == null ? "null" : "@commentNum") + "," + (news.IsFile == null ? "null" : "@isFile") + "," + (news.FilePath == null ? "null" : "@filePath") + "," + (news.ImagePath == null ? "null" : "@imagePath") + "," + (news.FileDescription == null ? "null" : "@fileDescription") + "," + (news.NewsContent == null ? "null" : "@newsContent") + "," + (news.IsHot == null ? "null" : "@isHot") + "," + (news.IsTop == null ? "null" : "@isTop") + ");Select @@IDENTITY";
-        //    SqlParameter[] spms = new SqlParameter[]
-        //    {
-        //        new SqlParameter("@nID",news.NID??(object)DBNull.Value),new SqlParameter("@title",news.Title??(object)DBNull.Value),new SqlParameter("@author",news.Author??(object)DBNull.Value),new SqlParameter("@createTime",news.CreateTime??(object)DBNull.Value),new SqlParameter("@source",news.Source??(object)DBNull.Value),new SqlParameter("@click",news.Click??(object)DBNull.Value),new SqlParameter("@downLoadNum",news.DownLoadNum??(object)DBNull.Value),new SqlParameter("@commentNum",news.CommentNum??(object)DBNull.Value),new SqlParameter("@isFile",news.IsFile??(object)DBNull.Value),new SqlParameter("@filePath",news.FilePath??(object)DBNull.Value),new SqlParameter("@imagePath",news.ImagePath??(object)DBNull.Value),new SqlParameter("@fileDescription",news.FileDescription??(object)DBNull.Value),new SqlParameter("@newsContent",news.NewsContent??(object)DBNull.Value),new SqlParameter("@isHot",news.IsHot??(object)DBNull.Value),new SqlParameter("@isTop",news.IsTop??(object)DBNull.Value)
-        //    };
-        //    return int.Parse(SqlHelper.ExecuteScalar(sql, spms).ToString());
-        //}
+        /// <summary>
+        /// 插入数据，自增列的值对应更新在实体类参数对象中
+        /// </summary>
+        /// <param name="news">需要插入的数据实体</param>
+        /// <returns>影响行数</returns>
+        public int Insert(Products products)
+        {
+            //string sql = "insert into Products(NID,Title,Author,CreateTime,Source,Click,DownLoadNum,CommentNum,IsFile,FilePath,ImagePath,FileDescription,NewsContent,IsHot,IsTop) values (" + (products.NID == null ? "null" : "@nID") + "," + (products.Title == null ? "null" : "@title") + "," + (products.Author == null ? "null" : "@author") + "," + (products.CreateTime == null ? "null" : "@createTime") + "," + (products.Source == null ? "null" : "@source") + "," + (news.Click == null ? "null" : "@click") + "," + (news.DownLoadNum == null ? "null" : "@downLoadNum") + "," + (news.CommentNum == null ? "null" : "@commentNum") + "," + (news.IsFile == null ? "null" : "@isFile") + "," + (news.FilePath == null ? "null" : "@filePath") + "," + (news.ImagePath == null ? "null" : "@imagePath") + "," + (news.FileDescription == null ? "null" : "@fileDescription") + "," + (news.NewsContent == null ? "null" : "@newsContent") + "," + (news.IsHot == null ? "null" : "@isHot") + "," + (news.IsTop == null ? "null" : "@isTop") + ");Select @@IDENTITY";
+            //SqlParameter[] spms = new SqlParameter[]
+            //{
+            //    new SqlParameter("@nID",products.NID??(object)DBNull.Value),new SqlParameter("@title",products.Title??(object)DBNull.Value),new SqlParameter("@author",products.Author??(object)DBNull.Value),new SqlParameter("@createTime",products.CreateTime??(object)DBNull.Value),new SqlParameter("@source",products.Source??(object)DBNull.Value),new SqlParameter("@click",products.Click??(object)DBNull.Value),new SqlParameter("@downLoadNum",news.DownLoadNum??(object)DBNull.Value),new SqlParameter("@commentNum",news.CommentNum??(object)DBNull.Value),new SqlParameter("@isFile",news.IsFile??(object)DBNull.Value),new SqlParameter("@filePath",news.FilePath??(object)DBNull.Value),new SqlParameter("@imagePath",news.ImagePath??(object)DBNull.Value),new SqlParameter("@fileDescription",news.FileDescription??(object)DBNull.Value),new SqlParameter("@newsContent",news.NewsContent??(object)DBNull.Value),new SqlParameter("@isHot",news.IsHot??(object)DBNull.Value),new SqlParameter("@isTop",news.IsTop??(object)DBNull.Value)
+            //};
+            ///
+            /// Need TO DO.
+            ///
+            string sql = "";
+            SqlParameter[] spms = new SqlParameter[] { };
+            return int.Parse(SqlHelper.ExecuteScalar(sql, spms).ToString());
+        }
         ///// <summary>
         ///// 修改点击数
         ///// </summary>

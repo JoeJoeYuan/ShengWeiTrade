@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Areas\Back\BackAreaRegistration.cs" />
     <Compile Include="Areas\Back\Controllers\CompanyFileManageController.cs" />
+    <Compile Include="Areas\Back\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Back\Controllers\ItemsController.cs" />
     <Compile Include="Areas\Back\Controllers\MainController.cs" />
     <Compile Include="Areas\Back\Controllers\MessageController.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Areas\Back\Controllers\OthersController.cs" />
     <Compile Include="Areas\Back\Extensions\BasePageAttribute.cs" />
     <Compile Include="Areas\Back\Extensions\CompanyExtensions.cs" />
+    <Compile Include="Areas\Back\Extensions\ProductsExtensions.cs" />
     <Compile Include="Areas\Back\Extensions\MainExtensions.cs" />
     <Compile Include="Areas\Back\Extensions\NewsExtensions.cs" />
     <Compile Include="Areas\Back\Models\FunctionModel.cs" />
@@ -1112,6 +1114,7 @@
     <Content Include="images\tabs_right.gif" />
     <Content Include="JavaScript\jquery-1.3.2.min.js" />
     <Content Include="JavaScript\jquery.cookie.js" />
+    <Content Include="JavaScript\jquery.min.js" />
     <Content Include="JavaScript\jquery.pagination.js" />
     <Content Include="JavaScript\jquery.switchable[all].min.js" />
     <Content Include="JavaScript\validata.js" />
@@ -1243,6 +1246,12 @@
     <Content Include="Areas\Back\Views\Items\FunctionEDIT.cshtml" />
     <Content Include="Areas\Back\Views\Others\UpdatePwd.cshtml" />
     <Content Include="Areas\Back\Views\Others\Login.cshtml" />
+    <Content Include="Areas\Back\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Back\Views\Products\ProductsList.cshtml" />
+    <Content Include="Areas\Back\Views\Products\LeftProducts.cshtml" />
+    <Content Include="Areas\Back\Views\Products\ProductsAdd.cshtml" />
+    <Content Include="Areas\Back\Views\Products\NewsDetail.cshtml" />
+    <Content Include="Areas\Back\Views\Products\ProductsEDIT.cshtml" />
     <None Include="Areas\Back\zTree\demo\cn\asyncData\getNodes.php" />
     <None Include="Areas\Back\zTree\demo\cn\asyncData\getNodesForBigData.php" />
     <None Include="Areas\Back\zTree\demo\en\asyncData\getNodes.php" />

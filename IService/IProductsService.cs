@@ -32,24 +32,24 @@ namespace IService
         /// <param name="new">查询条件，若无此条件请保持该属性默认值</typeparam>
         /// <returns></returns>
         int GetCount(Products products);
-        ///// <summary>
-        ///// 更新数据
-        ///// </summary>
-        ///// <param name="new">需要更新的数据实体</param>
-        ///// <returns></returns>
-        //int Update(News news);
+        /// <summary>
+        /// 更新数据
+        /// </summary>
+        /// <param name="new">需要更新的数据实体</param>
+        /// <returns></returns>
+        int Update(Products products);
         /// <summary>
         /// 删除数据
         /// </summary>
         /// <param name="id">需要删除的数据主键id列表，可传单个ID，也可传数组</param>
         /// <returns></returns>
         int Delete(params int[] ids);
-        ///// <summary>
-        ///// 插入数据
-        ///// </summary>
-        ///// <param name="new">需要插入的数据实体</param>
-        ///// <returns></returns>
-        //int Insert(News news);
+        /// <summary>
+        /// 插入数据
+        /// </summary>
+        /// <param name="new">需要插入的数据实体</param>
+        /// <returns></returns>
+        int Insert(Products products);
         ///// <summary>
         ///// 修改点击数
         ///// </summary>
