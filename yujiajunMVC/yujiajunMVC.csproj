@@ -1068,9 +1068,15 @@
     <Content Include="Areas\Back\zTree\js\jquery.ztree.exedit-3.1.min.js" />
     <Content Include="bin\LitJSON.dll" />
     <Content Include="Content\validate.css" />
+    <Content Include="Css\animate.css" />
+    <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\component.css" />
+    <Content Include="Css\owl.carousel.css" />
     <Content Include="Css\style-min.css" />
     <Content Include="Css\style.css" />
+    <Content Include="Css\style_old.css" />
     <Content Include="favicon.ico" />
+    <Content Include="images\banner.jpg" />
     <Content Include="Global.asax" />
     <Content Include="images\2008228102611_21.gif" />
     <Content Include="images\2008228102611_26.gif" />
@@ -1109,6 +1115,9 @@
     <Content Include="images\nav_r_bg.gif" />
     <Content Include="images\nopic.gif" />
     <Content Include="images\p1_bg.png" />
+    <Content Include="File\ScrollIamge\slide2.png" />
+    <Content Include="File\ScrollIamge\slide3.png" />
+    <Content Include="File\ScrollIamge\slide4.png" />
     <Content Include="images\t-bg.png" />
     <Content Include="images\tabs_left.gif" />
     <Content Include="images\tabs_right.gif" />
@@ -1171,7 +1180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Back\kindeditor-4.0\attached\" />
-    <Folder Include="File\ScrollIamge\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
