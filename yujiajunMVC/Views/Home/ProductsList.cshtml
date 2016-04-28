@@ -1,42 +1,130 @@
 ﻿@using Webdiyer.WebControls.Mvc;
 @model PagedList<Models.Products>
-<style type="text/css">
-    .paginator
-    {
-        font: 11px Arial, Helvetica, sans-serif;
-        margin: 0px;
-    }
-    .paginator a
-    {
-        padding: 1px 6px;
-        border: solid 1px #ddd;
-        background: #fff;
-        text-decoration: none;
-        margin-right: 2px;
-    }
-    .paginator a:visited
-    {
-        padding: 1px 6px;
-        border: solid 1px #ddd;
-        background: #fff;
-        text-decoration: none;
-    }
-    .paginator .cpb
-    {
-        padding: 1px 6px;
-        font-weight: bold;
-        font-size: 13px;
-        border: none;
-    }
-    .paginator a:hover
-    {
-        color: #fff;
-        background: #ffa501;
-        border-color: #ffa501;
-        text-decoration: none;
-    }
-</style>
-<div class="nright">
+<div class="container">
+    <div class="row single-top">
+        <div class="col-md-8">
+            @foreach (var item in Model)
+            {
+            @*<li><a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
+                <img src="@Url.Content("/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" /></a>
+                <span><a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></span>
+            </li>*@
+        
+                <div class="blog_box">
+                    <div class="blog_grid">
+                        <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                            animation-delay: 0.4s; animation-name: rollIn;">
+                            <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })">@item.Title
+                            </a>
+                        </h3>
+                        <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })">
+                            @*<img src="../../images/ab.jpg" class="img-responsive" alt=""></a>*@
+                            <img src="@Url.Content("/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" class="img-responsive" /></a>
+                        <div class="singe_desc">
+                            <p>
+                                @item.Description</p>
+                            @*<div class="comments">
+                        <ul class="links">
+                            <li><i class="blog_icon1"></i>
+                                <br>
+                                <span>April 14, 2014</span></li>
+                            <li><a href="#"><i class="blog_icon2"></i>
+                                <br>
+                                <span>admin</span></a></li>
+                            <li><a href="#"><i class="blog_icon3"></i>
+                                <br>
+                                <span>1206</span></a></li>
+                            <li><a href="#"><i class="blog_icon4"></i>
+                                <br>
+                                <span>1206</span></a></li>
+                        </ul>
+                        <div class="btn_blog">
+                            <a href="single.html">
+                                <img src="images/read.png" class="img-responsive" alt=""></a></div>
+                        <div class="clearfix">
+                        </div>
+                    </div>*@
+                        </div>
+                    </div>
+                </div>
+        
+            }
+        </div>
+        <div class="col-md-4 ">
+            <div class="categories">
+                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                    animation-delay: 0.4s; animation-name: fadeInRight;">
+                    Product Category</h4>
+                <ul class="category">
+                    @Html.Raw(ViewBag.productCategoty)
+                </ul>
+            </div>
+        </div>
+        @*<h3>
+            Product Category</h3>
+        <div class="trainee-grids">
+            <div class="col-md-4 trainee-grid wow zoomInLeft animated animated" style="visibility: visible;
+                animation-name: zoomInLeft;">
+                <a href="single.html">
+                    <img src="../../images/logo.png" class="img-responsive" alt=""></a>
+                <div class="date">
+                    <lable>30</lable>
+                    <span>Mar</span>
+                </div>
+                <a href="single.html">
+                    <h4>
+                        Lorem ipsum dolor sit amet,</h4>
+                    <h5>
+                        consectetuer adipiscing.</h5>
+                </a>
+                <p>
+                    Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
+                    pulvinar ac, lorem. Lorem ipsum dolor sit amet,…</p>
+            </div>
+            <div class="col-md-4 trainee-grid wow fadeInUpBig animated animated animated" data-wow-delay="0.4s"
+                style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUpBig;">
+                <a href="single.html">
+                    <img src="images/b2.jpg" class="img-responsive" alt=""></a>
+                <div class="date">
+                    <lable>30</lable>
+                    <span>Aug</span>
+                </div>
+                <a href="single.html">
+                    <h4>
+                        Lorem ipsum dolor sit amet,</h4>
+                    <h5>
+                        consectetuer adipiscing.</h5>
+                </a>
+                <p>
+                    Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
+                    pulvinar ac, lorem. Lorem ipsum dolor sit amet,…</p>
+            </div>
+            <div class="col-md-4 trainee-grid wow zoomInRight animated animated" style="visibility: visible;
+                animation-name: zoomInRight;">
+                <a href="single.html">
+                    <img src="images/b3.jpg" class="img-responsive" alt=""></a>
+                <div class="date">
+                    <lable>15</lable>
+                    <span>Nov</span>
+                </div>
+                <a href="single.html">
+                    <h4>
+                        Lorem ipsum dolor sit amet,</h4>
+                    <h5>
+                        consectetuer adipiscing.</h5>
+                </a>
+                <p>
+                    Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
+                    pulvinar ac, lorem. Lorem ipsum dolor sit amet,…</p>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>*@
+    </div>
+</div>
+
+
+@*<div class="nright">
     <div class="tool">
         <div class="rs_u">
             &nbsp;</div>
@@ -85,8 +173,8 @@
         <div class="rs_d">
             &nbsp;</div>
     </div>-->
-</div>
-<div class="nleft">
+</div>*@
+@*<div class="nleft">
     <div class="mode">
         <div class="rm_u">
             &nbsp;</div>
@@ -124,4 +212,4 @@
     </div>
     <div class="line10">
     </div>
-</div>
+</div>*@

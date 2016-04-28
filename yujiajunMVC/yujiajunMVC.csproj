@@ -1076,6 +1076,7 @@
     <Content Include="Css\style.css" />
     <Content Include="Css\style_old.css" />
     <Content Include="favicon.ico" />
+    <Content Include="images\ab.jpg" />
     <Content Include="images\banner.jpg" />
     <Content Include="Global.asax" />
     <Content Include="images\2008228102611_21.gif" />
@@ -1094,6 +1095,7 @@
     <Content Include="images\ico_4.gif" />
     <Content Include="images\ico_5.gif" />
     <Content Include="images\ico_6.gif" />
+    <Content Include="images\img_spt.png" />
     <Content Include="images\library\focus.js" />
     <Content Include="images\library\hint.gif" />
     <Content Include="images\library\hintbg1.gif" />
@@ -1121,6 +1123,7 @@
     <Content Include="images\t-bg.png" />
     <Content Include="images\tabs_left.gif" />
     <Content Include="images\tabs_right.gif" />
+    <Content Include="images\zx.gif" />
     <Content Include="JavaScript\jquery-1.3.2.min.js" />
     <Content Include="JavaScript\jquery.cookie.js" />
     <Content Include="JavaScript\jquery.min.js" />
