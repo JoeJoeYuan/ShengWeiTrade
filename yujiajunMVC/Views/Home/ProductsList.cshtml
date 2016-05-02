@@ -49,6 +49,21 @@
                 </div>
         
             }
+
+            <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"  style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
+				  <!--<li><a href="#" class="current">Prev</a></li>
+				  <li><a href="#">1</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">...</a></li>
+				  <li><a href="#">19</a></li>
+				  <li><a href="#">20</a></li>
+				  <li><a href="#" class="current">Next</a></li>-->
+                  @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go",  CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
+                  <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
+		    </ul>
         </div>
         <div class="col-md-4 ">
             <div class="categories">

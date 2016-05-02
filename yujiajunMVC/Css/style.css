@@ -121,7 +121,7 @@ nav.navigation a:focus {
     span.menu{
 		width:35px;
 		height:35px;
-		background:url('../images/menu-icon.png') no-repeat;
+		background:url('~/images/menu-icon.png') no-repeat;
 		display: inline-block;
 		float:right;
 		cursor: pointer;
@@ -1545,7 +1545,7 @@ ul.address li a {
 	  height: 167px;
 	}
 	span.menu {
-	  background: url('../images/menu-icon.png') no-repeat;
+	  background: url('~/images/menu-icon.png') no-repeat;
 	  display: inline-block;
 	  float: right;
 	  cursor: pointer;
@@ -1704,7 +1704,7 @@ ul.address li a {
 	  font-size: 0.8em;
 	  }
 	span.menu {
-	  background: url('../images/menu-icon.png') no-repeat;
+	  background: url('~/images/menu-icon.png') no-repeat;
 	  display: inline-block;
 	  float: right;
 	  cursor: pointer;

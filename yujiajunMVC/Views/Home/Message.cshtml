@@ -37,7 +37,7 @@
 
 @using (Html.BeginForm("MessageInsert","Home"))
 {
-<div class="nright">
+<!--<div class="nright">
     <div class="tool">
         <div class="rs_u">
             &nbsp;</div>
@@ -73,16 +73,12 @@
         <div class="rs_d">
             &nbsp;</div>
     </div>
-</div>
-
-<div class="nleft">
-    <div class="mode">
-        <div class="rm_u">
-            &nbsp;</div>
-        <div class="container" style="min-height: 500px; max-height: none;">
-            <h2 class="title">
-                Message</h2>
-            <div class="newslist">
+</div>-->
+<div class="main-contact">
+<div class="container">
+	<div class="contact-form">
+	    <h2>Message</h2>
+            <div >
                 <br />
                 @if (Model != null)
                 {
@@ -157,9 +153,7 @@
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="rm_d">
-            &nbsp;</div>
+    </div>
     </div>
 </div>
 }

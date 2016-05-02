@@ -1071,6 +1071,7 @@
     <Content Include="Css\animate.css" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\component.css" />
+    <Content Include="images\move-top.png" />
     <Content Include="Css\owl.carousel.css" />
     <Content Include="Css\style-min.css" />
     <Content Include="Css\style.css" />
@@ -1130,6 +1131,11 @@
     <Content Include="JavaScript\jquery.pagination.js" />
     <Content Include="JavaScript\jquery.switchable[all].min.js" />
     <Content Include="JavaScript\validata.js" />
+    <Content Include="Scripts\jquery.cbpFWSlider.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\modernizr.custom.js" />
+    <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="validate.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
