@@ -44,7 +44,7 @@
                     <div class="top-menu">
                         <nav class="navigation">
 						    <ul class="cl-effect-16">
-                                <li><a href="@Url.Action("Index", "Home")" title="Home">Home</a></li>
+                                <li><a id="menu-home" href="@Url.Action("Index", "Home")" title="Home">Home</a></li>
                                 @Html.Raw(Server.HtmlDecode(Html.Action("Navigation", "Extensions").ToHtmlString()))
 						    </ul>
                         </nav>
@@ -53,8 +53,12 @@
                     <script type="text/javascript">
                         $(document).ready(function () {
                             $('.top-menu li a').each(function () {
-                                if ($($(this))[0].href == String(window.location))
+                                if ($($(this))[0].href == String(window.location)) {
                                     $(this).addClass('active');
+                                }
+//                                if ($($(this))[0].id != "menu-home") {
+//                                    $("#menu-home").removeClass("active");
+//                                }
                             });
                         })  
                     </script>

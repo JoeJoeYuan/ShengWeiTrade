@@ -1,6 +1,6 @@
 ﻿@model Models.News
 
-<style type="text/css">
+@*<style type="text/css">
     .news-top
     {
         width: 99.3%;
@@ -46,9 +46,9 @@
         margin-left: auto;
         margin-right: auto;
     }
-</style>
+</style>*@
 
-<div class="nright">
+@*<div class="nright">
     <div class="tool">
         <div class="rs_u">
             &nbsp;</div>
@@ -85,9 +85,9 @@
         <div class="rs_d">
             &nbsp;</div>
     </div>
-</div>
+</div>*@
 
-<div class="nleft">
+@*<div class="nleft">
     <div class="nleft news-top">
         <div class="news-back"><div style="margin-left:10px;"><img src="@Url.Content("/images/ico_2.gif")" />&nbsp;&nbsp;<strong>News Detail</strong></div></div>
         @if (Model != null)
@@ -105,5 +105,58 @@
                  @Html.Raw(Model.NewsContent)
          </div>
         }
+    </div>
+</div>*@
+
+
+
+<div class="container">
+    <div class="row single-top">
+        <div class="col-md-8">
+            <div class="blog_box">
+                <div class="blog_grid">
+                    <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                        -webkit-animation: rollIn 0.4s;">
+                        @Model.Title</h3>
+                    <div class="comments">
+                        <ul class="links" style="float: right;">
+                            <li><i class="blog_icon1" alt="CreateTime"></i>
+                                <br>
+                                <span>@Model.CreateTime</span></li>
+                            <li><i class="blog_icon2"></i>
+                                <br>
+                                <span>@Model.Author</span></li>
+                            <li><i></i>
+                                <br>
+                                <span>@Model.Source</span></li>
+                            <!--<li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
+		  					<li><a href="#"><i class="blog_icon4"> </i><br><span>1206</span></a></li>-->
+                        </ul>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                    @if (File.Exists("~/File" + @Model.ImagePath))
+                    {
+                        <a>
+                            <img src="@Url.Content("~/File/" + @Model.ImagePath + "")" alt="@Model.Title" title="@Model.Title" class="img-responsive" /></a>
+                    }
+                    <div class="singe_desc">
+                        <p class="wow fadeInUpBig animated animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                            -webkit-animation: fadeInUpBig 0.4s;">
+                            @Model.NewsContent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="categories">
+                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                    animation-delay: 0.4s; animation-name: fadeInRight;">
+                    Product Category</h4>
+                <ul class="category">
+                    @Html.Raw(ViewBag.productCategoty)
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

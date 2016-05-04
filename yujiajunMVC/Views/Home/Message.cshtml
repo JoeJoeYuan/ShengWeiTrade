@@ -35,7 +35,7 @@
         });
     </script>
 
-@using (Html.BeginForm("MessageInsert","Home"))
+@using (Html.BeginForm("MessageInsert", "Home"))
 {
 <!--<div class="nright">
     <div class="tool">
@@ -84,32 +84,26 @@
                 {
                     foreach (var item in Model)
                     {
-                    <div class="message">
-                        <div style="width: 100%; height: 30px;">
-                            <table>
-                                <tr>
-                                    <td style="width: 75%">@item.CreateName
-                                    </td>
-                                    <td style="width: auto;">@item.CreateTime.Value.ToString("yyyy-MM-dd hh:mm:ss")
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="message">
+                            <div style="width: 100%; height: 30px;">
+                                <table>
+                                    <tr>
+                                        <td style="width: 75%">@item.CreateName
+                                        </td>
+                                        <td style="width: auto;">@item.CreateTime.Value.ToString("yyyy-MM-dd hh:mm:ss")
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="width: 95%; padding-left: 15px;">@item.MessageContent
+                            </div>
                         </div>
-                        <div style="width: 95%; padding-left: 15px;">@item.MessageContent
-                        </div>
-                    </div>
                     }
-                     <table style="width: 100%; height: 30px; text-align: left;" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td style="width: 55%;">
-                                Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page 
-                                <!--共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.TotalPageCount)/@(Model.CurrentPageIndex)页-->
-                            </td>
-                            <td style="width: auto;">
-                                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<span class=\"cpb\">{0}</span>" }, null, null, null)
-                            </td>
-                        </tr>
-                    </table>
+                    <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"
+                        style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
+                        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go", CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
+                        <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
+                    </ul>
                 }
                 
                 <br />
