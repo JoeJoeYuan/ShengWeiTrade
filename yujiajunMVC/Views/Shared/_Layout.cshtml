@@ -13,12 +13,13 @@
         .slide-container{width:470px;height:150px;border:1px solid #B6D1E6;background-color:#ebf5fa;overflow:hidden;}#slide-trigger{position:relative;top:-25px;width:465px;text-align:right;padding-right:5px;}#slide-trigger a{display:inline-block;margin-right:3px;width:16px;height:16px;line-height:16px;text-align:center;color:#d94b01;background-color:#fff5e1;border:1px solid #f47500;outline:none;overflow:hidden;}#slide-trigger a:hover{text-decoration:none;}#slide-trigger a.current{width:18px;height:18px;line-height:18px;font-weight:700;color:#FFF;background:url("@Url.Content("/images/t-bg.png")") repeat-x;}#slide-panel{position:relative;width:600px;height:200px;overflow:hidden;border:1px solid red;margin:0 auto;padding:0 auto;}#slide-panel div{position:absolute;width:100%;}#slide-panel div img{display:block;width:600px;height:200px;margin:0 auto;padding:0 auto;}
     </style>*@
     @*<link href="http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Orbitron:400,500,700,900" rel="stylesheet" type="text/css">*@
-    <link href="@Url.Content("http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Orbitron:400,500,700,900")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Orbitron:400,500,700,900")" rel="stylesheet" type="text/css" />*@
+    <link href="@Url.Content("~/Css/font.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Css/animate.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Css/owl.carousel.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Css/component.css")" rel="stylesheet" type="text/css" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/wow.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr.custom.js")" type="text/javascript" ></script>
     <script src="@Url.Content("~/Scripts/jquery.cbpFWSlider.min.js")" type="text/javascript" ></script>
     <script type="text/javascript">
@@ -34,7 +35,7 @@
                     <div class="logo">
                         @*<a title="ShengWeiTradeCO,LTD" href="http://localhost:50929/"></a>*@ 
                         <a title="ShengWeiTradeCO,LTD"
-                            href="http://localhost:50929/">
+                            href="http://localhost:50929/Home/Index.html">
                             <h1>
                                 San<span>POWER</span></h1>
                         </a>
@@ -43,12 +44,24 @@
                     <div class="top-menu">
                         <nav class="navigation">
 						    <ul class="cl-effect-16">
-                                <li><a href="@Url.Action("Index", "Home")" title="Home"><span>Home</span></a></li>
-                                <li><a href="@Url.Action("Index", "Home")" title="Home"><span>HomeTest</span></a></li>
+                                <li><a id="menu-home" href="@Url.Action("Index", "Home")" title="Home">Home</a></li>
                                 @Html.Raw(Server.HtmlDecode(Html.Action("Navigation", "Extensions").ToHtmlString()))
 						    </ul>
                         </nav>
                     </div>
+                    <!-- script for menu, add active style on menu -->
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.top-menu li a').each(function () {
+                                if ($($(this))[0].href == String(window.location)) {
+                                    $(this).addClass('active');
+                                }
+//                                if ($($(this))[0].id != "menu-home") {
+//                                    $("#menu-home").removeClass("active");
+//                                }
+                            });
+                        })  
+                    </script>
                     <!-- script for menu -->
                     <script type="text/javascript">
                         $("span.menu").click(function () {
@@ -80,10 +93,9 @@
         <div class="slider">
             <div id="cbp-fwslider" class="cbp-fwslider">
                 <ul style="width: 500%; transition: transform 500ms ease; -webkit-transition: transform 500ms ease;">
-                    <li style="width: 20%;"><a href="#">
-                        @*<img src="./File/ScrollIamge/49fc833d-1564-47f5-b804-7a8f05c53ed7.gif" alt="img01" />*@
+                    <li style="width: 20%;"><a href="#">@*<img src="./File/ScrollIamge/49fc833d-1564-47f5-b804-7a8f05c53ed7.gif" alt="img01" />*@
                         <img src="@Url.Content("~/File/ScrollIamge/slide2.png")" alt="img02" />
-                        </a></li>
+                    </a></li>
                     <li style="width: 20%;"><a href="#">
                         <img src="@Url.Content("~/File/ScrollIamge/slide3.png")" alt="img02" /></a></li>
                     <li style="width: 20%;"><a href="#">
@@ -93,35 +105,34 @@
                     <li style="width: 20%;"><a href="#">
                         <img src="@Url.Content("~/File/ScrollIamge/slide4.png")" alt="img05" /></a></li>
                 </ul>
-                <nav><span class="cbp-fwprev" style="display: none;"></span><span class="cbp-fwnext"></span></nav>
-                <script>
-                    $(function () {
-                        /*
-                        - how to call the plugin:
-                        $( selector ).cbpFWSlider( [options] );
-                        - options:
-                        {
-                        // default transition speed (ms)
-                        speed : 500,
-                        // default transition easing
-                        easing : 'ease'
-                        }
-                        - destroy:
-                        $( selector ).cbpFWSlider( 'destroy' );
-                        */
-
-                        $('#cbp-fwslider').cbpFWSlider();
-
-                    });
-		        </script>
+                @*<nav><span class="cbp-fwprev" style="display: none;"></span><span class="cbp-fwnext"></span></nav>
                 <div class="cbp-fwdots">
                     <span class="cbp-fwcurrent"></span><span></span><span></span><span></span><span>
                     </span>
-                </div>
+                </div>*@
             </div>
         </div>
-	</div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            /*
+            - how to call the plugin:
+            $( selector ).cbpFWSlider( [options] );
+            - options:
+            {
+            // default transition speed (ms)
+            speed : 500,
+            // default transition easing
+            easing : 'ease'
+            }
+            - destroy:
+            $( selector ).cbpFWSlider( 'destroy' );
+            */
 
+            $('#cbp-fwslider').cbpFWSlider();
+
+        });
+    </script>
 
     @*<div class="header">
         <div class="logo">

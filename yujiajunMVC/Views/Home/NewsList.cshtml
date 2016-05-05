@@ -1,6 +1,6 @@
 ﻿@using Webdiyer.WebControls.Mvc;
 @model PagedList<Models.News>
-<style type="text/css">
+@*<style type="text/css">
     .newslist
     {
         width: 680px;
@@ -19,8 +19,8 @@
         height: 25px;
         overflow: hidden;
     }
-</style>
-<div class="nright">
+</style>*@
+@*<div class="nright">
     <div class="tool">
         <div class="rs_u">
             &nbsp;</div>
@@ -69,8 +69,8 @@
         <div class="rs_d">
             &nbsp;</div>
     </div>-->
-</div>
-<div class="nleft">
+</div>*@
+@*<div class="nleft">
     <div class="mode">
         <div class="rm_u">
             &nbsp;</div>
@@ -108,5 +108,59 @@
         </div>
         <div class="rm_d">
             &nbsp;</div>
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="row single-top">
+        <div class="col-md-8">
+            @foreach (var item in Model)
+            {
+                <div class="blog_box">
+                    <div class="blog_grid">
+                        <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                            animation-delay: 0.4s; animation-name: rollIn;">
+                            <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank" title="@item.Title">@item.Title</a>
+                        </h3>
+                        @if (File.Exists("~/File" + @item.ImagePath))
+                        {
+                            <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })">
+                                @*<img src="../../images/ab.jpg" class="img-responsive" alt=""></a>*@
+                                <img src="@Url.Content("~/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" class="img-responsive" /></a>
+                        }
+                        <div class="singe_desc">
+                            <p>
+                                @item.NewsContent</p>
+                        </div>
+                    </div>
+                </div>
+        
+            }
+            <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"
+                style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
+                <!--<li><a href="#" class="current">Prev</a></li>
+				  <li><a href="#">1</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">...</a></li>
+				  <li><a href="#">19</a></li>
+				  <li><a href="#">20</a></li>
+				  <li><a href="#" class="current">Next</a></li>-->
+                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go", CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
+                <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
+            </ul>
+        </div>
+        <div class="col-md-4 ">
+            <div class="categories">
+                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                    animation-delay: 0.4s; animation-name: fadeInRight;">
+                    Product Category</h4>
+                <ul class="category">
+                    @Html.Raw(ViewBag.productCategoty)
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

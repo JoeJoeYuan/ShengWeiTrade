@@ -31,7 +31,7 @@ namespace yujiajunMVC.Controllers
                 foreach (var item in list)
                 {
                     string Navpath = string.IsNullOrEmpty(item.NPath) ? "javascript:void(0)" : "/Home/" + item.NPath;
-                    path += "<li><a href=" + Navpath + ".html title=\""+item.NName+"\"><span>" + item.NName + "</span></a></li>";
+                    path += "<li><a href=" + Navpath + ".html title=\"" + item.NName + "\">" + item.NName + "</a></li>";
                 }
             }
             //path += "<li><a href=\"/Home/About.html\" title=\"关于我们\"><span>关于我们</span></a></li>";

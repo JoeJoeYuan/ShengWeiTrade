@@ -124,13 +124,13 @@ namespace yujiajunMVC.Controllers
         #region News
         public ActionResult NewsList(int? NID = null, string name = null, int? Id = 1)
         {
-            List<News> listNews = _newsService.GetHot();//热点新闻
-            string hotNews = string.Empty;
-            foreach (var item in listNews)
-            {
-                hotNews += "<li><a href=\"NewsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
-            }
-            ViewBag.hot = hotNews;
+            //List<News> listNews = _newsService.GetHot();//热点新闻
+            //string hotNews = string.Empty;
+            //foreach (var item in listNews)
+            //{
+            //    hotNews += "<li><a href=\"NewsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
+            //}
+            //ViewBag.hot = hotNews;
 
             //List<Navigation> listNav = _navService.GetAll().FindAll(a => a.ParentID == 1);
             //if (listNav.Count > 0)
@@ -153,7 +153,7 @@ namespace yujiajunMVC.Controllers
             }
             ViewBag.Title = name == null ? "News — Shen Zhen Sheng Wei Trade CO." : name + " — Shen Zhen Sheng Wei Trade CO.";
             ViewBag.name = name == null ? "News List" : name;
-            int pageSize = 20;
+            int pageSize = 3;
             int pageIndex = Id.Value;
             List<News> list = _newsService.GetByPage(pageSize, (pageIndex - 1) * pageSize, "ID DESC", news);
             return View(new PagedList<News>(list, pageIndex, pageSize, _newsService.GetCount(news)));
@@ -173,13 +173,13 @@ namespace yujiajunMVC.Controllers
 
         public ActionResult ProductsList(int? NID = null, string name = null, int? Id = 1)
         {
-            List<Products> listProducts = _productService.GetAll(); //产品列表
-            string products = string.Empty;
-            foreach (var item in listProducts)
-            {
-                products += "<li><a href=\"ProductsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
-            }
-            ViewBag.hot = products;
+            //List<Products> listProducts = _productService.GetAll(); //产品列表
+            //string products = string.Empty;
+            //foreach (var item in listProducts)
+            //{
+            //    products += "<li><a href=\"ProductsDetail/" + item.CreateTime.Value.ToString("yyyy-MM-dd") + "/" + item.ID + ".html\" target=\"_blank\">" + item.Title + "</a></li>";
+            //}
+            //ViewBag.hot = products;
 
             ViewBag.productCategoty = ProductCategoty();
 
