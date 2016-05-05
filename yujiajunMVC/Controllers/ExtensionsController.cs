@@ -46,7 +46,7 @@ namespace yujiajunMVC.Controllers
                         select value;
             foreach (var item in query)
             {
-                picture += "<img src=\"/File/ScrollIamge/" + item.Element("path").Value + "\" title=\"" + item.Element("title").Value + "\" alt=\"" + item.Element("title").Value + "\" />";
+                picture += "<li style=\"width: 20%;\"><a href=\"#\"><img src=\"/File/ScrollIamge/" + item.Element("path").Value + "\" title=\"" + item.Element("title").Value + "\" alt=\"" + item.Element("title").Value + "\" /></a></li>";
             }
             ViewBag.picture = picture;
             return View();

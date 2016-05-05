@@ -1,18 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <image>
   <img>
-    <id>20120731105920296</id>
-    <title>gfsdgfds67</title>
-    <path>49fc833d-1564-47f5-b804-7a8f05c53ed7.gif</path>
+    <id>20160505034424863</id>
+    <title>Product1</title>
+    <path>437d2c5e-b7b5-43ac-8053-6969b699d324.jpg</path>
   </img>
   <img>
-    <id>20160330100756240</id>
-    <title>test</title>
-    <path>b3fa2a44-a37d-4d75-9fe2-cf6a8cbf7446.jpg</path>
+    <id>20160505034433954</id>
+    <title>Product2</title>
+    <path>e3e38aad-d168-4ce3-b4c5-5ffaa1d06629.jpg</path>
   </img>
   <img>
-    <id>20160330101103074</id>
-    <title>test</title>
-    <path>36ff43fa-6684-4db7-b49c-10a52d164779.jpg</path>
+    <id>20160505034443306</id>
+    <title>Product3</title>
+    <path>54dd4d96-20b4-4aea-b457-4b139f731b41.jpg</path>
+  </img>
+  <img>
+    <id>20160505034500437</id>
+    <title>Product4</title>
+    <path>7b389213-8013-4608-b4e7-b02fa5fb8bb6.jpg</path>
+  </img>
+  <img>
+    <id>20160505034513462</id>
+    <title>Product5</title>
+    <path>e54b6a4f-53a8-4810-b27f-83f4cf878739.jpg</path>
+  </img>
+  <img>
+    <id>20160505034524050</id>
+    <title>Product6</title>
+    <path>54a03051-1f3f-4a3d-b7d0-5df956c9cb2c.jpg</path>
+  </img>
+  <img>
+    <id>20160505034534046</id>
+    <title>Product7</title>
+    <path>00384c58-fc96-4f59-a230-6b6670f28be8.jpg</path>
   </img>
 </image>

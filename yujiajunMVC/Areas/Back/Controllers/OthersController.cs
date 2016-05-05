@@ -88,7 +88,8 @@ namespace yujiajunMVC.Areas.Back.Controllers
                     picture = Guid.NewGuid() + suffix;
                     string fileName = Guid.NewGuid() + suffix;
                     file.SaveAs(Server.MapPath("~/File/ScrollIamge/" + fileName));
-                    ImageHelper.MakeThumbnail(Server.MapPath("~/File/ScrollIamge/" + fileName), Server.MapPath("~/File/ScrollIamge/" + picture), 950, 240, "Cut");
+                    //ImageHelper.MakeThumbnail(Server.MapPath("~/File/ScrollIamge/" + fileName), Server.MapPath("~/File/ScrollIamge/" + image), 950, 240, "Cut");
+                    ImageHelper.MakeThumbnail(Server.MapPath("~/File/ScrollIamge/" + fileName), Server.MapPath("~/File/ScrollIamge/" + picture), 500, 400, "H");
                     System.IO.File.Delete(Server.MapPath("~/File/ScrollIamge/" + fileName));
                 }
             }
