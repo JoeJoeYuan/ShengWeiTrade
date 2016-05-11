@@ -1072,6 +1072,7 @@
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\component.css" />
     <Content Include="Css\font.css" />
+    <Content Include="images\arrow.png" />
     <Content Include="images\arrows.png" />
     <Content Include="images\move-top.png" />
     <Content Include="Css\owl.carousel.css" />
