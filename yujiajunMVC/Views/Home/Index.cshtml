@@ -27,7 +27,7 @@
                                 <div class="item">
                                     <div class="item-grid">
                                         <div class="item-pic">
-                                            <img src="@Url.Content("~/File/" + @item.ImagePath + "")" />
+                                            <a href="@Url.Action("ProductsDetail", "Home", new { ID = @item.ID })" target="_blank"><img src="@Url.Content("~/File/" + @item.ImagePath + "")" /></a>
                                         </div>
                                     </div>
                                 </div>
