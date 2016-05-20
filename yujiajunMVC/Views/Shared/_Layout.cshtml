@@ -20,10 +20,18 @@
     <link href="@Url.Content("~/Css/component.css")" rel="stylesheet" type="text/css" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/wow.min.js")" type="text/javascript" ></script>
     <script src="@Url.Content("~/Scripts/modernizr.custom.js")" type="text/javascript" ></script>
     <script src="@Url.Content("~/Scripts/jquery.cbpFWSlider.min.js")" type="text/javascript" ></script>
+    <script src="@Url.Content("~/Scripts/owl.carousel.js")" type="text/javascript" ></script>
     <script type="text/javascript">
         new WOW().init();
+    </script>
+    <script type="text/javascript">
+        function Search() {
+            var title = $.trim($("#title").val());
+            location.href = "/Home/ProductsList?title=" + title; //location.href实现客户端页面的跳转
+        }
     </script>
 </head>
 <body>
@@ -33,21 +41,32 @@
             <div class="fixed-header">
                 <div class="container">
                     <div class="logo">
-                        @*<a title="ShengWeiTradeCO,LTD" href="http://localhost:50929/"></a>*@ 
-                        <a title="ShengWeiTradeCO,LTD"
-                            href="http://localhost:50929/Home/Index.html">
+                        <a title="Shenzhen San Power Trading CO., LTD"
+                            href="@Url.Action("Index", "Home")">
                             <h1>
                                 San<span>POWER</span></h1>
+                                <h1 style="color:White; font-size: x-large; text-align:center; font-family:Courier New;">
+                                深圳圣唯<span>外贸有限公司</span></h1>
                         </a>
                     </div>
                     <span class="menu"></span>
                     <div class="top-menu">
+                        <div style="padding: 0px 0px 15px 300px; color: Black;">
+                            <a>@*<input type="text" name="keyword" id="" value="请输入名称或编号..." onfocus="javascript:if(this.value == '请输入名称或编号...') this.value = '';" onblur="if(this.value == '') {this.value = '请输入名称或编号...';}" class="search_text">*@
+                                @*<input type="text" name="keyword" placeholder="Please Input Product..." onfocus="javascript:if(this.value == 'Please Input Product...') this.value = '';"
+                                    onblur="if(this.value == '') {this.value = 'Please Input Product...';}" />*@
+                                <input type="text" name="keyword" placeholder="Please Input Product..." id="title" />
+                                <input type="button" value="Search" id="Search" onclick="Search()" /></a>
+                        </div>
                         <nav class="navigation">
 						    <ul class="cl-effect-16">
                                 <li><a id="menu-home" href="@Url.Action("Index", "Home")" title="Home">Home</a></li>
                                 @Html.Raw(Server.HtmlDecode(Html.Action("Navigation", "Extensions").ToHtmlString()))
 						    </ul>
                         </nav>
+                    </div>
+                    <div style="float:right;">
+                        <a href="@Url.Action("Index", "Home")">English</a> | <a href="@Url.Action("Index", "Home")">中文版</a>
                     </div>
                     <!-- script for menu, add active style on menu -->
                     <script type="text/javascript">
@@ -257,8 +276,8 @@
             </div>
             <div class="copy">
                 <p>
-                    Copyright © 2016 GUANGZHOU Sheng Wei Trade CO., LTD. All rights reserved. <a href="http://localhost:50929/"
-                        target="_blank" title="SanPower">Home</a> | <a href="http://localhost:50929/Home/About.html"
+                    Copyright © 2016 SHENZHEN San Power Trading CO., LTD. All rights reserved. <a href="@Url.Action("Index", "Home")"
+                        target="_blank" title="Shenzhen San Power Trading CO., LTD">Home</a> | <a href="@Url.Action("About", "Home")"
                             title="About Us" target="_blank">About Us</a></p>
             </div>
         </div>

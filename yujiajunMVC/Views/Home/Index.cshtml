@@ -1,8 +1,77 @@
-﻿@model List<Models.News>
-@using Models;
+﻿@*@model List<Models.News>*@
+@*@using Models.Products;*@
 @{
-    ViewBag.Title = "Shen Zhen Sheng Wei Trade CO.";
+    var productHotList = ViewBag.productHotList;
+    ViewBag.Title = "Shenzhen San Power Trading CO., LTD";
 }
+<div class="tainers-section">
+    <div class="container">
+        <!--sreen-gallery-cursual-->
+        <div class="col-md-3 tainer wow bounceInLeft animated" data-wow-delay="0.4s" style="visibility: visible;
+            animation-delay: 0.4s; animation-name: bounceInLeft;">
+            <h3>
+                Our Products</h3>
+            <p>
+                Why not give one of these popular products a look?</p>
+        </div>
+        <div class="col-md-9 sreen-gallery-cursual wow bounceInRight animated" data-wow-delay="0.4s"
+            style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
+            <!-- start content_slider -->
+            <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                @*<div class="owl-wrapper-outer">
+                    <div class="owl-wrapper" style="width: 4950px; left: 0px; display: block; transition: all 800ms ease;
+                        transform: translate3d(-1650px, 0px, 0px);">*@
+                        @foreach (var item in productHotList)
+                        {
+                            <div class="owl-item" style="width: 275px;">
+                                <div class="item">
+                                    <div class="item-grid">
+                                        <div class="item-pic">
+                                            <img src="@Url.Content("~/File/" + @item.ImagePath + "")" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @*<div class="owl-item" style="width: 275px;">
+                            <div class="item">
+                                <div class="item-grid">
+                                    <div class="item-pic">
+                                        <img src="images/t1.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    @*</div>
+                </div>*@
+                @*<div class="owl-controls clickable">
+                    <div class="owl-buttons">
+                        <div class="owl-next">
+                        </div>
+                        <div class="owl-prev">
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <!--//sreen-gallery-cursual-->
+        <script type="text/javascript">
+	    $(document).ready(function() {
+		    $("#owl-demo").owlCarousel({
+			    items :3,
+		    lazyLoad : true,
+		    autoPlay : true,
+		    navigation :true,
+		    navigationText :  false,
+		    pagination : false,
+		    });
+	    });
+        </script>
+    </div>
+</div>
+
 @*<div class="nleft">
     <div class="mode">
         <div class="rm_u">

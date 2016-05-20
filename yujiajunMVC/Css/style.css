@@ -71,7 +71,7 @@ label{
 	left:0;
 }
 .top-menu ul{
-	padding:0;
+	padding:10px;
 }
 .top-menu ul li{
 	display:inline-block;
@@ -99,6 +99,7 @@ label{
 }
 .top-menu {
   float: right;
+  /*padding:20px 0px 0px;*/
   margin-top: 1em;
 }
 .header-bottom {

@@ -28,12 +28,12 @@ namespace yujiajunMVC.Controllers
         public ActionResult Index()
         {
             // return RedirectToRoute("Back", new RouteValueDictionary { { "Action", "Login" }, { "Controller", "Others" } });
-            ViewBag.productCategoty = ProductCategoty();
+            //ViewBag.productCategoty = ProductCategoty();
             //ViewBag.productHotList = _productService.GetHot();
             ViewBag.productHotList = _productService.GetHot();
-            ViewBag.aboutUs = GetAbout();
-            List<News> list = _newsService.GetByPage();
-            return View(list);
+            //ViewBag.aboutUs = GetAbout();
+            //List<News> list = _newsService.GetByPage();
+            return View();
         }
         public ActionResult About()
         {
@@ -151,7 +151,7 @@ namespace yujiajunMVC.Controllers
             {
                 news = new News() { NID = NID };
             }
-            ViewBag.Title = name == null ? "News — Shen Zhen Sheng Wei Trade CO." : name + " — Shen Zhen Sheng Wei Trade CO.";
+            ViewBag.Title = name == null ? "News List" : name + " — San Power Trading CO., LTD";
             ViewBag.name = name == null ? "News List" : name;
             int pageSize = 3;
             int pageIndex = Id.Value;
@@ -171,7 +171,7 @@ namespace yujiajunMVC.Controllers
 
         #region products
 
-        public ActionResult ProductsList(int? NID = null, string name = null, int? Id = 1)
+        public ActionResult ProductsList(int? NID = null, string name = null, int? Id = 1, string title = null)
         {
             //List<Products> listProducts = _productService.GetAll(); //产品列表
             //string products = string.Empty;
@@ -184,6 +184,7 @@ namespace yujiajunMVC.Controllers
             ViewBag.productCategoty = ProductCategoty();
 
             Products product = null;
+            //string keyword = title.Trim();
             if (NID != null)
             {
                 product = new Products() { NID = NID, ImagePath = "0" };
@@ -191,7 +192,12 @@ namespace yujiajunMVC.Controllers
             else
                 product = new Products() { ImagePath = "0" };
 
-            ViewBag.Title = name == null ? "Products List" : name + " — Sheng Wei Trade CO.";
+            if (!string.IsNullOrEmpty(title))
+            {
+                product.Title = title;
+            }
+
+            ViewBag.Title = name == null ? "Products List" : name + " — San Power Trading CO., LTD";
             ViewBag.name = name == null ? "Products List" : name;
             int pageSize = 3;
             int pageIndex = Id.Value;
@@ -205,7 +211,7 @@ namespace yujiajunMVC.Controllers
 
             ViewBag.productCategoty = ProductCategoty();
 
-            ViewBag.Title = products == null ? "Products Detail" : products.Title + " — Sheng Wei Trade CO.";
+            ViewBag.Title = products == null ? "Products Detail" : products.Title + " — San Power Trading CO., LTD";
             return View(products);
         }
 
