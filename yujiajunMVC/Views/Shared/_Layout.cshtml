@@ -44,19 +44,22 @@
                         <a title="Shenzhen San Power Trading CO., LTD"
                             href="@Url.Action("Index", "Home")">
                             <h1>
-                                San<span>POWER</span></h1>
-                                <h1 style="color:White; font-size: x-large; text-align:center; font-family:Courier New;">
-                                深圳圣唯<span>外贸有限公司</span></h1>
+                                深圳市圣唯贸易<span>有限公司</span></h1>
+                            <h2 style="text-align: center;">
+                                <span style="color: White; font-size: 13pt; font-family: Elephant">
+                                    Shenzhen San Power Trading Co., Ltd.</span>
+                            </h2>
                         </a>
                     </div>
                     <span class="menu"></span>
                     <div class="top-menu">
-                        <div style="padding: 0px 0px 15px 300px; color: Black;">
+                        <div style="padding: 0px 0px 1px 300px; color: White;">
                             <a>@*<input type="text" name="keyword" id="" value="请输入名称或编号..." onfocus="javascript:if(this.value == '请输入名称或编号...') this.value = '';" onblur="if(this.value == '') {this.value = '请输入名称或编号...';}" class="search_text">*@
                                 @*<input type="text" name="keyword" placeholder="Please Input Product..." onfocus="javascript:if(this.value == 'Please Input Product...') this.value = '';"
                                     onblur="if(this.value == '') {this.value = 'Please Input Product...';}" />*@
-                                <input type="text" name="keyword" placeholder="Please Input Product..." id="title" />
-                                <input type="button" value="Search" id="Search" onclick="Search()" /></a>
+                                <input type="text" name="keyword" placeholder="Please Input Product..." id="title"  />
+                                <input type="button" value="Search" id="Search" onclick="Search()" /></a> <a href="@Url.Action("Index", "Home")" style="color:White;">
+                                    English</a> | <a href="@Url.Action("Index", "Home")" style="color:White; font-family:华文中宋;">中文版</a>
                         </div>
                         <nav class="navigation">
 						    <ul class="cl-effect-16">
@@ -64,9 +67,6 @@
                                 @Html.Raw(Server.HtmlDecode(Html.Action("Navigation", "Extensions").ToHtmlString()))
 						    </ul>
                         </nav>
-                    </div>
-                    <div style="float:right;">
-                        <a href="@Url.Action("Index", "Home")">English</a> | <a href="@Url.Action("Index", "Home")">中文版</a>
                     </div>
                     <!-- script for menu, add active style on menu -->
                     <script type="text/javascript">
@@ -109,24 +109,78 @@
                 </div>
             </div>
         </div>
-        <div class="slider">
+        @*<div class="main">
             <div id="cbp-fwslider" class="cbp-fwslider">
                 <ul style="width: 500%; transition: transform 500ms ease; -webkit-transition: transform 500ms ease;">
-                    @*<li style="width: 20%;"><a href="#">
-                        <img src="@Url.Content("~/File/ScrollIamge/slide2.png")" alt="img02" />
-                    </a></li>
-                    <li style="width: 20%;"><a href="#">
-                        <img src="@Url.Content("~/File/ScrollIamge/slide3.png")" alt="img02" /></a></li>
-                    <li style="width: 20%;"><a href="#">
-                        <img src="@Url.Content("~/File/ScrollIamge/slide2.png")" alt="img03" /></a></li>
-                    <li style="width: 20%;"><a href="#">
-                        <img src="@Url.Content("~/File/ScrollIamge/slide3.png")" alt="img04" /></a></li>
-                    <li style="width: 20%;"><a href="#">
-                        <img src="@Url.Content("~/File/ScrollIamge/slide4.png")" alt="img05" /></a></li>*@
                     @Html.Raw(Server.HtmlDecode(Html.Action("PictureRoll", "Extensions").ToHtmlString()))
                 </ul>
             </div>
+        </div>*@
+
+
+
+
+        <div class="mainBanner" style="background: none;">
+            <script type="text/javascript" src="~/Scripts/superslide.2.1.js"></script>
+            <style type="text/css">		
+img{border:0;}
+/* fullSlide */
+.fullSlide{ overflow:hidden; width:100%;position:relative;height:662px; padding:10.5em 0 0em;}
+.fullSlide .bd{margin:0 auto;position:relative;z-index:0;overflow:hidden;}
+.fullSlide .bd ul{width:100% !important;}
+.fullSlide .bd li{width:100% !important;height:662px;overflow:hidden;text-align:center;}
+.fullSlide .bd li a{display:block;height:662px;}
+.fullSlide .hd{width:100%;position:absolute;z-index:1;bottom:33px;left:0;height:30px;line-height:30px;}
+.fullSlide .hd ul{text-align:center;}
+.fullSlide .hd ul li{cursor:pointer;display:inline-block;*display:inline;zoom:1;width:42px;height:11px;margin:1px;overflow:hidden;
+background:#FFFFFF;filter:alpha(opacity=50);opacity:0.5;line-height:999px;}
+
+.fullSlide .hd ul .on{ background:#C92B2B ;}
+.fullSlide .prev,.fullSlide .next{display:block;position:absolute;z-index:1;top:50%;margin-top:-30px;left:15%;z-index:1;width:40px;height:60px;cursor:pointer;display:none;}
+.fullSlide .next{left:auto;right:15%;background-position:-6px -137px;}
+</style>
+            <div class="fullSlide">
+                <div class="bd">
+                    <ul>
+                        @Html.Raw(Server.HtmlDecode(Html.Action("PictureRoll", "Extensions").ToHtmlString()))
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul>
+                    </ul>
+                </div>
+                <span class="prev"></span><span class="next"></span>
+            </div>
+            <!--fullSlide end-->
+            <script type="text/javascript">
+                $(".fullSlide").hover(function () {
+                    $(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+                },
+function () {
+    $(this).find(".prev,.next").fadeOut()
+});
+                $(".fullSlide").slide({
+                    titCell: ".hd ul",
+                    mainCell: ".bd ul",
+                    effect: "fold",
+                    autoPlay: true,
+                    autoPage: true,
+                    trigger: "click",
+                    startFun: function (i) {
+                        var curLi = jQuery(".fullSlide .bd li a").eq(i);
+                        if (!!curLi.attr("_src")) {
+                            curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+                        }
+                    }
+                });
+            </script>
         </div>
+
+
+
+
+
+
     </div>
     <script type="text/javascript">
         $(function () {
@@ -308,7 +362,7 @@
         });
     </script>
 
-    <!--<script src="@Url.Content("/JavaScript/jquery.switchable[all].min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/JavaScript/jquery.switchable[all].min.js")" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
         $(document).ready(function () {
             $("#trigger1").switchable("#slide1 > div > img", { effect: "scroll", speed: .2 }).autoplay(2).carousel(); //图片滚动
@@ -316,7 +370,7 @@
         function SetVisable(index) {
             $(".nav_content li").eq(index).addClass("current").siblings().removeClass("current");
         }
-    </script>-->
+    </script>
     <a href="#home" id="toTop" class="scroll" style="display: block;"><span id="toTopHover"
         style="opacity: 1;"></span></a>
 </body>

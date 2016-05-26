@@ -30,7 +30,8 @@
 	border: none;
 	display: block;
 	margin: 0 auto;
-	  max-width: 32%;
+	  /*max-width: 32%;*/
+	  max-width: 100%;
 }
 
 .cbp-fwslider nav span {
@@ -42,7 +43,8 @@
 	color: #fff;
 	font-size: 50px;
 	text-align: center;
-	margin-top: -50px;
+	margin-top: -50p
+	/*margin-top: 10px;*/
 	line-height: 100px;
 	cursor: pointer;
 	font-weight: normal;

@@ -1138,6 +1138,7 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\superslide.2.1.js" />
     <Content Include="Scripts\wow.min.js" />
     <Content Include="validate.aspx" />
     <Content Include="Web.config">

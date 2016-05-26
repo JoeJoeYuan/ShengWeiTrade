@@ -46,7 +46,9 @@ namespace yujiajunMVC.Controllers
                         select value;
             foreach (var item in query)
             {
-                picture += "<li style=\"width: 20%;\"><a href=\"#\"><img src=\"/File/ScrollIamge/" + item.Element("path").Value + "\" title=\"" + item.Element("title").Value + "\" alt=\"" + item.Element("title").Value + "\" /></a></li>";
+                //picture += "<li style=\"width: 100%;\"><a href=\"#\"><img src=\"/File/ScrollIamge/" + item.Element("path").Value + "\" title=\"" + item.Element("title").Value + "\" alt=\"" + item.Element("title").Value + "\" /></a></li>";
+                //picture += "<img src=\"/File/ScrollIamge/" + item.Element("path").Value + "\" title=\"" + item.Element("title").Value + "\" alt=\"" + item.Element("title").Value + "\" />";
+                picture += "<li><img src=\"/File/ScrollIamge/" + item.Element("path").Value + "\" title=\"" + item.Element("title").Value + "\" alt=\"" + item.Element("title").Value + "\" /></li>";
             }
             ViewBag.picture = picture;
             return View();
