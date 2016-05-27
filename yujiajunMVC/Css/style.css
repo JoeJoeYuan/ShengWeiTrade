@@ -257,17 +257,17 @@ nav.navigation a:focus {
 }
 /*----trainers----*/
 .tainers-section {
-  padding: 4em 0;
+  padding: 2em 0;
 }
 .col-md-3.tainer {
     margin: 0;
   background-color: #000;
-  min-height: 442px;
+  min-height: 300px;
   margin-top: 1.2em;
-   padding: 2em 2em;
+   padding: 0.5em 2em;
 }
 .tainer  h3 {
-   font-size: 2.5em;
+   font-size: 2.3em;
   font-weight: 700;
   color: #ff1791;
   font-family: 'Orbitron', sans-serif;
