@@ -1,0 +1,20 @@
+﻿@model int?
+@{
+    ViewBag.Title = "Lock";
+}
+@if (Model==0)
+{
+    
+    <span>
+        @Html.RadioButtonFor(a => a, 1)是
+        @Html.RadioButtonFor(a => a, 0, new { @checked = "checked" })否
+    </span>                                                                                                              
+}
+else
+{
+    <span>
+        @Html.RadioButtonFor(a => a, 1, new { @checked = "checked" })是
+        @Html.RadioButtonFor(a => a, 0)否
+    </span>
+}
+

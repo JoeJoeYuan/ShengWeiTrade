@@ -1,0 +1,50 @@
+﻿@model yujiajunMVC.Areas.Back.Models.UserLogin
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <LINK href="@Url.Content("/Areas/Back/Login/style_left.css")" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .submit{background-image:url('@Url.Content("/Areas/Back/Login/admin_menu.gif")');border:0px;margin:0px;padding:0px;width:76px;height:26px;cursor:pointer}
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("UserLogin","Others"))
+    {
+    <DIV id=adminboxall>
+  <DIV class=adminboxtop></DIV>
+  <DIV id=adminboxmain>
+    <DIV style="MARGIN-TOP: 5px; MARGIN-LEFT: 380px">
+        <input type="submit" value="" class="submit" />
+    </DIV>
+  </DIV>
+  <DIV class="adminboxbottom">
+    <DIV id=login>
+      <UL>
+        <LI class=text>用户名：<BR>
+          <DIV class=box1>
+            @Html.TextBoxFor(a => a.LoginName, new { style="width:80px;"})
+          </DIV>
+        </LI>
+        <LI class=text>密 码：<BR>
+          <DIV class=box2>
+            @Html.PasswordFor(a => a.LoginPassWord, new { style="width:80px;"})
+          </DIV>
+        </LI>
+        <LI class=text>验证码：<BR>
+          <DIV class=box4>
+            @Html.TextBoxFor(a => a.Validate, new {style="width:80px;" })
+            &nbsp;<img src="@Url.Content("~/validate.aspx")" onclick="this.src=this.src+'?'" style="cursor:pointer" /> </DIV>
+        </LI>
+      </UL>
+    </DIV>
+  </DIV>
+  </DIV>
+    }
+</body>
+</html>
+

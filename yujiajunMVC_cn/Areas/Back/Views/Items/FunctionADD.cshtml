@@ -1,0 +1,52 @@
+﻿@model yujiajunMVC.Areas.Back.Models.FunctionModel
+@{
+    ViewBag.Title = "FunctionADD";
+    Layout = "/Areas/Back/Views/Shared/_ChildMaster.cshtml";
+}
+@using (Html.BeginForm("InsertFunction", "Items"))
+{
+           
+    <table style="width: 300px; height: auto;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+               @Html.LabelFor(a=>a.ParentID)
+            </td>
+            <td>
+                @Html.EditorFor(a=>a.ParentID)
+            </td>
+        </tr>
+        <tr>
+            <td>
+               @Html.LabelFor(a=>a.FName)
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.FName, new { style = "width:150px", emptyMessage = "名称不能为空" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a=>a.FPath)
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.FPath, new { style = "width:150px", emptyMessage = "路径不能为空" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a=>a.IsLock)
+            </td>
+            <td>
+                @Html.EditorFor(a=>a.IsLock)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="提交" />
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+}
+

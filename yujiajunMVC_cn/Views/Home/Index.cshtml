@@ -1,0 +1,186 @@
+﻿@*@model List<Models.News>*@
+@*@using Models.Products;*@
+@{
+    var productHotList = ViewBag.productHotList;
+    ViewBag.Title = "Shenzhen San Power Trading CO., LTD";
+}
+<div class="tainers-section">
+    <div class="container">
+        <!--sreen-gallery-cursual-->
+        <div class="col-md-3 tainer wow bounceInLeft animated" data-wow-delay="0.4s" style="visibility: visible;
+            animation-delay: 0.4s; animation-name: bounceInLeft;">
+            <h3>
+                Our Products</h3>
+            <p>
+                Why not give one of these popular products a look?</p>
+        </div>
+        <div class="col-md-9 sreen-gallery-cursual wow bounceInRight animated" data-wow-delay="0.4s"
+            style="visibility: visible; animation-delay: 0.4s; animation-name: bounceInRight;">
+            <!-- start content_slider -->
+            <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                @*<div class="owl-wrapper-outer">
+                    <div class="owl-wrapper" style="width: 4950px; left: 0px; display: block; transition: all 800ms ease;
+                        transform: translate3d(-1650px, 0px, 0px);">*@
+                        @foreach (var item in productHotList)
+                        {
+                            <div class="owl-item" style="width: 300px;">
+                                <div class="item">
+                                    <div class="item-grid">
+                                        <div class="item-pic">
+                                            <a href="@Url.Action("ProductsDetail", "Home", new { ID = @item.ID })" target="_blank"><img alt="@item.Title" src="@Url.Content("~/File/" + @item.ImagePath + "")" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @*<div class="owl-item" style="width: 275px;">
+                            <div class="item">
+                                <div class="item-grid">
+                                    <div class="item-pic">
+                                        <img src="images/t1.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    @*</div>
+                </div>*@
+                @*<div class="owl-controls clickable">
+                    <div class="owl-buttons">
+                        <div class="owl-next">
+                        </div>
+                        <div class="owl-prev">
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <!--//sreen-gallery-cursual-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#owl-demo").owlCarousel({
+                    items: 3,
+                    lazyLoad: true,
+                    autoPlay: true,
+                    navigation: false,
+                    navigationText: false,
+                    pagination: false
+                });
+            });
+        </script>
+    </div>
+</div>
+
+@*<div class="nleft">
+    <div class="mode">
+        <div class="rm_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2 class="title">
+                Hot Products<span class="more"><a href="@Url.Action("ProductsList")" target="_blank">more
+                    &gt;&gt;</a></span></h2>
+            <div class="ul_img">
+                <ul>
+                    @foreach(Products item in ViewBag.productHotList)
+                    {
+                        <li><a href="@Url.Action("ProductsDetail", "Home", new { ID = @item.ID, time = @item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
+                            <img src="@Url.Content("/File/" + @item.ImagePath + "")" title="@item.Title" alt="@item.Title" /></a> <span>
+                                <a href="@Url.Action("ProductsDetail", "Home", new { ID = @item.ID, time = @item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></span>
+                        </li>
+                    }
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="rm_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool" style="margin-right: 10px; float: left; width: 336px;">
+        <div class="rn_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">News</span><span class="more"><a href="@Url.Action("NewsList", new { NID = 2 })" target="_blank">more
+                    &gt;&gt;</a></span></h2>
+
+            <ul class="ul_txt">
+                @foreach (var item in Model)
+                {
+                    <li><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                }
+            </ul>
+        </div>
+        <div class="rn_d">
+            &nbsp;</div>
+    </div>
+    <div class="tool" style="float: left; width: 336px;">
+        <div class="rn_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">About Us</span><span class="more"><a href="@Url.Action("About")" target="_blank">more &gt;&gt;</a></span></h2>
+            <ul>
+                <li><img src="@Url.Content("/images/logo.png")"  /></li>
+                @Html.Raw(ViewBag.aboutUs)
+                <!--@if (Model != null)
+                {
+                    List<Models.News> listBusiness = Model.FindAll(a => a.NID == 3).ToList();
+                    foreach (var item in listBusiness)
+                    {
+                    <li><a href="@Url.Action("NewsDetail", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></li>
+                    }
+                }-->
+            </ul>
+        </div>
+        <div class="rn_d">
+            &nbsp;</div>
+    </div>
+</div>
+  <!--left.end-->
+  
+  <!--right.start-->
+<div class="nright">
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Products Category</span></h2>
+            <ul class="b1">
+                @Html.Raw(ViewBag.productCategoty)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Contact Us</span></h2>
+            <ul class="b1">
+                <strong>Online:</strong> <br />
+                <a hidefocus="true" href="http://wpa.qq.com/msgrd?v=3&amp;uin=540264959&amp;site=qq&amp;menu=yes" target="_blank"><span class="serOnline-img0 qqImgOffLine0">&nbsp;</span>QQ</a>
+
+                <br />
+                <strong>Tel:</strong> <br/>
+                86-27-88888888<br />
+                86-27-88889999<br />
+                86-27-99999998<br />
+                <strong>Fax:</strong><br/>
+                86-27-89898989<br />
+                <strong>Email:</strong><br />
+                <a href="mailto:qiaofeng5251264@126.com">qiaofeng5251264@126.com</a><br />
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+</div>*@

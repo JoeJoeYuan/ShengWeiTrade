@@ -1,0 +1,202 @@
+﻿@model Models.Products
+
+<!--<style type="text/css">
+    .news-top
+    {
+        width: 99.3%;
+        min-height: 600px;
+        max-height: none;
+        border: 1px solid #c5dde9;
+        text-align: center;
+        margin-left: 4px;
+    }
+    .news-back
+    {
+        width: 100%;
+        height: 31px;
+        background-image: url("@Url.Content("/images/3.png")");
+        padding-top: 5px;
+        text-align: left;
+    }
+    .news-title
+    {
+        width: 95%;
+        height: 25px;
+        margin-top: 10px;
+        font-size: 20px;
+        color: #0170d9;
+    }
+    .news-note
+    {
+        width: 95%;
+        height: 20px;
+        border-bottom: 1px dashed #d8d8d8;
+        text-align: right;
+        font-size: 13px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .news-content
+    {
+        width: 95%;
+        height: auto;
+        margin-top: 10px;
+        text-align: left;
+        padding-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>-->
+
+
+<div class="container">
+    <div class="row single-top">
+        <div class="col-md-8">
+            <div class="blog_box">
+                <div class="blog_grid">
+                    <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                        -webkit-animation: rollIn 0.4s;">
+                        @Model.Title</h3>
+                    <div class="comments">
+                        <ul class="links" style="float: right;">
+                            <li><i class="blog_icon1" alt="CreateTime"></i>
+                                <br>
+                                <span>@Model.CreateTime</span></li>
+                            <li><i class="blog_icon2"></i>
+                                <br>
+                                <span>@Model.Author</span></li>
+                            <!--<li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
+		  					<li><a href="#"><i class="blog_icon4"> </i><br><span>1206</span></a></li>-->
+                        </ul>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                    <a><img src="@Url.Content("~/File/" + @Model.ImagePath + "")" alt="@Model.Title" title="@Model.Title" class="img-responsive" /></a>
+                    <div class="singe_desc">
+                        <p class="wow fadeInUpBig animated animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                            -webkit-animation: fadeInUpBig 0.4s;">
+                            @Model.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="categories">
+                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                    animation-delay: 0.4s; animation-name: fadeInRight;">
+                    Product Category</h4>
+                <ul class="category">
+                    @Html.Raw(ViewBag.productCategoty)
+                </ul>
+            </div>
+        </div>
+        <!--<div class="col-md-4 ">
+								<div class="categories">
+											<h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation: fadeInRight 0.4s;">Categories</h4>
+											<ul class="category">
+												<li><a href="#">Cras ut ultrices</a></li>
+												<li><a href="#">Nullam id enim</a></li>
+												<li><a href="#">scelerisque enim</a></li>
+												<li><a href="#">Ut tincidunt</a></li>
+												<li><a href="#">Aliquam mauris nunc,</a></li>
+												<li><a href="#">convallis ex urna, ege</a></li>
+												<li><a href="#"> et commodo</a></li>
+											</ul>
+										</div>
+								<div class="sidebar-bottom">
+									<h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation: fadeInRight 0.4s;">Archives</h4>
+											<ul>
+												<li><a href="#">February 2015</a></li>
+												<li><a href="#">January 2015</a></li>
+												<li><a href="#">December 2015</a></li>
+												<li><a href="#">November 2015</a></li>
+												<li><a href="#">February 2015</a></li>
+												<li><a href="#">December 2015</a></li>
+											</ul>
+								</div>
+					 <ul class="times two">
+							<h3 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation: fadeInRight 0.4s;">Opening<span class="opening">Hours</span></h3>
+							<li><i class="calender"> </i><span class="week">Monday</span><div class="hours two">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Tuesday</span><div class="hours two">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Wednesday</span><div class="hours two">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Thrusday</span><div class="hours two">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Friday</span><div class="hours two">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Saturday</span><div class="hours two">h.6:00-h.24:00</div>  <div class="clearfix"></div></li>
+							<li><i class="calender"> </i><span class="week">Sunday</span><div class="hours two">Closed</div>  <div class="clearfix"></div></li>
+	
+						 </ul>
+					<ul class="blog-list1">
+					 <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation: fadeInRight 0.4s;">Tags</h4>
+						<li><a href="#">Fitness</a></li>
+						<li><a href="#">Gym</a></li>
+						<li><a href="#">Lorem ipsum</a></li>
+						<li><a href="#">Gym</a></li>
+						<li><a href="#">Fitness</a></li>
+						<li><a href="#">Fitness</a></li>
+						<li><a href="#">Gym</a></li>
+						<li><a href="#">Lorem ipsum</a></li>
+						<li><a href="#">Gym</a></li>
+						<li><a href="#">Logo</a></li>
+						<div class="clearfix"></div>
+					</ul>
+		   	     </div>
+				<div class="clearfix"></div>
+			  	 <div class="single_grid2">
+				   <h4 class="tz-title-4 tzcolor-blue">
+			            <p class="tzweight_Bold">Comments</p>
+			        </h4>
+			        <ul class="list">
+			        <li>
+			            <div class="col-md-2 preview"><a href="#"><img src="images/co.png" class="img-responsive" alt=""></a></div>
+			            <div class="col-md-10 data">
+			                <div class="title"><a href="#">Trainer</a><br><span class="m_14">APR 2, 2015</span></div>
+			                <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+							<h5 class="m_26"> <a href="#">reply</a></h5>
+			            </div>
+			           <div class="clearfix"></div>
+			        </li>
+			     	  <li>
+			            <div class="col-md-2 preview"><a href="#"><img src="images/co.png" class="img-responsive" alt=""></a></div>
+			            <div class="col-md-10 data">
+			                <div class="title"><a href="#">Trainer</a><br><span class="m_14">MAY2, 2015</span></div>
+			                <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+							<h5 class="m_26"> <a href="#">reply</a></h5>
+			            </div>
+			           <div class="clearfix"></div>
+			        </li>
+			        <li>
+			            <div class="col-md-2 preview"><a href="#"><img src="images/co.png" class="img-responsive" alt=""></a></div>
+			            <div class="col-md-10 data">
+			                <div class="title"><a href="#">Trainer</a><br><span class="m_14">JUNE 2, 2015</span></div>
+			                <p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature</p>
+							<h5 class="m_26"> <a href="#">reply</a></h5>
+			            </div>
+			           <div class="clearfix"></div>
+			        </li>
+			     </ul>
+			</div>
+				<div class="single">
+						<div class="leave">
+							<h4>Leave a comment</h4>
+						</div>
+						<form id="commentform" class="wow fadeInRight animated" data-wow-delay="0.4s" style="visibility: hidden; -webkit-animation: none 0.4s;">
+							 <p class="comment-form-author-name"><label for="author">Name</label>
+								<input id="author" name="author" type="text" value="" size="30" aria-required="true">
+							 </p>
+							 <p class="comment-form-email">
+								<label for="email">Email</label>
+								<input id="email" name="email" type="text" value="" size="30" aria-required="true">
+							 </p>
+							 <p class="comment-form-comment">
+								<label for="comment">Comment</label>
+								<textarea></textarea>
+							 </p>
+							 <div class="clearfix"></div>
+							<p class="form-submit">
+							   <input name="submit" type="submit" id="submit" value="Send">
+							</p>
+							<div class="clearfix"></div>
+						   </form>
+				</div>-->
+    </div>
+</div>

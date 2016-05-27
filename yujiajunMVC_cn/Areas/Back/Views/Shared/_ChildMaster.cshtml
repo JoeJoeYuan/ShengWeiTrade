@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>后台管理</title>
+        <script src="@Url.Content("/JavaScript/jquery.min.js")" type="text/javascript"></script>
+        <script language="javascript">
+            $(document).ready(function () {
+                $("input[type=text],input[type=password],input[type=file]").blur(function () {
+                    var validate = $(this).attr("validate");
+                    if (validate == "true" || validate == "" || validate == undefined) {//非空验证  如不验证文本框 把validate属性设为false
+                        if ($(this).val().replace(/(^\s*)|(\s*$)/g, "") == "") {
+                            if ($(this).next("span").text() == "") {
+                                var message = $(this).attr("emptyMessage") == undefined ? "不能为空" : $(this).attr("emptyMessage");
+                                $(this).after("<span style='color:red'>" + message + "</span>");
+                            }
+                        } else {//验证成功 删除提示
+                            if ($(this).next("span").text() != "") {
+                                $(this).next("span").remove();
+                            }
+                        }
+                    } else if (validate != "false") {//正则验证
+                        var temp = TextValidate(validate); //根据验证规则 提取正则
+                        if (!temp.test($(this).val())) {
+                            if ($(this).next("span").text() != "") {
+                                $(this).next("span").remove();
+                            }
+                            $(this).after("<span style='color:red'>格式错误</span>");
+                            return false;
+                        } else {//验证成功  删除正则
+                            if ($(this).next("span").text() != "") {
+                                $(this).next("span").remove();
+                            }
+                        }
+                    }
+                });
+                $("input[type=submit]").click(function () {
+                    var textValues = $("input[type=text],input[type=password],input[type=file]");
+                    var isSubmit = true;
+                    $(textValues).each(function () {
+                        var validate = $(this).attr("validate");
+                        if (validate == "true" || validate == "" || validate == undefined) {
+                            if ($(this).val().replace(/(^\s*)|(\s*$)/g, "") == "" || $(this).val() == undefined) {
+                                if ($(this).next("span").text() == "") {
+                                    var message = $(this).attr("emptyMessage") == undefined ? "不能为空" : $(this).attr("emptyMessage");
+                                    $(this).after("<span style='color:red'>" + message + "</span>");
+                                }
+                                isSubmit = false;
+                                return false;
+                            }
+                        } else if (validate != "false") {
+                            var temp = TextValidate(validate);
+                            if (!temp.test($(this).val())) {
+                                if ($(this).next("span").text() != "") {
+                                    $(this).next("span").remove();
+                                }
+                                $(this).after("<span style='color:red'>格式错误</span>");
+                                isSubmit = false;
+                                return false;
+                            } else {
+                                if ($(this).next("span").text() != "") {
+                                    $(this).next("span").remove();
+                                }
+                                isSubmit = true;
+                            }
+                        } else {
+                            isSubmit = true;
+                        }
+                    });
+                    if (isSubmit) {
+                        $(this).sumbit();
+                    } else {
+                        return false;
+                    }
+
+                });
+            });
+            function TextValidate(regName) {
+                if (regName == "number")
+                    return /^[\d]+$/; //数字
+            }
+        </script>
+    </head>
+    <body>
+        @RenderBody()
+    </body>
+</html>
+

@@ -1,0 +1,153 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<Models.Messages>
+@{
+    ViewBag.Title = "Message — Shen Zhen Sheng Wei Trade CO.";
+}
+    <style type="text/css">
+        table{text-align:left;}
+        .newslist{width:680px;overflow:hidden;padding:0 0 0 20px;font-size:13px;}
+        .newslist table{width:100%;height:auto;}
+        .newslist table tr{width:100%;min-height:100px;max-height:none;overflow:hidden;}
+        .message{width:95%;min-height:80px;max-height:none;border-bottom:1px dashed #d8d8d8;padding-bottom:15px;}
+    </style>
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            $("#messageContent").keyup(function () {
+                var shu = 250;
+                var content = document.getElementById("messageContent").value;
+                shu = shu - content.length;
+                if (shu < 1) {
+                    shu = 0;
+                    document.getElementById("messageContent").value = content.substring(0, 250);
+                }
+
+                document.getElementById("Number").innerHTML = shu;
+            });
+            $("#submit").click(function () {
+                var code = document.getElementById("Code").value;
+                var content = document.getElementById("messageContent").value;
+                if (code.replace(/(^\s*)|(\s*$)/g, "") == "" || content.replace(/(^\s*)|(\s*$)/g, "") == "") {
+                    alert("Verify that the code or content cannot be empty!!");
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+
+@using (Html.BeginForm("MessageInsert", "Home"))
+{
+<!--<div class="nright">
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Products Category</span></h2>
+            <ul class="b1">
+                @Html.Raw(ViewBag.productCategoty)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Contact Us</span></h2>
+            <ul class="b1">
+                <strong>Tel:</strong> <br/>
+                86-27-88888888<br />
+                86-27-88889999<br />
+                86-27-99999998<br />
+                <strong>Fax:</strong><br/>
+                86-27-89898989<br />
+                <strong>Email:</strong><br />
+                <a href="mailto:qiaofeng5251264@126.com">qiaofeng5251264@126.com</a><br />
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+</div>-->
+<div class="main-contact">
+<div class="container">
+	<div class="contact-form">
+	    <h2>Message</h2>
+            <div >
+                <br />
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="message">
+                            <div style="width: 100%; height: 30px;">
+                                <table>
+                                    <tr>
+                                        <td style="width: 75%">@item.CreateName
+                                        </td>
+                                        <td style="width: auto;">@item.CreateTime.Value.ToString("yyyy-MM-dd hh:mm:ss")
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="width: 95%; padding-left: 15px;">@item.MessageContent
+                            </div>
+                        </div>
+                    }
+                    <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"
+                        style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
+                        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go", CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
+                        <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
+                    </ul>
+                }
+                
+                <br />
+                <div style="width: 100%; min-height: 150px; max-height: none;" align="center">
+                    <table>
+                        <tr>
+                            <td>
+                                Name:
+                            </td>
+                            <td>
+                                @Html.TextBox("Name")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content:
+                            </td>
+                            <td>
+                                @Html.TextArea("messageContent", new { @rows = "6", @cols = "60" })<br />
+                                <div style="font-size: 13px;">
+                                    最多输入<font color='red'>250</font>个字符，你还可以输入<span id="Number" style="color: Red">0</span>个字符</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Verification code:
+                            </td>
+                            <td>
+                                @Html.TextBox("Code")
+                                &nbsp;&nbsp; <img src="/validate.aspx" onclick="this.src=this.src+'?'" style="cursor:pointer" title="Refresh" alt="title='Refresh'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                <input type="submit" value="Submit" id="submit" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+}

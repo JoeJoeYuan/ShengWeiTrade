@@ -1,0 +1,166 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<Models.News>
+@*<style type="text/css">
+    .newslist
+    {
+        width: 680px;
+        overflow: hidden;
+        padding: 0 0 0 20px;
+        font-size: 14px;
+    }
+    .newslist table
+    {
+        width: 100%;
+        height: auto;
+    }
+    .newslist table tr
+    {
+        width: 100%;
+        height: 25px;
+        overflow: hidden;
+    }
+</style>*@
+@*<div class="nright">
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Products Category</span></h2>
+            <ul class="b1">
+                @Html.Raw(ViewBag.productCategoty)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <div class="line10">
+    </div>
+    <div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Contact Us</span></h2>
+            <ul class="b1">
+                <strong>Tel:</strong> <br/>
+                86-27-88888888<br />
+                86-27-88889999<br />
+                86-27-99999998<br />
+                <strong>Fax:</strong><br/>
+                86-27-89898989<br />
+                <strong>Email:</strong><br />
+                <a href="mailto:qiaofeng5251264@126.com">qiaofeng5251264@126.com</a><br />
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>
+    <!--<div class="tool">
+        <div class="rs_u">
+            &nbsp;</div>
+        <div class="container">
+            <h2>
+                <span class="border_line">Hot News</span></h2>
+            <ul class="ul_txt">
+                @Html.Raw(ViewBag.hot)
+            </ul>
+        </div>
+        <div class="rs_d">
+            &nbsp;</div>
+    </div>-->
+</div>*@
+@*<div class="nleft">
+    <div class="mode">
+        <div class="rm_u">
+            &nbsp;</div>
+        <div class="container" style="min-height: 500px; max-height: none;">
+            <h2 class="title">@Html.Raw(ViewBag.name)</h2>
+            <div class="newslist">
+                <br />
+                @if (Model != null)
+                {
+                    <table cellpadding="0" cellspacing="0">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td width="80%">
+                                    <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank" title="@item.Title">@item.Title</a>
+                                </td>
+                                <td>@item.CreateTime.Value.ToString("yyyy-MM-dd")
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <table style="width: 100%; height: 30px; text-align: left;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 55%;">
+                                Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page 
+                                <!--共@(Model.TotalItemCount)条,每页@(Model.PageSize)条,当前@(Model.TotalPageCount)/@(Model.CurrentPageIndex)页-->
+                            </td>
+                            <td style="width: auto;">
+                                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<span class=\"cpb\">{0}</span>" }, null, null, null)
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        </div>
+        <div class="rm_d">
+            &nbsp;</div>
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="row single-top">
+        <div class="col-md-8">
+            @foreach (var item in Model)
+            {
+                <div class="blog_box">
+                    <div class="blog_grid">
+                        <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                            animation-delay: 0.4s; animation-name: rollIn;">
+                            <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank" title="@item.Title">@item.Title</a>
+                        </h3>
+                        @if (File.Exists("~/File" + @item.ImagePath))
+                        {
+                            <a href="@Url.Action("NewsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })">
+                                @*<img src="../../images/ab.jpg" class="img-responsive" alt=""></a>*@
+                                <img src="@Url.Content("~/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" class="img-responsive" /></a>
+                        }
+                        <div class="singe_desc">
+                            <p>
+                                @item.NewsContent</p>
+                        </div>
+                    </div>
+                </div>
+        
+            }
+            <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"
+                style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
+                <!--<li><a href="#" class="current">Prev</a></li>
+				  <li><a href="#">1</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">...</a></li>
+				  <li><a href="#">19</a></li>
+				  <li><a href="#">20</a></li>
+				  <li><a href="#" class="current">Next</a></li>-->
+                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go", CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
+                <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
+            </ul>
+        </div>
+        <div class="col-md-4 ">
+            <div class="categories">
+                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
+                    animation-delay: 0.4s; animation-name: fadeInRight;">
+                    Product Category</h4>
+                <ul class="category">
+                    @Html.Raw(ViewBag.productCategoty)
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+﻿@model Models.News
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+      <style type="text/css">
+			table{border-left:1px solid #d8d8d8;border-bottom:1px solid #d8d8d8;text-align:right;}
+			td{border-right:1px solid #d8d8d8;border-top:1px solid #d8d8d8;height:25px;}
+			body{font-size:13px;}
+    </style>
+    <script src="@Url.Content("/Areas/Back/kindeditor-4.0/kindeditor-min.js")" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        KindEditor.ready(function (K) {
+            var editor1 = K.create('#NewsContent', {
+                width: 800,
+                height: 400,
+                uploadJson: '@Url.Content("/Areas/Back/kindeditor-4.0/asp.net/upload_json.ashx")',
+                fileManagerJson: '@Url.Content("/Areas/Back/kindeditor-4.0/asp.net/file_manager_json.ashx")',
+                allowFileManager: true,
+                afterCreate: function () {
+                    var self = this;
+                    K.ctrl(document, 13, function () {
+                        self.sync();
+                        //K('form[name=example]')[0].submit();
+                    });
+                    K.ctrl(self.edit.doc, 13, function () {
+                        self.sync();
+                        // K('form[name=example]')[0].submit();
+                    });
+                }
+            });
+            // prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    @if (Model != null)
+    {
+    <table style="width:100%;height:auto;" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="20%" style="padding-right:10px;">标题:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">@Html.TextBoxFor(g => g.Title)</td>
+			</tr>
+			<tr>
+				<td width="20%" style="padding-right:10px;">发布人:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">@Html.TextBoxFor(g => g.Author)</td>
+			</tr>
+			<tr>
+				<td width="20%" style="padding-right:10px;">文章来源:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">@Html.TextBoxFor(g => g.Source)</td>
+			</tr>
+			<tr>
+				<td width="20%" style="padding-right:10px;">所属类别:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">
+				    @Html.DropDownList("NID")
+				</td>
+			</tr>
+			<tr>
+				<td width="20%" style="padding-right:10px;">点击数:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">@Html.TextBoxFor(g => g.Click)</td>
+			</tr>
+			@*<tr>
+				<td width="20%" style="padding-right:10px;">评论数:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;"></td>
+			</tr>*@
+			<tr>
+				<td width="20%" style="padding-right:10px;">下载次数:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">@Html.TextBoxFor(g => g.DownLoadNum)</td>
+			</tr>
+			<tr>
+				<td width="20%" style="padding-right:10px;">附件:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">
+                @*附件类型:&nbsp;
+                  @Html.DropDownList("IsFile")*@
+                        @if (Model.FilePath != "0")
+                        {
+                            <a href="/News/DownLoad?filePath=@Model.FilePath" target="_blank">@Model.FilePath</a>
+                            //Html.ActionLink(Model.FilePath, "DownLoad", new { filePath = Model.FilePath }, new { @target = "_blank" });
+                        }
+                        else
+                        { 
+                            <font color='red'>无</font>
+                        }
+                    
+                    </td>
+			</tr>
+			<tr>
+				<td width="20%" style="padding-right:10px;">内容:</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">
+                    @Html.TextAreaFor(g => g.NewsContent)
+				</td>
+			</tr>
+			<tr>
+				<td width="20%">&nbsp;</td>
+				<td width="auto" style="text-align:left;padding-left:10px;">
+				  <input type="button" value="返 回" onclick="javascript:history.back();" />
+				</td>
+			</tr>
+	</table>
+    }
+    else
+    { 
+        <h2 color='red'>无数据</h2>
+    }
+</body>
+</html>
+
