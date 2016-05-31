@@ -27,7 +27,7 @@
                                 <div class="item">
                                     <div class="item-grid">
                                         <div class="item-pic">
-                                            <a href="@Url.Action("ProductsDetail", "Home", new { ID = @item.ID })" target="_blank"><img alt="@item.Title" src="@Url.Content("~/File/" + @item.ImagePath + "")" /></a>
+                                            <a href="@Url.Action("ProductsDetail", "Home", new { ID = @item.ID })" target="_blank"><img title="@item.Title" alt="@item.Title" src="@Url.Content("~/File/" + @item.ImagePath + "")" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                     items: 3,
                     lazyLoad: true,
                     autoPlay: true,
-                    navigation: false,
+                    navigation: true,
                     navigationText: false,
                     pagination: false
                 });

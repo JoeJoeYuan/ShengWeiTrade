@@ -1,6 +1,100 @@
 ﻿@using Webdiyer.WebControls.Mvc;
 @model PagedList<Models.Products>
+
+@*<link href="@Url.Content("~/Css/lanrenzhijia.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/lanrenzhijia.js")" type="text/javascript" ></script>*@
+
+@*<style type="text/css">
+	.wrap-menu { overflow:auto; width:300px; background:#F6F6F6; font:12px/1.5 Tahoma,Arial,sans-serif}
+	.wrap-menu ul{ list-style:none; margin:0; padding:0;}
+	.wrap-menu ul li{ text-indent:3em; white-space:nowrap; }
+	.wrap-menu ul li h2{ cursor:pointer; height:100%; width:100%; margin:0 0 1px 0; font:12px/31px '宋体'; color:#fff; background:red;}
+	.wrap-menu ul li a{ display:block; outline:none; height:25px; line-height:25px; margin:1px 0; color:#1A385C; text-decoration:none;}
+	.wrap-menu ul li img{ margin-right:10px; margin-left:-17px; margin-top:9px; width:7px; height:7px; background:url(~/images/arrow.gif) no-repeat; border:none;}
+	.wrap-menu ul li img.unfold{ background-position:0 -9px;}
+	.wrap-menu ul li a:hover{ background-color:#ccc; background-image:none;}
+  </style>  <script type="text/javascript">
+      
+      //同步获取
+//      $.ajax({
+//          type: 'GET',
+//          url: '/Home/GetMenuData?r=' + Math.random(),
+//          async: false, //同步
+//          dataType: 'json',
+//          success: function (json) {
+//              testMenu = json;
+//          },
+//          error: function (xhr, status, error) {
+//              alert("操作失败"); //xhr.responseText
+//          }
+//      });
+      //alert(testMenu);
+
+
+      $(function () {
+          //var menuData = [];
+          //var testMenu = $.parseJSON($("#menuData").val().replace(/[\r\n]/g, ""));
+          //eval(testMenu);
+          //menuData.push(testMenu);
+
+          var testMenu = [{ "name": "10", "url": "/Home/ProductsList?NID=10&name=Ceramic Tiles", "submenu": [{ "name": "13", "url": "/Home/ProductsList?NID=13&name=Crystal Stone Series" }, { "name": "14", "url": "/Home/ProductsList?NID=14&name=Glazed Polished Series"}] }, { "name": "11", "url": "/Home/ProductsList?NID=11&name=LED Lights" }, { "name": "12", "url": "/Home/ProductsList?NID=12&name=Others"}];
+
+          new AccordionMenu({ menuArrs: testMenu });
+      });</script>*@
+
+<style type="text/css">
+.nav ul li{
+list-style:none;
+line-height:20px;
+margin:0;
+padding-left:6px;
+}
+.child{
+display:none;
+}
+.nav a{
+display:block;
+color:#5c84c1;
+padding-left:22px;
+}
+.nav a:hover
+{
+    background-color:#ccc
+}
+</style>
+<script language="javascript" type="text/javascript">
+    //说明 所有的元素以ul li ul li ul li的循环格式嵌套 如果没有下级分类 就用li a结束嵌套
+    $(document).ready(function () {
+        //$(".nav ul li").children("ul").hide();
+        $(".nav").find("li").not(":has(ul)").children("a").css({ textDecoration: "none", color: "#333", background:"none" })
+.click(function () {
+    $(this).get(0).location.href = "'" + $(this).attr("href") + "'";
+});
+    $(".nav").find("li:has(ul)").children("a").css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" })
+.click(function () {
+    if ($(this).next("ul").is(":hidden")) {
+        $(this).next("ul").slideDown("slow");
+        if ($(this).parent("li").siblings("li").children("ul").is(":visible")) {
+            $(this).parent("li").siblings("li").find("ul").slideUp("1000");
+            $(this).parent("li").siblings("li:has(ul)").children("a").css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" })
+.end().find("li:has(ul)").children("a").css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" });
+        }
+        $(this).css({ background: "url(../images/sprite.png) no-repeat left top;" });
+        return false;
+    } else {
+        $(this).next("ul").slideUp("normal");
+        //不用toggle()的原因是为了在收缩菜单的时候同时也将该菜单的下级菜单以后的所有元素都隐藏
+        $(this).css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" });
+        $(this).next("ul").children("li").find("ul").fadeOut("normal");
+        $(this).next("ul").find("li:has(ul)").children("a").css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" });
+        return false;
+    }
+});
+    });
+</script>
+
 <div class="container">
+    @*<input id="menuData" type="hidden" value="@ViewBag.productCategotyTest" />*@
     <div class="row single-top">
         <div class="col-md-8">
             @foreach (var item in Model)
@@ -70,9 +164,10 @@
                 <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
                     animation-delay: 0.4s; animation-name: fadeInRight;">
                     Product Category</h4>
-                <ul class="category">
+                @*<ul class="category">
                     @Html.Raw(ViewBag.productCategoty)
-                </ul>
+                </ul>*@
+                <div class="nav">@Html.Raw(ViewBag.productCategoty)</div>
             </div>
         </div>
         @*<h3>

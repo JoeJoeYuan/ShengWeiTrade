@@ -1124,6 +1124,7 @@
     <Content Include="File\ScrollIamge\slide2.png" />
     <Content Include="File\ScrollIamge\slide3.png" />
     <Content Include="File\ScrollIamge\slide4.png" />
+    <Content Include="images\sprite.png" />
     <Content Include="images\t-bg.png" />
     <Content Include="images\tabs_left.gif" />
     <Content Include="images\tabs_right.gif" />
@@ -1135,7 +1136,9 @@
     <Content Include="JavaScript\jquery.switchable[all].min.js" />
     <Content Include="JavaScript\validata.js" />
     <Content Include="Scripts\jquery.cbpFWSlider.min.js" />
+    <Content Include="Scripts\jquery.collapse.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\lanrenzhijia.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\superslide.2.1.js" />

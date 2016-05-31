@@ -8,6 +8,7 @@ using IService;
 using Webdiyer.WebControls.Mvc;
 using System.IO;
 using System.Web.Routing;
+using System.Text;
 
 namespace yujiajunMVC.Controllers
 {
@@ -182,6 +183,7 @@ namespace yujiajunMVC.Controllers
             //ViewBag.hot = products;
 
             ViewBag.productCategoty = ProductCategoty();
+            ViewBag.productCategotyTest = ProductCategotyTest();
 
             Products product = null;
             //string keyword = title.Trim();
@@ -218,16 +220,106 @@ namespace yujiajunMVC.Controllers
         public string ProductCategoty()
         {
             string navigation = string.Empty;
-            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID DESC", new Navigation() { ParentID = 1 });
+            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID ASC", new Navigation() { ParentID = 1 });
+            if (listNav.Count > 0)
+            {
+                navigation +="<ul>";
+                foreach (var item in listNav)
+                {
+                    //navigation += "<li><a href=\"/Home/" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a>";
+                    navigation += "<li><a href=\"#\">" + item.NName + "</a>";
+                    List<Navigation> listChildrenNav = _navService.GetByPage(100, 0, "ID ASC", new Navigation() { ParentID = item.ID });
+                    if (listChildrenNav.Count > 0)
+                    {
+                        navigation += "<ul class=\"child\">";
+                        foreach (var childrenId in listChildrenNav)
+                        {
+                            navigation += "<li><a href=\"/Home/" + childrenId.NPath + "?NID=" + childrenId.ID + "&name=" + childrenId.NName + "\">" + childrenId.NName + "</a></li>";
+                        }
+                        navigation += "</ul>";
+                    }
+                    navigation += "</li>";
+                }
+                navigation += "</ul>";
+            }
+            return navigation;
+        }
+
+        public string ProductCategotyTest()
+        {
+            string navigation = string.Empty;
+            List<Navigation> listNav = _navService.GetByPage(100, 0, "ID ASC", new Navigation() { ParentID = 1 });
             if (listNav.Count > 0)
             {
                 foreach (var item in listNav)
                 {
-                    navigation += "<li><a href=\"/Home/" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
+                    navigation += "<h1 class = \"l1\">" + item.NName + "</h1>";
+
+                    //navigation += "<li><a href=\"/Home/" + item.NPath + "?NID=" + item.ID + "&name=" + item.NName + "\">" + item.NName + "</a></li>";
+                    List<Navigation> listChildrenNav = _navService.GetByPage(100, 0, "ID ASC", new Navigation() { ParentID = item.ID });
+                    if (listChildrenNav.Count > 0)
+                    {
+                        navigation += "<div class=\"slist\">";
+                        foreach (var childrenId in listChildrenNav)
+                        {
+                            navigation += "<h2 class=\"l2\"><a href=\"/Home/" + childrenId.NPath + "?NID=" + childrenId.ID + "&name=" + childrenId.NName + "\">" + childrenId.NName + "</a></h2>";
+                        }
+                        navigation += "</div>";
+                    }
                 }
             }
             return navigation;
         }
+
+        /// <summary>
+        /// 获取树形展示数据
+        /// </summary>
+        /// <returns></returns>
+        public string GetMenuData()
+        {
+            string json = GetTreeJson(null);
+            json = json.Trim(',');
+            json.Replace("\r", string.Empty).Replace("\n", string.Empty);
+            return json;
+        }
+
+        /// <summary>
+        /// 递归获取树形信息
+        /// </summary>
+        /// <returns></returns>
+        private string GetTreeJson(int? NID)
+        {
+            if (NID == null)
+            {
+                NID = 1;
+            }
+            List<Navigation> nodeList = _navService.GetByPage(100, 0, "ID ASC", new Navigation() { ParentID = NID });
+
+            StringBuilder content = new StringBuilder();
+            foreach (Navigation model in nodeList)
+            {
+                //@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })
+                //string url = "@Url.Action(\"" + model.NPath + "\", \"Home\", new { NID = " + model.ID + ", name = " + model.NName + " })";
+                string url = "/Home/" + model.NPath + "?NID=" + model.ID + "&name=" + model.NName + "";
+                string parentMenu = string.Format("{{ \"name\":\"{0}\", \"url\":\"{1}\" ", model.ID.Value.ToString(), url);
+                //string parentMenu = string.Format("{ \"id\":\"{0}\", \"pId\":\"{1}\" ", model.NName, model.NPath);
+                content.Append(parentMenu.Trim());
+                string subMenu = this.GetTreeJson(model.ID);
+
+                if (!string.IsNullOrEmpty(subMenu))
+                {
+                    content.Append(", \"submenu\" : [");
+                    content.Append(subMenu.Trim());
+                    content.Append("]},");
+                }
+                else
+                {
+                    content.Append("},");
+                }
+            }
+            return content.ToString().Trim().Trim(',');
+        }
+
         #endregion
     }
 }
