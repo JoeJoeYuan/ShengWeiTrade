@@ -43,7 +43,8 @@
       });</script>*@
 
 <style type="text/css">
-.nav ul li{
+.navi ul li
+{
 list-style:none;
 line-height:20px;
 margin:0;
@@ -52,25 +53,28 @@ padding-left:6px;
 .child{
 display:none;
 }
-.nav a{
+.navi a
+{
+    color:#d8a647;
 display:block;
-color:#5c84c1;
+/*color:#5c84c1;*/
 padding-left:22px;
 }
-.nav a:hover
+.navi a:hover
 {
     background-color:#ccc
 }
+.cur{ background:#D96C00; font-weight:bold;}
 </style>
 <script language="javascript" type="text/javascript">
     //说明 所有的元素以ul li ul li ul li的循环格式嵌套 如果没有下级分类 就用li a结束嵌套
     $(document).ready(function () {
         //$(".nav ul li").children("ul").hide();
-        $(".nav").find("li").not(":has(ul)").children("a").css({ textDecoration: "none", color: "#333", background:"none" })
+        $(".navi").find("li").not(":has(ul)").children("a").css({ textDecoration: "none", background: "none" })
 .click(function () {
     $(this).get(0).location.href = "'" + $(this).attr("href") + "'";
 });
-    $(".nav").find("li:has(ul)").children("a").css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" })
+        $(".navi").find("li:has(ul)").children("a").css({ background: "url(../images/sprite.png) 15px 13px no-repeat;" })
 .click(function () {
     if ($(this).next("ul").is(":hidden")) {
         $(this).next("ul").slideDown("slow");
@@ -93,145 +97,102 @@ padding-left:22px;
     });
 </script>
 
-<div class="container">
-    @*<input id="menuData" type="hidden" value="@ViewBag.productCategotyTest" />*@
-    <div class="row single-top">
-        <div class="col-md-8">
-            @foreach (var item in Model)
-            {
-            @*<li><a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">
-                <img src="@Url.Content("/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" /></a>
-                <span><a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" target="_blank">@item.Title</a></span>
-            </li>*@
-        
-                <div class="blog_box">
-                    <div class="blog_grid">
-                        <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
-                            animation-delay: 0.4s; animation-name: rollIn;">
-                            <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })">@item.Title
-                            </a>
-                        </h3>
-                        <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })">
-                            @*<img src="../../images/ab.jpg" class="img-responsive" alt=""></a>*@
-                            <img src="@Url.Content("/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" class="img-responsive" /></a>
-                        <div class="singe_desc">
-                            <p>
-                                @item.Description</p>
-                            @*<div class="comments">
-                        <ul class="links">
-                            <li><i class="blog_icon1"></i>
-                                <br>
-                                <span>April 14, 2014</span></li>
-                            <li><a href="#"><i class="blog_icon2"></i>
-                                <br>
-                                <span>admin</span></a></li>
-                            <li><a href="#"><i class="blog_icon3"></i>
-                                <br>
-                                <span>1206</span></a></li>
-                            <li><a href="#"><i class="blog_icon4"></i>
-                                <br>
-                                <span>1206</span></a></li>
-                        </ul>
-                        <div class="btn_blog">
-                            <a href="single.html">
-                                <img src="images/read.png" class="img-responsive" alt=""></a></div>
-                        <div class="clearfix">
+<script type="text/javascript">
+
+    $("#navi a").each(function () {
+        var urlstr = location.href;
+        //alert((urlstr + '/').indexOf($(this).attr('href')));
+        var urlstatus = false;
+        if ((urlstr + '/').indexOf($(this).attr('href')) > -1 && $(this).attr('href') != '') {
+            $(this).addClass('cur'); urlstatus = true;
+        } else {
+            $(this).removeClass('cur');
+        }
+    });
+    if (!urlstatus) { $("#navi a").eq(0).addClass('cur'); }
+</script>
+
+
+<link href="@Url.Content("~/Css/style_new.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Css/common.css")" rel="stylesheet" type="text/css" />
+
+
+<div class="subMain">
+    	<div class="subCen">
+            <div class="subNei">
+                <div class="subTop">
+                	<div class="subLeft">
+                        <div class="subLeftTop">
+                            <div class="subL_Nav">
+                                <div class="indexNav sL">
+                                    <span>Products</span>&nbsp;&nbsp;/&nbsp;&nbsp;产品展示                                </div>
+                            </div>
+
+
+                <div class="navi" id="navi">
+                    @Html.Raw(ViewBag.productCategoty)
+                </div>
+
+
+							@*<ul class=""><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=57&amp;l=en" title="800 Micro crystalline Tiles" class=""><i></i>800 Micro crystalline Tiles</a>
+                                        <ul style="display:none"><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=84&amp;l=en" title="A Series" class=""><i></i>A Series</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=85&amp;l=en" title="B Series" class=""><i></i>B Series</a></li></ul></li>
+                                <li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=58&amp;l=en" title="⊙600 Marble Tiles" class=""><i></i>⊙600 Marble Tiles</a>
+                            <ul style="display:none"><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=82&amp;l=en" title="A Series" class=""><i></i>A Series</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=83&amp;l=en" title="B Series" class=""><i></i>B Series</a></li></ul></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=59&amp;l=en" title="⊙800 Marble Tiles" class=""><i></i>⊙800 Marble Tiles</a>
+                            <ul style="display:none"><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=80&amp;l=en" title="A Series" class=""><i></i>A Series</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=81&amp;l=en" title="B Series" class=""><i></i>B Series</a></li></ul></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=60&amp;l=en" title="⊙Polished Tiles" class=""><i></i>⊙Polished Tiles</a>
+                            <ul style="display:none"><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=61&amp;l=en" title="Crystalline Powder  Tiles" class=""><i></i>Crystalline Powder  Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=62&amp;l=en" title="Jade Dragon Stone  Tiles" class=""><i></i>Jade Dragon Stone  Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=63&amp;l=en" title="Line Stone  Tiles" class=""><i></i>Line Stone  Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=64&amp;l=en" title="China Jade Tiles" class=""><i></i>China Jade Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=65&amp;l=en" title="Coral Jade Tiles" class=""><i></i>Coral Jade Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=66&amp;l=en" title="Tulip Tiles" class=""><i></i>Tulip Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=67&amp;l=en" title="Snow Lotus Tiles" class=""><i></i>Snow Lotus Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=68&amp;l=en" title="Ice Crack Stone Tiles" class=""><i></i>Ice Crack Stone Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=69&amp;l=en" title="Auspicious Jade Tiles" class=""><i></i>Auspicious Jade Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=70&amp;l=en" title="Rainbow Stone Tiles" class=""><i></i>Rainbow Stone Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=71&amp;l=en" title="Natural Stone Tiles" class=""><i></i>Natural Stone Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=72&amp;l=en" title="Flies Ghost Tiles" class=""><i></i>Flies Ghost Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=73&amp;l=en" title="Choi Stone Tiles" class=""><i></i>Choi Stone Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=74&amp;l=en" title="Blatty Rhyme Tiles" class=""><i></i>Blatty Rhyme Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=75&amp;l=en" title="Roman Travertine Tiles" class=""><i></i>Roman Travertine Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=76&amp;l=en" title="Taxuewuhen Tiles" class=""><i></i>Taxuewuhen Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=77&amp;l=en" title="Pure Love Tiles" class=""><i></i>Pure Love Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=78&amp;l=en" title="Tianzi Jade Tiles" class=""><i></i>Tianzi Jade Tiles</a></li><li class=""><a href="/index.php?m=Product&amp;a=index&amp;id=79&amp;l=en" title="Super White Tiles" class=""><i></i>Super White Tiles</a></li></ul></li></ul>*@
                         </div>
-                    </div>*@
+                        <div class="subLeftBottom">
+                            <div class="contactText">
+                                <span>Add: No.1,2th floor ,Building 4,Case Ceramics&amp;Sanitarywares Mall,Jihua 4Rd,Foshan City,G.D.,P.R.,China<br>
+Tel: 86-0757-83557635<br>
+Fax: 86-0757-83557635<br>
+E-mail: xujunhangtaoci@163.com</span><span><br>
+</span><br>
+                            </div>
                         </div>
                     </div>
-                </div>
-        
-            }
+                    <div class="subRight">
+						<div class="subRightNav">
+                        	<span>Are you here：<a href="/index.php?l=en">Home</a> »  <a href="/index.php?m=Product&amp;a=index&amp;id=16&amp;l=en">Products</a></span>
+                        </div>
+                        <div class="piclist">
+                            <ul>
+                            @foreach (var item in Model)
+                            {
+                <li>
+                    <span>
+                    <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" class="pic_box" title="@item.Title">
+                            <img src="@Url.Content("/File/" + @item.ImagePath + "")" alt="@item.Title" title="@item.Title" width="160" height="160" style="margin-top: 0px; visibility: visible;" /></a>                                                                             
+                                    </span>   
+                                         <a href="@Url.Action("ProductsDetail", "Home", new { ID = item.ID, time = item.CreateTime.Value.ToString("yyyy-MM-dd") })" class="pic_lab" title="@item.Title">@item.Title</a>
+                </li>
+                            }
 
-            <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"  style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
-				  <!--<li><a href="#" class="current">Prev</a></li>
-				  <li><a href="#">1</a></li>
-				  <li><a href="#">2</a></li>
-				  <li><a href="#">3</a></li>
-				  <li><a href="#">4</a></li>
-				  <li><a href="#">5</a></li>
-				  <li><a href="#">...</a></li>
-				  <li><a href="#">19</a></li>
-				  <li><a href="#">20</a></li>
-				  <li><a href="#" class="current">Next</a></li>-->
-                  @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go",  CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
-                  <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
-		    </ul>
-        </div>
-        <div class="col-md-4 ">
-            <div class="categories">
-                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
-                    animation-delay: 0.4s; animation-name: fadeInRight;">
-                    Product Category</h4>
-                @*<ul class="category">
-                    @Html.Raw(ViewBag.productCategoty)
-                </ul>*@
-                <div class="nav">@Html.Raw(ViewBag.productCategoty)</div>
+                             @*<li>
+                                    <span>
+                                        <a href="/index.php?m=Product&amp;a=show&amp;id=447&amp;l=en" class="pic_box" title="GW8315"><img src="/Uploads/images/s_538d82d1155f1.jpg" alt="GW8315" width="160" height="160" style="margin-top: 0px; visibility: visible;"></a>                                                                                
+                                    </span>   
+                                         <a href="/index.php?m=Product&amp;a=show&amp;id=447&amp;l=en" class="pic_lab" title="GW8315">GW8315</a>        
+                                </li>*@
+                            </ul>
+                        </div>
+                        <div class="cle"></div>
+						@*<div class="pages">*@
+                            <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"  style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s; text-align:center;">
+                                @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go", CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
+                                @*<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>*@
+		                    </ul>
+                        @*</div>*@
+                    </div>
+                </div>
+                	<div class="cle"></div>
+               <div class="subBottom"></div>
             </div>
         </div>
-        @*<h3>
-            Product Category</h3>
-        <div class="trainee-grids">
-            <div class="col-md-4 trainee-grid wow zoomInLeft animated animated" style="visibility: visible;
-                animation-name: zoomInLeft;">
-                <a href="single.html">
-                    <img src="../../images/logo.png" class="img-responsive" alt=""></a>
-                <div class="date">
-                    <lable>30</lable>
-                    <span>Mar</span>
-                </div>
-                <a href="single.html">
-                    <h4>
-                        Lorem ipsum dolor sit amet,</h4>
-                    <h5>
-                        consectetuer adipiscing.</h5>
-                </a>
-                <p>
-                    Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
-                    pulvinar ac, lorem. Lorem ipsum dolor sit amet,…</p>
-            </div>
-            <div class="col-md-4 trainee-grid wow fadeInUpBig animated animated animated" data-wow-delay="0.4s"
-                style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUpBig;">
-                <a href="single.html">
-                    <img src="images/b2.jpg" class="img-responsive" alt=""></a>
-                <div class="date">
-                    <lable>30</lable>
-                    <span>Aug</span>
-                </div>
-                <a href="single.html">
-                    <h4>
-                        Lorem ipsum dolor sit amet,</h4>
-                    <h5>
-                        consectetuer adipiscing.</h5>
-                </a>
-                <p>
-                    Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
-                    pulvinar ac, lorem. Lorem ipsum dolor sit amet,…</p>
-            </div>
-            <div class="col-md-4 trainee-grid wow zoomInRight animated animated" style="visibility: visible;
-                animation-name: zoomInRight;">
-                <a href="single.html">
-                    <img src="images/b3.jpg" class="img-responsive" alt=""></a>
-                <div class="date">
-                    <lable>15</lable>
-                    <span>Nov</span>
-                </div>
-                <a href="single.html">
-                    <h4>
-                        Lorem ipsum dolor sit amet,</h4>
-                    <h5>
-                        consectetuer adipiscing.</h5>
-                </a>
-                <p>
-                    Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim,
-                    pulvinar ac, lorem. Lorem ipsum dolor sit amet,…</p>
-            </div>
-            <div class="clearfix">
-            </div>
-        </div>*@
+        <div style="clear:both;"></div>
     </div>
-</div>
+
+
 
 
 @*<div class="nright">

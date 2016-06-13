@@ -201,7 +201,7 @@ namespace yujiajunMVC.Controllers
 
             ViewBag.Title = name == null ? "Products List" : name + " — San Power Trading CO., LTD";
             ViewBag.name = name == null ? "Products List" : name;
-            int pageSize = 3;
+            int pageSize = 12;
             int pageIndex = Id.Value;
             List<Products> list = _productService.GetByPage(pageSize, (pageIndex - 1) * pageSize, "ID DESC", product);
             return View(new PagedList<Products>(list, pageIndex, pageSize, _productService.GetCount(product)));

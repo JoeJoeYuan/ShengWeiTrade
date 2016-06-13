@@ -167,7 +167,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
                         string imgName = PictureHelper.GetHtmlImageUrlSingle(products.Title);
                         //string fileName = Guid.NewGuid() + suffix;
                         file.SaveAs(Server.MapPath("~/File/" + picture));
-                        ImageHelper.MakeThumbnail(Server.MapPath("~/File/" + imgName), Server.MapPath("~/File/" + picture), 114, 114, "Cut");
+                        ImageHelper.MakeThumbnail(Server.MapPath("~/File/" + imgName), Server.MapPath("~/File/" + picture), 265, 300, "HW");
                         //System.IO.File.Delete(Server.MapPath("~/File/ScrollIamge/" + fileName));
                     }
                 }

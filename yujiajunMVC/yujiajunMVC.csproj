@@ -1070,8 +1070,10 @@
     <Content Include="Content\validate.css" />
     <Content Include="Css\animate.css" />
     <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\common.css" />
     <Content Include="Css\component.css" />
     <Content Include="Css\font.css" />
+    <Content Include="Css\style_new.css" />
     <Content Include="images\arrow.png" />
     <Content Include="images\arrows.png" />
     <Content Include="images\move-top.png" />
@@ -1136,9 +1138,7 @@
     <Content Include="JavaScript\jquery.switchable[all].min.js" />
     <Content Include="JavaScript\validata.js" />
     <Content Include="Scripts\jquery.cbpFWSlider.min.js" />
-    <Content Include="Scripts\jquery.collapse.js" />
     <Content Include="Scripts\jquery.min.js" />
-    <Content Include="Scripts\lanrenzhijia.js" />
     <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\superslide.2.1.js" />
