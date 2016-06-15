@@ -2,7 +2,58 @@
     ViewBag.Title = "About";
 }
 
-<div class="about-section">
+<link href="@Url.Content("~/Css/style_new.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Css/common.css")" rel="stylesheet" type="text/css" />
+
+<div class="subMain">
+    <div class="subCen">
+        <div class="subNei">
+            <div class="subTop">
+                <div class="subLeft">
+                    <div class="subLeftTop">
+                        <div class="subL_Nav">
+                            <div class="indexNav sL">
+                                <span>About Us</span>&nbsp;&nbsp;/&nbsp;&nbsp;关于我们
+                            </div>
+                        </div>
+                        <ul class="">
+                        </ul>
+                    </div>
+                    <div class="subLeftBottom">
+                        <div class="contactText">
+                            <span>Add: No.1,2th floor ,Building 4,Case Ceramics&amp;Sanitarywares Mall,Jihua 4Rd,Foshan
+                                City,G.D.,P.R.,China<br>
+                                Tel: 86-0757-83557635<br>
+                                Fax: 86-0757-83557635<br>
+                                E-mail: xujunhangtaoci@163.com</span><span><br>
+                                </span>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="subRight">
+                    <div class="subRightNav">
+                        <span>Are you here：<a href="@Url.Action("Index", "Home")">Home</a> » <a href="@Url.Action("About", "Home")">
+                            About Us</a></span>
+                    </div>
+                    <div class="text_block">
+                        <p>@Html.Raw(HttpUtility.HtmlDecode(ViewData["about"].ToString()))</p>
+                    </div>
+                    <div class="cle">
+                    </div>
+                </div>
+            </div>
+            <div class="cle">
+            </div>
+            <div class="subBottom">
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;">
+    </div>
+</div>
+
+@*<div class="about-section">
     <div class="container">
         <h3>
             ABOUT US</h3>
@@ -11,18 +62,6 @@
             <div class="col-md-5 about-top">
                 <img src="../../images/ab.jpg" class="img-responsive" alt="_blank">
             </div>
-            @*<div class="col-md-7 about-text">
-                @*<h4 class="col-md-3 f-logo">
-                    F</h4>*@ @*<p class="col-md-9 ab">
-                    Sheng Wei Trade Co., LTD is a company that provide your lots of products.
-                </p>*@ @*<p class="col-md-9 ab">
-                    Completely synergize resource sucking relationships via premier niche markets. Professionally
-                    cultivate one-to-one customer sucking relationships via premier niche markets. service
-                    with robust ideas. Dynamically innovate resource-leveling customer service for state
-                    of the art customer service</p>*@ @*<div class="clearfix">
-                </div>*@ @*<p class="para wow fadeInDownBig animated animated animated" data-wow-delay="0.4s"
-                    style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInDownBig;">
-                    Test, Test SanPower..</p>*@ @*</div>*@
             <p>@Html.Raw(HttpUtility.HtmlDecode(ViewData["about"].ToString()))</p>
             <div class="clearfix">
             </div>
@@ -71,7 +110,7 @@
             <div class="clearfix">
             </div>
         </div>
-    </div>
+    </div>*@
 
 @*<div class="nright">
     <div class="tool">
