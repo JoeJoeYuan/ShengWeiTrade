@@ -263,8 +263,8 @@ nav.navigation a:focus {
     margin: 0;
   background-color: #000;
   min-height: 300px;
-  margin-top: 1.2em;
-   padding: 0.5em 2em;
+  margin-top: 1em;
+   padding: 0.1em 2em;
 }
 .tainer  h3 {
    font-size: 2.3em;
@@ -670,7 +670,7 @@ ul.blog-list h4, ul.recent-list h4{
   line-height: 1.8em;
   text-decoration: none;
   padding-left: 2em;
-  background: url(../images/arrow.png) no-repeat 0px 6px;
+  background: url(../images/sprite.png) no-repeat 10px 10px;
 }
 .categories,.sidebar-bottom {
   margin-bottom: 1em;
