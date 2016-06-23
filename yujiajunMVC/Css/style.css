@@ -35,7 +35,7 @@ label{
 }
 /*----header--------*/
 .banner{
-  background: url(../images/banner.jpg) no-repeat 0px 0px;
+  /*background: url(../images/banner.jpg) no-repeat 0px 0px;*/
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -47,7 +47,7 @@ label{
 	float:left;
 }
 .logo  a h1{
-  font-size: 30pt;
+  font-size: 28pt;
   margin-top: 10px;
   font-weight: 900;
   color: #fff;
@@ -100,10 +100,10 @@ label{
 .top-menu {
   float: right;
   /*padding:20px 0px 0px;*/
-  margin-top: 1em;
+  margin-top: 0em;
 }
 .header-bottom {
-  padding: 1.5em 0;
+  padding: 1em 0 0 0;
   z-index: 999;
   background-color: rgba(39, 40, 40, 0.74);
 }
