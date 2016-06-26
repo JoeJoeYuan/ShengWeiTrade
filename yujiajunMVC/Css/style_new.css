@@ -165,15 +165,15 @@ body {/*font-family:微软雅黑;font-family:宋体;*/font-family:Arial,微软�
 .text_block{ line-height:24px;}
 
 .NewsList2 { padding:0 15px 0 15px; overflow:hidden; font-size:13px;}
-.NewsList2 dl { width:700px; height:77px; padding:22px 0 18px 0; border-bottom:1px dashed #aa8838; overflow:hidden; }
+.NewsList2 dl { width:700px; height:118px; padding:22px 0 18px 0; border-bottom:1px dashed #aa8838; overflow:hidden; }
 .NewsList2 dl dt { float:left; width:83px; height:63px; padding:14px 0 0 10px; border-right:1px solid #aa8838; overflow:hidden; color:#aa8838; font-size:14px; line-height:24px; }
 .NewsList2 dl dt span { font-size:20px; color:#aa8838; font-weight:bold;}
 .NewsList2 dl dd { float:left; width:563px; padding-left:10px; margin:0; height:77px; overflow:hidden; position:relative;}
 .NewsList2 dl dd .news_title { float:left; width:475px; height:27px; line-height:27px; font-size:16px; font-weight:bold; padding:0px 0 0 0px; overflow:hidden; }
-.NewsList2 dl dd .news_title a { /*color:#222;*/}
+.NewsList2 dl dd .news_title a { color:#d8a647;}
 .NewsList2 dl dd .news_more { width:70px; height:24px; padding:0px 0 3px 0px; overflow:hidden; position:absolute; top:0; right:0px; }
 .NewsList2 dl dd .news_more a { display:inline-block; color:#fff; width:70px; height:24px; background-color:#aa8838; text-align:center; line-height:24px;  overflow:hidden; }
-.NewsList2 dl dd .news_text {  width:593px; height:40px; line-height:20px; color:#aa8838; overflow:hidden; }	
+.NewsList2 dl dd .news_text {  width:593px; height:40px; line-height:20px; color:#aa8838; overflow:hidden; }
 
 
 

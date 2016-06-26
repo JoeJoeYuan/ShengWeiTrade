@@ -165,7 +165,7 @@ namespace yujiajunMVC.Controllers
 
             ViewBag.productCategoty = ProductCategoty();
 
-            ViewBag.Title = news == null ? "News Detail" : news.Title + " — Sheng Wei Trade CO.";
+            ViewBag.Title = news == null ? "News Detail" : news.Title + " — San Power Trading CO.";
             return View(news);
         }
         #endregion
