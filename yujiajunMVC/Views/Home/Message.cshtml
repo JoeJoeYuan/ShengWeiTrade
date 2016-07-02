@@ -1,8 +1,12 @@
 ﻿@using Webdiyer.WebControls.Mvc
 @model PagedList<Models.Messages>
 @{
-    ViewBag.Title = "Message — Shen Zhen Sheng Wei Trade CO.";
+    ViewBag.Title = "Message";
 }
+
+<link href="@Url.Content("~/Css/style_new.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Css/common.css")" rel="stylesheet" type="text/css" />
+
     <style type="text/css">
         table{text-align:left;}
         .newslist{width:680px;overflow:hidden;padding:0 0 0 20px;font-size:13px;}
@@ -37,54 +41,101 @@
 
 @using (Html.BeginForm("MessageInsert", "Home"))
 {
-<!--<div class="nright">
-    <div class="tool">
-        <div class="rs_u">
-            &nbsp;</div>
-        <div class="container">
-            <h2>
-                <span class="border_line">Products Category</span></h2>
-            <ul class="b1">
-                @Html.Raw(ViewBag.productCategoty)
-            </ul>
-        </div>
-        <div class="rs_d">
-            &nbsp;</div>
-    </div>
-    <div class="line10">
-    </div>
-    <div class="tool">
-        <div class="rs_u">
-            &nbsp;</div>
-        <div class="container">
-            <h2>
-                <span class="border_line">Contact Us</span></h2>
-            <ul class="b1">
-                <strong>Tel:</strong> <br/>
-                86-27-88888888<br />
-                86-27-88889999<br />
-                86-27-99999998<br />
-                <strong>Fax:</strong><br/>
-                86-27-89898989<br />
-                <strong>Email:</strong><br />
-                <a href="mailto:qiaofeng5251264@126.com">qiaofeng5251264@126.com</a><br />
-            </ul>
-        </div>
-        <div class="rs_d">
-            &nbsp;</div>
-    </div>
-</div>-->
-<div class="main-contact">
-<div class="container">
-	<div class="contact-form">
-	    <h2>Message</h2>
-            <div >
-                <br />
-                @if (Model != null)
+
+<div class="subMain">
+    	<div class="subCen">
+            <div class="subNei">
+                <div class="subTop">
+                	<div class="subLeft">
+                        <div class="subLeftTop">
+                            <div class="subL_Nav">
+                                <div class="indexNav sL">
+                                    <span>Message</span>&nbsp;&nbsp;/&nbsp;&nbsp;在线反馈                                </div>
+                            </div>
+							<ul class=""></ul>
+                        </div>
+                        <div class="subLeftBottom">
+                            <div class="contactText">
+                                <span>Add: No.1,2th floor ,Building 4,Case Ceramics&amp;Sanitarywares Mall,Jihua 4Rd,Foshan City,G.D.,P.R.,China<br>
+Tel: 86-0757-83557635<br>
+Fax: 86-0757-83557635<br>
+E-mail: xujunhangtaoci@163.com</span><span><br>
+</span><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subRight">
+						<div class="subRightNav">
+                            <span>Are you here：<a href="@Url.Action("Index", "Home")">Home</a> » <a href="@Url.Action("Message", "Home")">
+                            Message</a></span>
+                        </div>
+                        <div class="text_block">
+								<div class="MsgK">
+									<style>
+									    .MsgList
+									    {
+									        padding-left: 5px;
+									        bottom-top: 25px;
+									        overflow: hidden;
+									    }
+									    .MsgList ul li
+									    {
+									        width: 725px;
+									        padding: 20px 0;
+									        display: block;
+									        overflow: hidden;
+									        border-bottom: 1px dotted #CCCCCC;
+									    }
+									    .MsgList ul li img
+									    {
+									        width: 79px;
+									        float: left;
+									    }
+									    .MsgList ul li dd
+									    {
+									        width: 630px;
+									        float: right;
+									        display: block;
+									    }
+									    .MsgList ul li dd a
+									    {
+									        width: 551px;
+									        height: 25px;
+									        display: block;
+									        font-size: 14px;
+									        font-weight: bold;
+									        text-align: left;
+									        color: #794233;
+									    }
+									    .MsgList ul li dd a i
+									    {
+									        float: right;
+									        font-size: 11px;
+									    }
+									    .MsgList ul li dd p
+									    {
+									        width: 551px;
+									        padding-top: 5px;
+									        line-height: 25px;
+									        text-align: left;
+									        font-size: 13px;
+									        color: #794233;
+									        overflow: hidden;
+									    }
+									    #myform input, #myform textarea
+									    {
+									        background: #200f04;
+									        color: #fff;
+									        border: 1px solid #592f0d;
+									    }
+									</style>
+									<!--留言列表-->
+									<div class="MsgList">
+                                        @if (Model != null)
                 {
                     foreach (var item in Model)
                     {
-                        <div class="message">
+                        <!--<div class="message">-->
                             <div style="width: 100%; height: 30px;">
                                 <table>
                                     <tr>
@@ -97,29 +148,56 @@
                             </div>
                             <div style="width: 95%; padding-left: 15px;">@item.MessageContent
                             </div>
-                        </div>
+                        <!--</div>-->
                     }
-                    <ul class="dc_pagination dc_paginationA dc_paginationA06 wow fadeInDownBig animated animated animated"
-                        style="visibility: visible; -webkit-animation: fadeInDownBig 0.4s;">
-                        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.DropDownList, ShowGoButton = true, GoButtonText = "Go", CurrentPagerItemWrapperFormatString = "<li><a class=\"current\" >{0}</a></li>" }, null, null, null)
-                        <!--<a>Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page</a>-->
-                    </ul>
+                    <table style="width: 100%; height: 30px; text-align: center;" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width: 32%;">
+                                    Total @(Model.TotalItemCount) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page 
+                                </td>
+                                <td style="width: auto; color:#d8a647">
+                                    @Html.Pager(Model, new PagerOptions { CssClass = "pager", PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<li style=\"color:#d8a647\"><span>{0}</span></li>", NavigationPagerItemWrapperFormatString  = "<li style=\"color:#d8a647\"><span>{0}</span></li>" })
+                                </td>
+                            </tr>
+                        </table>
                 }
-                
-                <br />
-                <div style="width: 100%; min-height: 150px; max-height: none;" align="center">
-                    <table>
+
+										<ul>
+										<!---->
+										</ul>
+									</div>
+									<!--留言列表-->
+									
+									<div class="pages"></div>
+									
+									<div class="post_box">
+										<style>
+										    .post_box input, textarea
+										    {
+										        height: 24px;
+										        line-height: 24px;
+										        border: 1px solid #D5D5D5;
+										        margin: 5px 10px;
+										        padding: 2px 5px;
+										    }
+										    .post_box textarea
+										    {
+										        height: 100px;
+										    }
+										</style>
+
+                        <table>
                         <tr>
-                            <td>
-                                Name:
+                            <td align="right"><font color="red">*</font>
+                                Name
                             </td>
                             <td>
                                 @Html.TextBox("Name")
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Content:
+                            <td align="right"><font color="red">*</font>
+                                Content
                             </td>
                             <td>
                                 @Html.TextArea("messageContent", new { @rows = "6", @cols = "60" })<br />
@@ -128,8 +206,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Verification code:
+                            <td align="right"><font color="red">*</font>
+                                Verification code
                             </td>
                             <td>
                                 @Html.TextBox("Code")
@@ -142,12 +220,54 @@
                             </td>
                             <td>
                                 <input type="submit" value="Submit" id="submit" />
+                                <input type="reset" value="Reset" id="reset" />
                             </td>
                         </tr>
                     </table>
+
+										<!--<h5>Post Message</h5>
+										<form name="myform" id="myform" action="/index.php?g=User&amp;m=Post&amp;a=insert&amp;l=en" method="post">
+											<table cellpadding="0" cellspacing="0" class="table_form">
+												<input type="hidden" name="catid" value="19">
+												<input type="hidden" name="moduleid" value="8">
+												<input type="hidden" name="lang" value="2">
+												<tbody><tr>
+														<td width="100" align="right"><font color="red">*</font> USERNAMES</td>
+														<td id="box_usernames">
+														<input type="text" class="input-text " name="usernames" id="usernames" value="" size="40" validate=" minlength:2, maxlength:20, required:true">														</td>
+													</tr><tr>
+														<td width="100" align="right"><font color="red">*</font> Email</td>
+														<td id="box_email">
+														<input type="text" class="input-text " name="email" id="email" value="" size="40" validate=" maxlength:40, required:true, email:true">														</td>
+													</tr><tr>
+														<td width="100" align="right"> Tel</td>
+														<td id="box_telephone">
+														<input type="text" class="input-text " name="telephone" id="telephone" value="" size="40" validate=" tel:true">														</td>
+													</tr><tr>
+														<td width="100" align="right"><font color="red">*</font> Content</td>
+														<td id="box_content">
+														<textarea class="" name="content" rows="10" cols="60" id="content" validate=" minlength:2, maxlength:200, required:true"></textarea>														</td>
+													</tr><tr>
+														<td width="100" align="right"><font color="red">*</font> VerifyCode</td>
+														<td id="box_verifyCode">
+														<input class="input-text " name="verifyCode" id="verifyCode" value="" size="10" validate=" minlength:4, maxlength:4, required:true, en_num:true"><img src="/index.php?m=Index&amp;a=verify&amp;l=en" onclick="javascript:resetVerifyCode();" class="checkcode" align="absmiddle" title="点击刷新验证码" id="verifyImage">														</td>
+													</tr>												<tr>
+														<td width="100"></td>
+														<td><input type="submit" value="Dosubmit" class="" style=" width:80px; height:25px;">
+												<input type="reset" value="Reset" class="" style=" width:80px; height:25px;"></td>
+												</tr>
+											</tbody></table>
+										</form>-->
+									</div>
+								</div>
+							</div>                        
+                        <div class="cle"></div>
+                    </div>
                 </div>
+                	<div class="cle"></div>
+               <div class="subBottom"></div>
             </div>
+        </div>
+        <div style="clear:both;"></div>
     </div>
-    </div>
-</div>
 }

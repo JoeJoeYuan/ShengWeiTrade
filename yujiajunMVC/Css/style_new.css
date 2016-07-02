@@ -175,5 +175,8 @@ body {/*font-family:微软雅黑;font-family:宋体;*/font-family:Arial,微软�
 .NewsList2 dl dd .news_more a { display:inline-block; color:#fff; width:70px; height:24px; background-color:#aa8838; text-align:center; line-height:24px;  overflow:hidden; }
 .NewsList2 dl dd .news_text {  width:593px; height:40px; line-height:20px; color:#aa8838; overflow:hidden; }
 
-
+.pager
+{
+    color:#d8a647;
+}
 

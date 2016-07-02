@@ -179,15 +179,14 @@ E-mail: xujunhangtaoci@163.com</span><span><br>
                         <div class="cle"></div>
                         <table style="width: 100%; height: 30px; text-align: center;" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td style="width: 55%;">
-                                    Total @(Model.TotalItemCount) Records, each Page @(Model.PageSize) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page 
+                                <td style="width: 32%;">
+                                    Total @(Model.TotalItemCount) Records, Current @(Model.CurrentPageIndex)/@(Model.TotalPageCount) Page 
                                 </td>
                                 <td style="width: auto; color:#d8a647">
-                                    @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<span class=\"color:#d8a647\">{0}</span>" }, null, null, null)
+                                    @Html.Pager(Model, new PagerOptions { CssClass = "pager", PageIndexParameterName = "id", NumericPagerItemWrapperFormatString = "<li style=\"color:#d8a647\"><span>{0}</span></li>", NavigationPagerItemWrapperFormatString  = "<li style=\"color:#d8a647\"><span>{0}</span></li>" })
                                 </td>
                             </tr>
                         </table>
-						
                     </div>
                 </div>
                 	<div class="cle"></div>

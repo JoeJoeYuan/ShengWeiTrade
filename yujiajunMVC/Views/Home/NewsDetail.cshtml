@@ -1,5 +1,8 @@
 ﻿@model Models.News
 
+<link href="@Url.Content("~/Css/style_new.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Css/common.css")" rel="stylesheet" type="text/css" />
+
 @*<style type="text/css">
     .news-top
     {
@@ -110,53 +113,76 @@
 
 
 
-<div class="container">
-    <div class="row single-top">
-        <div class="col-md-8">
-            <div class="blog_box">
-                <div class="blog_grid">
-                    <h3 class="wow rollIn animated animated" data-wow-delay="0.4s" style="visibility: visible;
-                        -webkit-animation: rollIn 0.4s;">
-                        @Model.Title</h3>
-                    <div class="comments">
-                        <ul class="links" style="float: right;">
-                            <li><i class="blog_icon1" alt="CreateTime"></i>
+<div class="subMain">
+    	<div class="subCen">
+            <div class="subNei">
+                <div class="subTop">
+                    <div class="subLeft">
+                        <div class="subLeftTop">
+                            <div class="subL_Nav">
+                                <div class="indexNav sL">
+                                    <span>News</span>&nbsp;&nbsp;/&nbsp;&nbsp;新闻中心
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subLeftBottom">
+                            <div class="contactText">
+                                <span>Add: No.1,2th floor ,Building 4,Case Ceramics&amp;Sanitarywares Mall,Jihua 4Rd,Foshan
+                                    City,G.D.,P.R.,China<br>
+                                    Tel: 86-0757-83557635<br>
+                                    Fax: 86-0757-83557635<br>
+                                    E-mail: xujunhangtaoci@163.com</span><span><br>
+                                    </span>
                                 <br>
-                                <span>@Model.CreateTime</span></li>
-                            <li><i class="blog_icon2"></i>
-                                <br>
-                                <span>@Model.Author</span></li>
-                            <li><i></i>
-                                <br>
-                                <span>@Model.Source</span></li>
-                            <!--<li><a href="#"><i class="blog_icon3"> </i><br><span>1206</span></a></li>
-		  					<li><a href="#"><i class="blog_icon4"> </i><br><span>1206</span></a></li>-->
-                        </ul>
-                        <div class="clearfix">
+                            </div>
                         </div>
                     </div>
-                    @if (File.Exists("~/File" + @Model.ImagePath))
-                    {
-                        <a>
-                            <img src="@Url.Content("~/File/" + @Model.ImagePath + "")" alt="@Model.Title" title="@Model.Title" class="img-responsive" /></a>
-                    }
-                    <div class="singe_desc">
-                        <p class="wow fadeInUpBig animated animated animated" data-wow-delay="0.4s" style="visibility: visible;
-                            -webkit-animation: fadeInUpBig 0.4s;">
-                            @Model.NewsContent</p>
+                    <div class="subRight">
+						<div class="subRightNav">
+                        	<span>Are you here：<a href="@Url.Action("Index", "Home")">Home</a> » <a href="@Url.Action("NewsList", "Home")">
+                            News</a> » <a href="@Url.Action("NewsDetail", "Home")">@Model.Title</a>
+                            </span>
+                        </div>
+
+                        <div class="text_block">
+                            <h1 style="text-align: center">
+                                @Model.Title</h1>
+                            <div class="comments">
+                                <ul class="links" style="float: right;">
+                                    <li><i class="blog_icon1" alt="CreateTime"></i>
+                                        <br>
+                                        <span>@Model.CreateTime</span></li>
+                                    <li><i class="blog_icon2"></i>
+                                        <br>
+                                        <span>@Model.Author</span></li>
+                                    <li><i></i>
+                                        <br>
+                                        <span>@Model.Source</span></li>
+                                </ul>
+                                <div class="clearfix">
+                                </div>
+                            </div>
+                            <br />
+                            @if (File.Exists("~/File" + @Model.ImagePath))
+                            {
+                                <a>
+                                    <img src="@Url.Content("~/File/" + @Model.ImagePath + "")" alt="@Model.Title" title="@Model.Title" class="img-responsive" /></a>
+                            }
+                            <p>
+                                @Model.NewsContent
+                            </p>
+                            <br />
+                            <br />
+                            <!--Next : <a href="@Url.Action("NewsDetail", "Home")">@Model.Title</a><br />
+                            Previous : <a href=""></a>-->
+                        </div>
+                        <div class="cle">
+                        </div>
                     </div>
                 </div>
+                	<div class="cle"></div>
+               <div class="subBottom"></div>
             </div>
         </div>
-        <div class="col-md-4 ">
-            <div class="categories">
-                <h4 class="wow fadeInRight animated animated" data-wow-delay="0.4s" style="visibility: visible;
-                    animation-delay: 0.4s; animation-name: fadeInRight;">
-                    Product Category</h4>
-                <ul class="category">
-                    @Html.Raw(ViewBag.productCategoty)
-                </ul>
-            </div>
-        </div>
+        <div style="clear:both;"></div>
     </div>
-</div>
