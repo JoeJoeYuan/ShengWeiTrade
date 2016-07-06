@@ -235,7 +235,7 @@ namespace Service.OleDb
         public int Insert(Products products)
         {
 
-            string sql = "insert into Products(NID,Title,Description,CreateTime,FilePath,ImagePath,Category,IsTop,IsHot,Author) values (@nID,@title,@description,@createTime,@filePath,@imagePath,@category,@isTop,@isHot,@author)";
+            string sql = "insert into Products(NID,Title,Description,CreateTime,FilePath,ImagePath,Category,IsTop,IsHot,Author) values (@nID,@title,@description,@createTime,@filePath,@imagePath,@category,@isHot,@isTop,@author)";
             OleDbParameter[] spms = new OleDbParameter[]
             {
                 new OleDbParameter("@nID",OleDbType.Integer),

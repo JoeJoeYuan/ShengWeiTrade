@@ -57,7 +57,7 @@
                             <td>@item.Description</td>
                             <td>
                                 <a href="@Url.Action("ProductsEDIT", "Products", new { ID=item.ID})">编辑</a>&nbsp;&nbsp;
-                                <a href="@Url.Action("NewsDetail", "News", new { ID = item.ID })">查看</a>&nbsp;&nbsp;
+                                <a href="@Url.Action("ProductsDetail", "Products", new { ID = item.ID })">查看</a>&nbsp;&nbsp;
                                 <a href="DELNews?ID=@item.ID" onclick="return confirm('确认删除')">删除</a>
                             </td>
                         </tr>

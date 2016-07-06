@@ -88,9 +88,21 @@ namespace yujiajunMVC.Areas.Back.Controllers
                     //服务器上的UpLoadFile文件夹必须有读写权限　　　
                     string suffix = file.FileName.Substring(file.FileName.LastIndexOf('.'));
                     imgPath = Guid.NewGuid() + suffix;
-                    string imgName = PictureHelper.GetHtmlImageUrlSingle(products.Title);
-                    file.SaveAs(Server.MapPath("~/File/" + imgPath));
-                    ImageHelper.MakeThumbnail(Server.MapPath(imgName), Server.MapPath("~/File/" + imgPath), 114, 144, "Cut");
+                    //string imgName = PictureHelper.GetHtmlImageUrlSingle(products.Title);
+                    string imgName = Guid.NewGuid() + suffix;
+                    file.SaveAs(Server.MapPath("~/File/ProductImage/" + imgName));
+                    ImageHelper.MakeThumbnail(Server.MapPath("~/File/ProductImage/" + imgName), Server.MapPath("~/File/ProductImage/" + imgPath), 336, 339, "Cut");
+                    System.IO.File.Delete(Server.MapPath("~/File/ProductImage/" + imgName));
+
+                    ////保存成自己的文件全路径,newfile就是你上传后保存的文件,　　　　　　
+                    ////服务器上的UpLoadFile文件夹必须有读写权限　　　
+                    //string suffix = file.FileName.Substring(file.FileName.LastIndexOf('.'));
+                    //picture = Guid.NewGuid() + suffix;
+                    //string fileName = Guid.NewGuid() + suffix;
+                    //file.SaveAs(Server.MapPath("~/File/ScrollIamge/" + fileName));
+                    ////ImageHelper.MakeThumbnail(Server.MapPath("~/File/ScrollIamge/" + fileName), Server.MapPath("~/File/ScrollIamge/" + image), 950, 240, "Cut");
+                    //ImageHelper.MakeThumbnail(Server.MapPath("~/File/ScrollIamge/" + fileName), Server.MapPath("~/File/ScrollIamge/" + picture), 500, 400, "H");
+                    //System.IO.File.Delete(Server.MapPath("~/File/ScrollIamge/" + fileName));
                 }
             }
 
@@ -125,7 +137,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
         {
             Products products = _productsService.GetById(int.Parse(ID));
             listNav = _navService.GetAll();
-            GetID(0);
+            GetID(1);
             ViewData["NID"] = new SelectList(listItem, "Value", "Text", products.NID.Value);
             return View(products);
         }
@@ -174,18 +186,18 @@ namespace yujiajunMVC.Areas.Back.Controllers
 
                 int num = _productsService.Update(products);
                 if (num > 0)
-                    return Content("<script>alert('修改成功');window.location='NewsList?NID=" + products.NID + "'</script>");
+                    return Content("<script>alert('修改成功');window.location='productsList?NID=" + products.NID + "'</script>");
                 return Content("<script>alert('修改失败');window.history.back();</script>");
             }
             return Content("<script>alert('改记录已不存在,或已被删除');window.history.back();</script>");
         }
-        public ActionResult NewsDetail(string ID)
+        public ActionResult ProductsDetail(string ID)
         {
-            News news = _newsService.GetById(int.Parse(ID));
+            Products products = _productsService.GetById(int.Parse(ID));
             listNav = _navService.GetAll();
-            GetID(0);
-            ViewData["NID"] = new SelectList(listItem, "Value", "Text", news.NID.Value);
-            return View(news);
+            GetID(1);
+            ViewData["NID"] = new SelectList(listItem, "Value", "Text", products.NID.Value);
+            return View(products);
         }
         public ActionResult DELNews(int? ID)
         {
@@ -220,7 +232,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
             List<Navigation> lists = listNav.FindAll(g => g.ParentID == ID);//根据父类查找子类
             if (lists.Count > 0)//有子类
             {
-                if (ID != 0)//第一次加载大类 默认不加载符号
+                if (ID != 1)//第一次加载大类 默认不加载符号
                     text += "　";
                 string mark = text;//保存同一级节点的运算符个数
                 foreach (var item in lists)

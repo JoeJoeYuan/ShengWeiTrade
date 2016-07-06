@@ -18,14 +18,18 @@ namespace yujiajunMVC
             if (list != null)
             {
                 sb.Append("<SCRIPT type=\"text/javascript\">var setting = {};var nodes=[");
-                foreach (var item in list.FindAll(a => a.ParentID == 0))
+                foreach (var item in list.FindAll(a => a.ParentID == 1))
                 {
                     if (list.FindAll(g => g.ParentID == item.ID).Count > 0)//该大类下有子类
                     {
-                        //string str = string.IsNullOrEmpty(item.NPath.Trim()) ? "" : ",url:\"NewsList.aspx?ID=" + item.ID + "&name="+item.NName+"\",target:\"newsMain\",icon:\"../img/folder_accept.png\"";
-                        // sb.Append("{name:\"" + item.NName + "\",open:true" + GetParentID(item.ID) + str + "},");
+                        //string str = string.IsNullOrEmpty(item.NPath.Trim()) ? "" : ",url:\"ProductsList.aspx?ID=" + item.ID + "&name=" + item.NName + "\",target:\"newsMain\",icon:\"../img/folder_accept.png\"";
+                        //sb.Append("{name:\"" + item.NName + "\",open:true" + GetParentID(item.ID) + str + "},");
                         //如需添加第一级下有新闻(如 资料下载为第一级) 请注释下面代码  使用上面代码
                         sb.Append("{name:\"" + item.NName + "\",open:true" + GetParentID(item.ID) + "},");
+                    }
+                    else
+                    {
+                        sb.Append("{name:\"" + item.NName + "\",open:true},");
                     }
                 }
                 sb = sb.Remove(sb.Length - 1, 1);

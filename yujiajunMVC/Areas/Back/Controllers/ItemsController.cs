@@ -144,6 +144,9 @@ namespace yujiajunMVC.Areas.Back.Controllers
             list.Insert(0, new Navigation() { ID = 0, NName = "--无上级--" });
             return Json(list);
         }
+
+        
+
         public ActionResult NavigationList(int? Id = 1)
         {
             int pageIndex = Id.Value;//当前页数
@@ -162,6 +165,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
 
         public ActionResult EDITNavigation(NavigationModel model)
         {
+            ViewData["NID"] = new SelectList(listItem, "Value", "Text");
             int num = _navigationService.Update(model.ToEntity());
             if (num > 0)
                 return Content("<script>alert('编辑成功');window.parent.location='NavigationList'</script>");
@@ -180,6 +184,31 @@ namespace yujiajunMVC.Areas.Back.Controllers
                 return Content("<script>alert('添加成功');window.parent.location='NavigationList'</script>");
             }
             return Content("<script>alert('添加失败');window.history.back();</script>");
+        }
+
+        private List<Navigation> listNav = null;
+        private List<SelectListItem> list = new List<SelectListItem>();
+
+        /// <summary>
+        /// 递归加载dropdownlist 
+        /// </summary>
+        /// <param name="ID">父级ID (测试传入为0)</param>
+        protected void GetID(int? ID)
+        {
+            string text = string.Empty;
+            List<Navigation> lists = listNav.FindAll(g => g.ParentID == ID);//根据父类查找子类
+            if (lists.Count > 0)//有子类
+            {
+                if (ID != 1)//第一次加载大类 默认不加载符号
+                    text += "　";
+                string mark = text;//保存同一级节点的运算符个数
+                foreach (var item in lists)
+                {
+                    list.Add(new SelectListItem() { Value = item.ID.Value.ToString(), Text = text + "∟" + item.NName });//绑定
+                    GetID(item.ID);//递归循环
+                    text = mark;//同一级节点修改运算符
+                }
+            }
         }
 
         public ActionResult DELNavigation(int? ID)
