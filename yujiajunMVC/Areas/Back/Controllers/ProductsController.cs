@@ -106,7 +106,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
                 }
             }
 
-            products.ImagePath = string.IsNullOrEmpty(imgPath) ? "" : imgPath;
+            products.ImagePath = string.IsNullOrEmpty(imgPath) ? "" : "ProductImage/" + imgPath;
             products.Description = products.Description;
             products.IsHot = products.IsHot;
             products.IsTop = products.IsTop;
@@ -137,7 +137,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
         {
             Products products = _productsService.GetById(int.Parse(ID));
             listNav = _navService.GetAll();
-            GetID(1);
+            GetID(1, 0);
             ViewData["NID"] = new SelectList(listItem, "Value", "Text", products.NID.Value);
             return View(products);
         }
@@ -166,7 +166,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
                 //}
 
 
-                string picture = string.Empty;
+                string imgPath = string.Empty;
                 if (Request.Files.Count != 0)
                 {
                     HttpPostedFileBase file = Request.Files[0];
@@ -175,14 +175,20 @@ namespace yujiajunMVC.Areas.Back.Controllers
                         //保存成自己的文件全路径,newfile就是你上传后保存的文件,　　　　　　
                         //服务器上的UpLoadFile文件夹必须有读写权限　　　
                         string suffix = file.FileName.Substring(file.FileName.LastIndexOf('.'));
-                        picture = Guid.NewGuid() + suffix;
-                        string imgName = PictureHelper.GetHtmlImageUrlSingle(products.Title);
-                        //string fileName = Guid.NewGuid() + suffix;
-                        file.SaveAs(Server.MapPath("~/File/" + picture));
-                        ImageHelper.MakeThumbnail(Server.MapPath("~/File/" + imgName), Server.MapPath("~/File/" + picture), 265, 300, "HW");
-                        //System.IO.File.Delete(Server.MapPath("~/File/ScrollIamge/" + fileName));
+                        imgPath = Guid.NewGuid() + suffix;
+                        //string imgName = PictureHelper.GetHtmlImageUrlSingle(products.Title);
+                        string imgName = Guid.NewGuid() + suffix;
+                        file.SaveAs(Server.MapPath("~/File/ProductImage/" + imgName));
+                        ImageHelper.MakeThumbnail(Server.MapPath("~/File/ProductImage/" + imgName), Server.MapPath("~/File/ProductImage/" + imgPath), 336, 339, "Cut");
+                        System.IO.File.Delete(Server.MapPath("~/File/ProductImage/" + imgName));
+                        if (!string.IsNullOrEmpty(products.ImagePath))
+                        {
+                            System.IO.File.Delete(Server.MapPath("~/File/" + oldProducts.ImagePath));
+                        }
                     }
                 }
+
+                products.ImagePath = string.IsNullOrEmpty(imgPath) ? "" : "ProductImage/" + imgPath;
 
                 int num = _productsService.Update(products);
                 if (num > 0)
@@ -195,7 +201,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
         {
             Products products = _productsService.GetById(int.Parse(ID));
             listNav = _navService.GetAll();
-            GetID(1);
+            GetID(1, 0);
             ViewData["NID"] = new SelectList(listItem, "Value", "Text", products.NID.Value);
             return View(products);
         }
@@ -226,7 +232,7 @@ namespace yujiajunMVC.Areas.Back.Controllers
         /// 递归加载dropdownlist 
         /// </summary>
         /// <param name="ID">父级ID (测试传入为0)</param>
-        protected void GetID(int? ID)
+        protected void GetID(int? ID, int flag)
         {
             string text = string.Empty;
             List<Navigation> lists = listNav.FindAll(g => g.ParentID == ID);//根据父类查找子类
@@ -234,11 +240,18 @@ namespace yujiajunMVC.Areas.Back.Controllers
             {
                 if (ID != 1)//第一次加载大类 默认不加载符号
                     text += "　";
+                if (flag > 0)
+                {
+                    for (int i = 1; i <= flag; i++)
+                    {
+                        text += "　　";
+                    }
+                }
                 string mark = text;//保存同一级节点的运算符个数
                 foreach (var item in lists)
                 {
                     listItem.Add(new SelectListItem() { Value = item.ID.Value.ToString(), Text = text + "∟" + item.NName });//绑定
-                    GetID(item.ID);//递归循环
+                    GetID(item.ID, flag + 1);//递归循环
                     text = mark;//同一级节点修改运算符
                 }
             }

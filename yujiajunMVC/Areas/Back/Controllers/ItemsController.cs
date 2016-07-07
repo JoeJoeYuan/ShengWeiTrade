@@ -22,6 +22,9 @@ namespace yujiajunMVC.Areas.Back.Controllers
         private readonly IUsersService _userService;
         private readonly ILimitService _limitService;
 
+        private List<Navigation> listNav = null;
+        private List<SelectListItem> list = new List<SelectListItem>();
+
         public ItemsController(IFunctionsService functionsService, ILinksService linksService, INavigationService navigationService, IUsersService userService, ILimitService limitService)
         {
             _functionsService = functionsService;
@@ -157,6 +160,9 @@ namespace yujiajunMVC.Areas.Back.Controllers
         public ActionResult NavigationEDIT(int? ID)
         {
             Navigation nav = _navigationService.GetById(ID ?? 0);
+            listNav = _navigationService.GetAll();
+            GetID(0, 0);
+            ViewData["ParentID"] = new SelectList(list, "Value", "Text", nav.ParentID);
             if (nav != null)
                 return View(nav.ToNavModel());
 
@@ -165,7 +171,6 @@ namespace yujiajunMVC.Areas.Back.Controllers
 
         public ActionResult EDITNavigation(NavigationModel model)
         {
-            ViewData["NID"] = new SelectList(listItem, "Value", "Text");
             int num = _navigationService.Update(model.ToEntity());
             if (num > 0)
                 return Content("<script>alert('编辑成功');window.parent.location='NavigationList'</script>");
@@ -174,6 +179,9 @@ namespace yujiajunMVC.Areas.Back.Controllers
         }
         public ActionResult NavigationADD()
         {
+            listNav = _navigationService.GetAll();
+            GetID(0, 0);
+            ViewData["ParentID"] = new SelectList(list, "Value", "Text");
             return View();
         }
         public ActionResult NavigationInsert(NavigationModel model)
@@ -186,26 +194,30 @@ namespace yujiajunMVC.Areas.Back.Controllers
             return Content("<script>alert('添加失败');window.history.back();</script>");
         }
 
-        private List<Navigation> listNav = null;
-        private List<SelectListItem> list = new List<SelectListItem>();
-
         /// <summary>
         /// 递归加载dropdownlist 
         /// </summary>
         /// <param name="ID">父级ID (测试传入为0)</param>
-        protected void GetID(int? ID)
+        protected void GetID(int? ID, int flag)
         {
             string text = string.Empty;
             List<Navigation> lists = listNav.FindAll(g => g.ParentID == ID);//根据父类查找子类
             if (lists.Count > 0)//有子类
             {
-                if (ID != 1)//第一次加载大类 默认不加载符号
+                if (ID != 0)//第一次加载大类 默认不加载符号
                     text += "　";
+                if (flag > 0)
+                {
+                    for (int i = 1; i <= flag; i++)
+                    {
+                        text += "　　";
+                    }
+                }
                 string mark = text;//保存同一级节点的运算符个数
                 foreach (var item in lists)
                 {
                     list.Add(new SelectListItem() { Value = item.ID.Value.ToString(), Text = text + "∟" + item.NName });//绑定
-                    GetID(item.ID);//递归循环
+                    GetID(item.ID, flag + 1);//递归循环
                     text = mark;//同一级节点修改运算符
                 }
             }
