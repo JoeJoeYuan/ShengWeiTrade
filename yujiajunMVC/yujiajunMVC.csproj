@@ -1289,7 +1289,7 @@
     <Content Include="Areas\Back\Views\Products\ProductsList.cshtml" />
     <Content Include="Areas\Back\Views\Products\LeftProducts.cshtml" />
     <Content Include="Areas\Back\Views\Products\ProductsAdd.cshtml" />
-    <Content Include="Areas\Back\Views\Products\NewsDetail.cshtml" />
+    <Content Include="Areas\Back\Views\Products\ProductsDetail.cshtml" />
     <Content Include="Areas\Back\Views\Products\ProductsEDIT.cshtml" />
     <None Include="Areas\Back\zTree\demo\cn\asyncData\getNodes.php" />
     <None Include="Areas\Back\zTree\demo\cn\asyncData\getNodesForBigData.php" />
