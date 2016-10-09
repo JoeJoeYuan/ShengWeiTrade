@@ -262,7 +262,7 @@ nav.navigation a:focus {
 .col-md-3.tainer {
     margin: 0;
   background-color: #000;
-  min-height: 300px;
+  min-height: 275px;
   margin-top: 1em;
    padding: 0.1em 2em;
 }
